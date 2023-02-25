@@ -47,9 +47,16 @@
     combos {
         compatible = "zmk,combos";
 
+        combo_bspc {
+            timeout-ms = <20>;
+            key-positions c= <6 7>;
+            bindings = <&kp ESC>;
+            layers = <0>;
+        };
+
         combo_esc {
             timeout-ms = <20>;
-            key-positions = <21 22>;
+            key-positions = <32 33>;
             bindings = <&kp ESC>;
             layers = <0>;
         };
@@ -60,6 +67,7 @@
             bindings = <&kp TAB>;
             layers = <0>;
         };
+
     };
 
     keymap {
@@ -68,9 +76,9 @@
         MAIN_layer {
             bindings = <
                        &lt 3 W        &kp E           &kp R            &kp T        &kp Y       &kp U        &kp I     &lt 3 O
-&kp Q  &mt LSHFT A  &mt LGUI S  &mt LCTRL D  &mt LEFT_ALT F            &kp G        &kp H  &mt RALT J  &mt RCTRL K  &mt RGUI L  &mt RSHFT P  &kp SQT
+&kp Q  &mt LSHFT A  &mt LGUI S  &mt LCTRL D  &mt LEFT_ALT F            &kp G        &kp H  &mt RALT J  &mt RCTRL K  &mt RGUI L  &mt RSHFT SQT  &kp P
              &kp Z       &kp X        &kp C         &lt 1 V            &kp B        &kp N     &lt 1 M    &kp COMMA     &kp DOT    &kp SLASH
-                                                   &kp BSPC  &skq LEFT_SHIFT  &lt 2 SPACE   &kp ENTER
+                                                   &kp ESC  &skq LEFT_SHIFT  &lt 2 SPACE   &kp ENTER
             >;
         };
 
