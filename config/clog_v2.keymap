@@ -88,7 +88,7 @@
 
         MAIN_layer {
             bindings = <
-                       &lt 3 F        &kp E       &kp R            &kp T        &kp Y       &kp U        &kp I     &lt 3 O
+                       &lt 3 W        &kp E       &kp R            &kp T        &kp Y       &kp U        &kp I     &lt 3 O
 &kp Q  &mt LSHFT A  &mt LALT S  &mt LCTRL D  &mt LGUI F            &kp G        &kp H  &mt RGUI J  &mt RCTRL K  &mt RALT L  &mt RSHFT P  &kp SQT
              &kp Z       &kp X        &kp C     &lt 1 D            &kp B        &kp N     &lt 1 M    &kp COMMA     &kp DOT    &kp SLASH
                                                &kp BSPC  &skq LEFT_SHIFT  &lt 2 SPACE   &kp ENTER
@@ -97,10 +97,10 @@
 
         SYM_layer {
             bindings = <
-                      &kp N7  &kp N8     &kp N9   &kp STAR  &kp TILDE  &kp LBRC  &kp RBRC  &kp HASH
-&kp CARET    &kp DOT  &kp N1  &kp N2     &kp N3  &kp EQUAL     &kp LT  &kp LPAR  &kp RPAR    &kp GT   &kp AMPS  &kp GRAVE
-           &kp COMMA  &kp N4  &kp N5     &kp N6   &kp PLUS   &kp DLLR  &kp LBKT  &kp RBKT    &kp AT  &kp PRCNT
-                                      &kp COLON     &kp N0     &trans    &trans
+                      &kp LBRC  &kp RBRC  &kp HASH   &kp STAR  &kp TILDE  &kp N7  &kp N8     &kp N9
+&kp CARET    &kp DOT  &kp LPAR  &kp RPAR    &kp GT  &kp EQUAL     &kp LT  &kp N4  &kp N5     &kp N6   &kp AMPS  &kp GRAVE
+           &kp COMMA  &kp LBKT  &kp RBKT    &kp AT   &kp PLUS   &kp DLLR  &kp N1  &kp N2     &kp N3  &kp PRCNT
+                                      &kp COLON     &trans     &trans    &kp N0
             >;
         };
 
