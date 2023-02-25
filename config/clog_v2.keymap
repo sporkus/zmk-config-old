@@ -60,27 +60,6 @@
             bindings = <&kp TAB>;
             layers = <0>;
         };
-
-        combo_q {
-            timeout-ms = <20>;
-            key-positions = <1 2>;
-            bindings = <&kp Q>;
-            layers = <0>;
-        };
-
-        combo_j {
-            timeout-ms = <20>;
-            key-positions = <1 3>;
-            bindings = <&kp J>;
-            layers = <0>;
-        };
-
-        combo_z {
-            timeout-ms = <20>;
-            key-positions = <0 1>;
-            bindings = <&kp Z>;
-            layers = <0>;
-        };
     };
 
     keymap {
@@ -97,10 +76,10 @@
 
         SYM_layer {
             bindings = <
-                      &kp LBRC  &kp RBRC  &kp HASH   &kp STAR  &kp TILDE  &kp N7  &kp N8     &kp N9
-&kp CARET    &kp DOT  &kp LPAR  &kp RPAR    &kp GT  &kp EQUAL     &kp LT  &kp N4  &kp N5     &kp N6   &kp AMPS  &kp GRAVE
-           &kp COMMA  &kp LBKT  &kp RBKT    &kp AT   &kp PLUS   &kp DLLR  &kp N1  &kp N2     &kp N3  &kp PRCNT
-                                      &kp COLON     &trans     &trans    &kp N0
+                      &kp LBRC  &kp RBRC   &kp HASH   &kp STAR  &kp TILDE  &kp N7  &kp N8  &kp N9
+&kp CARET    &kp DOT  &kp LPAR  &kp RPAR     &kp GT  &kp EQUAL     &kp LT  &kp N4  &kp N5  &kp N6   &kp AMPS  &kp GRAVE
+           &kp COMMA  &kp LBKT  &kp RBKT     &kp AT   &kp PLUS   &kp DLLR  &kp N1  &kp N2  &kp N3  &kp PRCNT
+                                          &kp COLON     &trans     &trans  &kp N0
             >;
         };
 
