@@ -49,9 +49,9 @@
 
         combo_bspc {
             timeout-ms = <20>;
-            key-positions c= <6 7>;
+            key-positions = <6 7>;
             bindings = <&kp ESC>;
-            layers = <0>;
+            layers = <0 1>;
         };
 
         combo_esc {
