@@ -50,7 +50,7 @@
         combo_bspc {
             timeout-ms = <20>;
             key-positions = <6 7>;
-            bindings = <&kp ESC>;
+            bindings = <&kp BSPC>;
             layers = <0 1>;
         };
 
