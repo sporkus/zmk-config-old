@@ -67,28 +67,28 @@
 
         MAIN_layer {
             bindings = <
-                       &lt 3 W        &kp E       &kp R            &kp T        &kp Y       &kp U        &kp I     &lt 3 O
-&kp Q  &mt LSHFT A  &mt LALT S  &mt LCTRL D  &mt LGUI F            &kp G        &kp H  &mt RGUI J  &mt RCTRL K  &mt RALT L  &mt RSHFT P  &kp SQT
-             &kp Z       &kp X        &kp C     &lt 1 D            &kp B        &kp N     &lt 1 M    &kp COMMA     &kp DOT    &kp SLASH
-                                               &kp BSPC  &skq LEFT_SHIFT  &lt 2 SPACE   &kp ENTER
+                       &lt 3 W        &kp E           &kp R            &kp T        &kp Y       &kp U        &kp I     &lt 3 O
+&kp Q  &mt LSHFT A  &mt LGUI S  &mt LCTRL D  &mt LEFT_ALT F            &kp G        &kp H  &mt RALT J  &mt RCTRL K  &mt RGUI L  &mt RSHFT P  &kp SQT
+             &kp Z       &kp X        &kp C         &lt 1 D            &kp B        &kp N     &lt 1 M    &kp COMMA     &kp DOT    &kp SLASH
+                                                   &kp BSPC  &skq LEFT_SHIFT  &lt 2 SPACE   &kp ENTER
             >;
         };
 
         SYM_layer {
             bindings = <
-                      &kp LBRC  &kp RBRC   &kp HASH   &kp STAR  &kp TILDE  &kp N7  &kp N8  &kp N9
-&kp CARET    &kp DOT  &kp LPAR  &kp RPAR     &kp GT  &kp EQUAL     &kp LT  &kp N4  &kp N5  &kp N6   &kp AMPS  &kp GRAVE
-           &kp COMMA  &kp LBKT  &kp RBKT     &kp AT   &kp PLUS   &kp DLLR  &kp N1  &kp N2  &kp N3  &kp PRCNT
-                                          &kp COLON     &trans     &trans  &kp N0
+                      &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &kp RIGHT_PARENTHESIS       &kp EQUAL          &kp PLUS  &kp N7  &kp N8  &kp N9
+&kp TILDE  &kp GRAVE   &kp LEFT_BRACKET         &kp LBRC               &kp LPAR  &kp UNDERSCORE         &kp MINUS  &kp N4  &kp N5  &kp N6  &kp AMPS  &kp PIPE
+           &kp COMMA           &kp LBKT         &kp RBKT                 &kp AT   &kp LESS_THAN  &kp GREATER_THAN  &kp N1  &kp N2  &kp N3  &kp BSLH
+                                                                      &kp COLON          &trans            &trans  &kp N0
             >;
         };
 
         NAV_layer {
             bindings = <
-                    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV       &kp C_NEXT   &kp F10    &kp F7  &kp F8     &kp F9
-&kp C_PP  &kp LEFT      &kp DOWN        &kp UP   &kp RIGHT      &kp LC(TAB)  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp C_BRI_DN  &kp C_BRI_UP
-          &kp HOME     &kp PG_DN     &kp PG_UP     &kp END  &kp LS(LC(TAB))   &kp F12    &kp F4  &kp F5     &kp F6     &kp PSCRN
-                                                     &none            &none    &trans   &kp DEL
+                          &kp C_VOL_DN  &kp C_VOL_UP    &kp C_PREV       &kp C_NEXT   &kp F10  &kp PG_DN  &kp PG_UP     &kp F9
+&kp C_PP  &kp LEFT_SHIFT  &kp LEFT_GUI     &kp LCTRL  &kp LEFT_ALT      &kp LC(TAB)  &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT  &kp C_BRI_DN  &kp C_BRI_UP
+                &kp HOME     &kp PG_DN     &kp PG_UP       &kp END  &kp LS(LC(TAB))   &kp F12     &kp F4     &kp F5     &kp F6     &kp PSCRN
+                                                             &none            &none    &trans    &kp DEL
             >;
         };
 
