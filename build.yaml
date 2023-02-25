@@ -11,9 +11,8 @@
 #   - board: nice_nano_v2
 #     shield: reviung41
 #
----
 include:
   - board: seeeduino_xiao_ble
-    shield: clog_left
+    shield: clog_v2_left
   - board: seeeduino_xiao_ble
-    shield: clog_right
+    shield: clog_v2_right
