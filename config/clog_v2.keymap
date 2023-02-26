@@ -269,28 +269,28 @@
 
         NAV {
             bindings = <
-                        &kp C_VOL_DN  &kp C_VOL_UP        &trans  &kp LG(GRAVE)    &kp F2  &kp PG_DN  &kp PG_UP     &kp F4
-&trans  &kp LEFT_SHIFT  &kp LEFT_GUI     &kp LCTRL  &kp LEFT_ALT    &kp LG(TAB)  &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT  &trans  &trans
-                 &none         &none         &none        &trans    &kp LA(TAB)   &kp F12     &trans     &trans     &trans  &trans
-                                                          &trans         &trans     &to 0      &to 2
+                       &kp C_VOL_DN  &kp C_VOL_UP        &trans  &kp LG(GRAVE)    &kp F2  &kp PG_DN  &kp PG_UP      &none
+&none  &kp LEFT_SHIFT  &kp LEFT_GUI     &kp LCTRL  &kp LEFT_ALT    &kp LG(TAB)  &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT  &trans  &trans
+                &none         &none         &none         &none    &kp LA(TAB)   &kp F12     &trans     &trans     &trans  &trans
+                                                         &trans         &trans     &to 0      &to 2
             >;
         };
 
         MAC_SHORTCUT {
             bindings = <
-                         &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans
-&kp LG(Q)     &trans     &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-           &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &trans  &trans  &trans  &trans  &trans  &trans
-                                               &trans  &trans  &trans  &trans
+                         &trans     &trans     &trans         &trans  &trans  &trans  &trans  &kp LA(LG(ESC))
+&kp LG(Q)     &trans     &trans     &trans     &trans         &trans  &trans  &trans  &trans           &trans  &trans  &trans
+           &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)         &trans  &trans  &trans  &trans           &trans  &trans
+                                               &trans  &kp LG(SPACE)  &trans  &trans
             >;
         };
 
         WIN_SHORTCUT {
             bindings = <
-                         &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans
-&kp LA(F4)     &trans     &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-           &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &trans  &trans  &trans  &trans  &trans  &trans
-                                               &trans  &trans  &trans  &trans
+                          &trans     &trans     &trans        &trans  &trans  &trans  &trans  &kp LC(LA(DEL))
+&kp LA(F4)     &trans     &trans     &trans     &trans        &trans  &trans  &trans  &trans           &trans  &trans  &trans
+            &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)        &trans  &trans  &trans  &trans           &trans  &trans
+                                                &trans  &kp LEFT_GUI  &trans  &trans
             >;
         };
 
@@ -311,7 +311,6 @@
                                 &trans  &trans  &trans  &trans
             >;
         };
-
 
         FN {
             bindings = <
