@@ -14,7 +14,6 @@
 
 / {
     behaviors {
-
         dot_excl: dot_excl {
             compatible = "zmk,behavior-mod-morph";
             label = "DOT_EXCL";
@@ -25,7 +24,6 @@
 
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-
         comma_pipe: comma_pipe {
             compatible = "zmk,behavior-mod-morph";
             label = "COMMA_PIPE";
@@ -36,7 +34,6 @@
 
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-
         skq: sticky_key_quick_release {
             compatible = "zmk,behavior-sticky-key";
             label = "STICKY_KEY_QUICK_RELEASE";
@@ -45,7 +42,6 @@
             release-after-ms = <750>;
             quick-release;
         };
-         
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
@@ -54,9 +50,10 @@
             quick-tap-ms = <250>;
             global-quick-tap;
             flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
+            bindings =
+                <&kp>,
+                <&kp>;
         };
-
         fn: function_layer {
             compatible = "zmk,behavior-hold-tap";
             label = "fn_layer";
@@ -65,18 +62,20 @@
             quick-tap-ms = <500>;
             global-quick-tap;
             flavor = "tap-preferred";
-            bindings = <&mo>, <&kp>;
+            bindings =
+                <&mo>,
+                <&kp>;
         };
-
         qlt: quick_layer_tap {
             compatible = "zmk,behavior-hold-tap";
             label = "quick_layer_tap";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             flavor = "hold-preferred";
-            bindings = <&mo>, <&kp>;
+            bindings =
+                <&mo>,
+                <&kp>;
         };
-
     };
 
     combos {
@@ -126,7 +125,7 @@
 
         combo_rprn {
             timeout-ms = <20>;
-            key-positions = <5 15>; 
+            key-positions = <5 15>;
             bindings = <&kp RIGHT_PARENTHESIS>;
             layers = <0 1>;
         };
@@ -158,7 +157,6 @@
             bindings = <&kp COLON>;
             layers = <0 1>;
         };
-
     };
 
     keymap {
@@ -168,8 +166,8 @@
             bindings = <
                        &fn 3 W        &kp E           &kp R            &kp T        &kp Y       &kp U        &kp I     &fn 3 O
 &kp Q  &mt LSHFT A  &hm LGUI S  &hm LCTRL D  &hm LEFT_ALT F            &kp G        &kp H  &hm RALT J  &hm RCTRL K  &hm RGUI L  &mt RSHFT SQT  &kp P
-             &kp Z       &kp X        &kp C           &kp V            &kp B        &kp N       &kp M    &kp COMMA     &kp DOT    &kp SLASH
-                                                   &qlt 1 ESC  &skq LEFT_SHIFT  &lt 2 SPACE   &kp ENTER
+             &kp Z       &kp X        &kp C           &kp V            &kp B        &kp N       &kp M    &kp COMMA     &kp DOT      &kp SLASH
+                                                 &qlt 1 ESC  &skq LEFT_SHIFT  &lt 2 SPACE   &kp ENTER
             >;
         };
 
@@ -177,8 +175,8 @@
             bindings = <
                       &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &kp RIGHT_PARENTHESIS       &kp EQUAL          &kp PLUS  &kp N7  &kp N8  &kp N9
 &kp TILDE  &kp GRAVE   &kp LEFT_BRACKET         &kp LBRC               &kp LPAR  &kp UNDERSCORE         &kp MINUS  &kp N4  &kp N5  &kp N6  &kp AMPS  &kp PIPE
-           &kp COMMA           &kp LBKT         &kp RBKT                 &kp AT   &kp LESS_THAN  &kp GREATER_THAN  &kp N1  &kp N2  &kp N3  &kp BSLH
-                                                                      &kp COLON          &trans            &trans  &kp N0
+           &kp COMMA           &kp LBKT         &kp RBKT               &kp EXCL   &kp LESS_THAN  &kp GREATER_THAN  &kp N1  &kp N2  &kp N3  &kp BSLH
+                                                                         &trans          &trans            &trans  &kp N0
             >;
         };
 
