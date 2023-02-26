@@ -8,14 +8,14 @@
 #define FN 3
 
 &mt {
-    flavor = "tap-preferred";
-    tapping-term-ms = <220>;
-    quick-tap-ms = <125>;
+    flavor = "balanced";
+    tapping-term-ms = <200>;
     global-quick-tap;
 };
 
 / {
     behaviors {
+
         dot_excl: dot_excl {
             compatible = "zmk,behavior-mod-morph";
             label = "DOT_EXCL";
@@ -26,6 +26,7 @@
 
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
         comma_pipe: comma_pipe {
             compatible = "zmk,behavior-mod-morph";
             label = "COMMA_PIPE";
@@ -36,6 +37,7 @@
 
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
         skq: sticky_key_quick_release {
             compatible = "zmk,behavior-sticky-key";
             label = "STICKY_KEY_QUICK_RELEASE";
@@ -43,6 +45,16 @@
             bindings = <&kp>;
             release-after-ms = <750>;
             quick-release;
+        };
+         
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <200>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
         };
     };
 
@@ -134,7 +146,7 @@
         MAIN_layer {
             bindings = <
                        &lt 3 W        &kp E           &kp R            &kp T        &kp Y       &kp U        &kp I     &lt 3 O
-&kp Q  &mt LSHFT A  &mt LGUI S  &mt LCTRL D  &mt LEFT_ALT F            &kp G        &kp H  &mt RALT J  &mt RCTRL K  &mt RGUI L  &mt RSHFT SQT  &kp P
+&kp Q  &mt LSHFT A  &hm LGUI S  &hm LCTRL D  &hm LEFT_ALT F            &kp G        &kp H  &hm RALT J  &hm RCTRL K  &hm RGUI L  &mt RSHFT SQT  &kp P
              &kp Z       &kp X        &kp C         &lt 1 V            &kp B        &kp N     &lt 1 M    &kp COMMA     &kp DOT    &kp SLASH
                                                    &kp ESC  &skq LEFT_SHIFT  &lt 2 SPACE   &kp ENTER
             >;
