@@ -178,10 +178,10 @@
 
         MAIN_layer {
             bindings = <
-                       &fn 3 W        &kp E           &kp R            &kp T        &kp Y       &kp U        &kp I     &fn 3 O
-&kp Q  &mt LSHFT A  &hm LGUI S  &hm LCTRL D  &hm LEFT_ALT F            &kp G        &kp H  &hm RALT J  &hm RCTRL K  &hm RGUI L  &mt RSHFT SQT  &kp P
-             &kp Z       &kp X        &kp C           &kp V            &kp B        &kp N       &kp M    &kp COMMA     &kp DOT      &kp SLASH
-                                                 &qlt 1 ESC  &skq LEFT_SHIFT  &lt 2 SPACE   &kp ENTER
+                       &fn 3 W        &kp E           &kp R            &kp T        &kp Y         &kp U        &kp I     &fn 3 O
+&kp Q  &mt LSHFT A  &hm LGUI S  &hm LCTRL D  &hm LEFT_ALT F            &kp G        &kp H    &hm RALT J  &hm RCTRL K  &hm RGUI L  &mt RSHFT SQT  &kp P
+             &kp Z       &kp X        &kp C           &kp V            &kp B        &kp N         &kp M    &kp COMMA     &kp DOT      &kp SLASH
+                                                 &qlt 1 ESC  &skq LEFT_SHIFT  &lt 2 SPACE  &qlt 1 ENTER
             >;
         };
 
@@ -199,7 +199,7 @@
                         &kp C_VOL_DN  &kp C_VOL_UP        &trans  &kp LG(GRAVE)    &kp F2  &kp PG_DN  &kp PG_UP     &kp F4
 &trans  &kp LEFT_SHIFT  &kp LEFT_GUI     &kp LCTRL  &kp LEFT_ALT    &kp LG(TAB)  &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT  &trans  &trans
                 &trans        &trans        &trans        &trans    &kp LA(TAB)   &kp F12     &trans     &trans     &trans  &trans
-                                                           &none          &none    &trans     &trans
+                                                           &none     &caps_word    &trans     &trans
             >;
         };
 
