@@ -271,8 +271,8 @@
             bindings = <
                         &kp C_VOL_DN  &kp C_VOL_UP        &trans  &kp LG(GRAVE)    &kp F2  &kp PG_DN  &kp PG_UP     &kp F4
 &trans  &kp LEFT_SHIFT  &kp LEFT_GUI     &kp LCTRL  &kp LEFT_ALT    &kp LG(TAB)  &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT  &trans  &trans
-                &none        &none        &none        &trans    &kp LA(TAB)   &kp F12     &trans     &trans     &trans  &trans
-                                                           &trans        &trans     &to BASE      &to NAV 
+                 &none         &none         &none        &trans    &kp LA(TAB)   &kp F12     &trans     &trans     &trans  &trans
+                                                          &trans         &trans     &to 0      &to 2
             >;
         };
 
@@ -294,12 +294,12 @@
             >;
         };
 
-         MAC {
+        MAC {
             bindings = <
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                &trans  &trans  &trans  &trans
+                         &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans
+&kp LG(Q)     &trans     &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+           &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &trans  &trans  &trans  &trans  &trans  &trans
+                                               &trans  &trans  &trans  &trans
             >;
         };
 
@@ -314,7 +314,7 @@
 
         FN {
             bindings = <
-                     &none         &none        &reset  &bootloader  &bootloader        &reset         &none         &none
+                     &to 6         &to 5        &reset  &bootloader  &bootloader        &reset         &none         &none
 &none  &none  &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0   &bt BT_CLR   &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none  &none
        &none         &none  &bt BT_SEL 4  &bt BT_SEL 3        &none        &none  &bt BT_SEL 3  &bt BT_SEL 4         &none  &none
                                                  &none        &none       &trans         &none
