@@ -24,7 +24,6 @@
             if-layers = <NAV WIN>;
             then-layer = <WIN_SHORTCUT>;
         };
-
     };
 };
 
@@ -64,7 +63,10 @@
             compatible = "zmk,behavior-mod-morph";
             label = "COMMA_SEMICOLON";
             #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp SEMICOLON>;
+            bindings =
+                <&kp COMMA>,
+                <&kp SEMICOLON>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         comma_pipe: comma_pipe {
@@ -249,10 +251,10 @@
 
         MAIN_layer {
             bindings = <
-                       &fn FN W        &kp E           &kp R            &kp T        &kp Y       &kp U        &kp I     &fn FN O
-&kp Q  &sft_t LSHFT A  &hm LGUI S  &hm LCTRL D  &hm LEFT_ALT F            &kp G        &kp H  &hm RALT J  &hm RCTRL K  &hm RGUI L  &sft_t RSHFT SQT  &kp P
-             &kp Z       &kp X        &kp C           &kp V            &kp B        &kp N       &kp M    &comm_scln     &dot_colon      &kp SLASH
-                                                 &qlt SYM ESC  &skq LEFT_SHIFT  &lt NAV SPACE   &qlt SYM ENTER
+                          &fn 7 W        &kp E           &kp R            &kp T        &kp Y         &kp U        &kp I     &fn 7 O
+&kp Q  &sft_t LSHFT A  &hm LGUI S  &hm LCTRL D  &hm LEFT_ALT F            &kp G        &kp H    &hm RALT J  &hm RCTRL K  &hm RGUI L  &sft_t RSHFT SQT  &kp P
+                &kp Z       &kp X        &kp C           &kp V            &kp B        &kp N         &kp M   &comm_scln  &dot_colon         &kp SLASH
+                                                    &qlt 1 ESC  &skq LEFT_SHIFT  &lt 2 SPACE  &qlt 1 ENTER
             >;
         };
 
@@ -280,6 +282,42 @@
 &none  &none  &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0   &bt BT_CLR   &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none  &none
        &none         &none  &bt BT_SEL 4  &bt BT_SEL 3        &none        &none  &bt BT_SEL 3  &bt BT_SEL 4         &none  &none
                                                  &none        &none       &trans         &none
+            >;
+        };
+
+        Layer__4 {
+            bindings = <
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                &trans  &trans  &trans  &trans
+            >;
+        };
+
+        Layer__5 {
+            bindings = <
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                &trans  &trans  &trans  &trans
+            >;
+        };
+
+        Layer__6 {
+            bindings = <
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                &trans  &trans  &trans  &trans
+            >;
+        };
+
+        Layer__7 {
+            bindings = <
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                &trans  &trans  &trans  &trans
             >;
         };
     };
