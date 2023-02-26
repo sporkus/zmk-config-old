@@ -146,7 +146,7 @@
         combo_del {
             timeout-ms = <20>;
             key-positions = <6 7>;
-            bindings = <&kp BSPC>;
+            bindings = <&kp DELETE>;
             layers = <4 5 6>;
         };
 
@@ -318,7 +318,6 @@
                                                 &trans  &kp LEFT_GUI  &trans  &trans
             >;
         };
-
 
         FN {
             bindings = <
