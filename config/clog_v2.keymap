@@ -68,6 +68,62 @@
             layers = <0>;
         };
 
+        combo_lbrc {
+            timeout-ms = <20>;
+            key-positions = <0 10>;
+            bindings = <&kp LEFT_BRACKET>;
+            layers = <0 1>;
+        };
+
+        combo_lcbr {
+            timeout-ms = <20>;
+            key-positions = <1 11>;
+            bindings = <&kp LEFT_BRACE>;
+            layers = <0 1>;
+        };
+
+        combo_lprn {
+            timeout-ms = <20>;
+            key-positions = <2 12>;
+            bindings = <&kp LEFT_PARENTHESIS>;
+            layers = <0 1>;
+        };
+
+        combo_rprn {
+            timeout-ms = <20>;
+            key-positions = <5 15>; 
+            bindings = <&kp RIGHT_PARENTHESIS>;
+            layers = <0 1>;
+        };
+
+        combo_rcbr {
+            timeout-ms = <20>;
+            key-positions = <6 16>;
+            bindings = <&kp RIGHT_BRACE>;
+            layers = <0 1>;
+        };
+
+        combo_rbrc {
+            timeout-ms = <20>;
+            key-positions = <7 17>;
+            bindings = <&kp RIGHT_BRACKET>;
+            layers = <0 1>;
+        };
+
+        combo_semicolon {
+            timeout-ms = <20>;
+            key-positions = <16 27>;
+            bindings = <&kp SEMICOLON>;
+            layers = <0 1>;
+        };
+
+        combo_colon {
+            timeout-ms = <20>;
+            key-positions = <17 28>;
+            bindings = <&kp COLON>;
+            layers = <0 1>;
+        };
+
     };
 
     keymap {
