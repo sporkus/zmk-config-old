@@ -63,7 +63,7 @@
 
         combo_tab {
             timeout-ms = <20>;
-            key-positions = <22 23>;
+            key-positions = <0 1>;
             bindings = <&kp TAB>;
             layers = <0>;
         };
