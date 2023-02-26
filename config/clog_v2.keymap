@@ -13,28 +13,40 @@
             compatible = "zmk,behavior-mod-morph";
             label = "reversible_parenthesis";
             #binding-cells = <0>;
-            bindings = <&kp RIGHT_PARENTHESIS>, <&kp LEFT_PARENTHESIS>;
+            bindings =
+                <&kp RIGHT_PARENTHESIS>,
+                <&kp LEFT_PARENTHESIS>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-         rcbr: rcbr {
+        rcbr: rcbr {
             compatible = "zmk,behavior-mod-morph";
             label = "reversible_brace";
             #binding-cells = <0>;
-            bindings = <&kp RIGHT_BRACE>, <&kp LEFT_BRACE>;
+            bindings =
+                <&kp RIGHT_BRACE>,
+                <&kp LEFT_BRACE>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         dot_colon: dot_colon {
             compatible = "zmk,behavior-mod-morph";
             label = "DOT_COLON";
             #binding-cells = <0>;
-            bindings = <&kp DOT>, <&kp COLON>;
+            bindings =
+                <&kp DOT>,
+                <&kp COLON>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         comma_pipe: comma_pipe {
             compatible = "zmk,behavior-mod-morph";
             label = "COMMA_PIPE";
             #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp PIPE>;
+            bindings =
+                <&kp COMMA>,
+                <&kp PIPE>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         skq: sticky_key_quick_release {
@@ -53,7 +65,9 @@
             quick-tap-ms = <250>;
             global-quick-tap;
             flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
+            bindings =
+                <&kp>,
+                <&kp>;
         };
         sft_t: shift_tap {
             compatible = "zmk,behavior-hold-tap";
@@ -61,7 +75,9 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             flavor = "balanced";
-            bindings = <&kp>, <&kp>;
+            bindings =
+                <&kp>,
+                <&kp>;
         };
         fn: function_layer {
             compatible = "zmk,behavior-hold-tap";
@@ -71,7 +87,9 @@
             quick-tap-ms = <500>;
             global-quick-tap;
             flavor = "tap-preferred";
-            bindings = <&mo>, <&kp>;
+            bindings =
+                <&mo>,
+                <&kp>;
         };
         qlt: quick_layer_tap {
             compatible = "zmk,behavior-hold-tap";
@@ -79,7 +97,9 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             flavor = "hold-preferred";
-            bindings = <&mo>, <&kp>;
+            bindings =
+                <&mo>,
+                <&kp>;
         };
     };
 
@@ -91,13 +111,6 @@
             key-positions = <6 7>;
             bindings = <&kp BSPC>;
             layers = <0 1>;
-        };
-
-        combo_del {
-            timeout-ms = <20>;
-            key-positions = <6 7>;
-            bindings = <&kp DEL>;
-            layers = <2>;
         };
 
         combo_esc {
@@ -115,72 +128,84 @@
         };
 
         combo_lbrc {
-            timeout-ms = <10>;
+            timeout-ms = <20>;
             key-positions = <0 10>;
             bindings = <&kp LEFT_BRACKET>;
             layers = <0 1>;
         };
 
         combo_lcbr {
-            timeout-ms = <10>;
+            timeout-ms = <20>;
             key-positions = <1 11>;
             bindings = <&kp LEFT_BRACE>;
             layers = <0 1>;
         };
 
         combo_lprn {
-            timeout-ms = <10>;
+            timeout-ms = <20>;
             key-positions = <2 12>;
             bindings = <&kp LEFT_PARENTHESIS>;
             layers = <0 1>;
         };
 
         combo_rprn {
-            timeout-ms = <10>;
+            timeout-ms = <20>;
             key-positions = <5 15>;
-            bindings = <&rprn>;
+            bindings = <&kp RIGHT_PARENTHESIS>;
             layers = <0 1>;
         };
 
         combo_rcbr {
-            timeout-ms = <10>;
+            timeout-ms = <20>;
             key-positions = <6 16>;
             bindings = <&rcbr>;
             layers = <0 1>;
         };
 
         combo_rbrc {
-            timeout-ms = <10>;
+            timeout-ms = <20>;
             key-positions = <7 17>;
             bindings = <&kp RIGHT_BRACKET>;
             layers = <0 1>;
         };
 
         combo_semicolon {
-            timeout-ms = <10>;
+            timeout-ms = <20>;
             key-positions = <16 27>;
             bindings = <&kp SEMICOLON>;
             layers = <0 1>;
         };
 
         combo_colon {
-            timeout-ms = <10>;
+            timeout-ms = <20>;
             key-positions = <17 28>;
             bindings = <&kp COLON>;
             layers = <0 1>;
         };
 
         combo_equal {
-            bindings = <&kp EQUAL>;
+            timeout-ms = <50>;
             key-positions = <3 13>;
-            timeout-ms = <20>;
+            bindings = <&kp EQUAL>;
             layers = <0 1>;
         };
 
         combo_underscore {
             bindings = <&kp UNDERSCORE>;
             key-positions = <4 14>;
-            timeout-ms = <20>;
+            timeout-ms = <50>;
+            layers = <0 1>;
+        };
+
+        combo_less {
+            bindings = <&kp LESS_THAN>;
+            key-positions = <24 13>;
+            layers = <0 1>;
+        };
+
+        combo_greater {
+            bindings = <&kp GREATER_THAN>;
+            key-positions = <14 25>;
             layers = <0 1>;
         };
     };
@@ -190,10 +215,10 @@
 
         MAIN_layer {
             bindings = <
-                       &fn 3 W        &kp E           &kp R            &kp T        &kp Y       &kp U        &kp I     &fn 3 O
+                          &fn 3 W        &kp E           &kp R            &kp T        &kp Y       &kp U        &kp I     &fn 3 O
 &kp Q  &sft_t LSHFT A  &hm LGUI S  &hm LCTRL D  &hm LEFT_ALT F            &kp G        &kp H  &hm RALT J  &hm RCTRL K  &hm RGUI L  &sft_t RSHFT SQT  &kp P
-             &kp Z       &kp X        &kp C           &kp V            &kp B        &kp N       &kp M    &kp COMMA     &dot_colon      &kp SLASH
-                                                 &qlt 1 ESC  &skq LEFT_SHIFT  &lt 2 SPACE   &kp ENTER
+                &kp Z       &kp X        &kp C           &kp V            &kp B        &kp N       &kp M    &kp COMMA  &dot_colon         &kp SLASH
+                                                    &qlt 1 ESC  &skq LEFT_SHIFT  &lt 2 SPACE   &kp ENTER
             >;
         };
 
