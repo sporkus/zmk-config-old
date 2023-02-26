@@ -278,24 +278,6 @@
 
         MAC_SHORTCUT {
             bindings = <
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                &trans  &trans  &trans  &trans
-            >;
-        };
-
-        WIN_SHORTCUT {
-            bindings = <
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                &trans  &trans  &trans  &trans
-            >;
-        };
-
-        MAC {
-            bindings = <
                          &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans
 &kp LG(Q)     &trans     &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
            &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &trans  &trans  &trans  &trans  &trans  &trans
@@ -303,7 +285,7 @@
             >;
         };
 
-        WIN {
+        WIN_SHORTCUT {
             bindings = <
                          &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans
 &kp LA(F4)     &trans     &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
@@ -311,6 +293,25 @@
                                                &trans  &trans  &trans  &trans
             >;
         };
+
+        MAC {
+            bindings = <
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                &trans  &trans  &trans  &trans
+            >;
+        };
+
+        WIN {
+            bindings = <
+                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                &trans  &trans  &trans  &trans
+            >;
+        };
+
 
         FN {
             bindings = <
