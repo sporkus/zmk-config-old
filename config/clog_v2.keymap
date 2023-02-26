@@ -110,7 +110,8 @@
             bindings = <&kp LEFT_BRACKET>;
             layers = <0 1>;
         };
- {
+
+        combo_lcbr {
             timeout-ms = <20>;
             key-positions = <1 11>;
             bindings = <&kp LEFT_BRACE>;
