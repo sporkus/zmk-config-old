@@ -9,7 +9,14 @@
 
 / {
     behaviors {
-        rcbr: rcbr {
+        rprn: rprn {
+            compatible = "zmk,behavior-mod-morph";
+            label = "reversible_parenthesis";
+            #binding-cells = <0>;
+            bindings = <&kp RIGHT_PARENTHESIS>, <&kp LEFT_PARENTHESIS>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+         rcbr: rcbr {
             compatible = "zmk,behavior-mod-morph";
             label = "reversible_brace";
             #binding-cells = <0>;
@@ -64,9 +71,7 @@
             quick-tap-ms = <500>;
             global-quick-tap;
             flavor = "tap-preferred";
-            bindings =
-                <&mo>,
-                <&kp>;
+            bindings = <&mo>, <&kp>;
         };
         qlt: quick_layer_tap {
             compatible = "zmk,behavior-hold-tap";
@@ -74,9 +79,7 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             flavor = "hold-preferred";
-            bindings =
-                <&mo>,
-                <&kp>;
+            bindings = <&mo>, <&kp>;
         };
     };
 
@@ -88,6 +91,13 @@
             key-positions = <6 7>;
             bindings = <&kp BSPC>;
             layers = <0 1>;
+        };
+
+        combo_del {
+            timeout-ms = <20>;
+            key-positions = <6 7>;
+            bindings = <&kp DEL>;
+            layers = <2>;
         };
 
         combo_esc {
@@ -105,56 +115,56 @@
         };
 
         combo_lbrc {
-            timeout-ms = <20>;
+            timeout-ms = <10>;
             key-positions = <0 10>;
             bindings = <&kp LEFT_BRACKET>;
             layers = <0 1>;
         };
 
         combo_lcbr {
-            timeout-ms = <20>;
+            timeout-ms = <10>;
             key-positions = <1 11>;
             bindings = <&kp LEFT_BRACE>;
             layers = <0 1>;
         };
 
         combo_lprn {
-            timeout-ms = <20>;
+            timeout-ms = <10>;
             key-positions = <2 12>;
             bindings = <&kp LEFT_PARENTHESIS>;
             layers = <0 1>;
         };
 
         combo_rprn {
-            timeout-ms = <20>;
+            timeout-ms = <10>;
             key-positions = <5 15>;
-            bindings = <&kp RIGHT_PARENTHESIS>;
+            bindings = <&rprn>;
             layers = <0 1>;
         };
 
         combo_rcbr {
-            timeout-ms = <20>;
+            timeout-ms = <10>;
             key-positions = <6 16>;
             bindings = <&rcbr>;
             layers = <0 1>;
         };
 
         combo_rbrc {
-            timeout-ms = <20>;
+            timeout-ms = <10>;
             key-positions = <7 17>;
             bindings = <&kp RIGHT_BRACKET>;
             layers = <0 1>;
         };
 
         combo_semicolon {
-            timeout-ms = <20>;
+            timeout-ms = <10>;
             key-positions = <16 27>;
             bindings = <&kp SEMICOLON>;
             layers = <0 1>;
         };
 
         combo_colon {
-            timeout-ms = <20>;
+            timeout-ms = <10>;
             key-positions = <17 28>;
             bindings = <&kp COLON>;
             layers = <0 1>;
@@ -163,14 +173,14 @@
         combo_equal {
             bindings = <&kp EQUAL>;
             key-positions = <3 13>;
-            timeout-ms = <50>;
+            timeout-ms = <20>;
             layers = <0 1>;
         };
 
         combo_underscore {
             bindings = <&kp UNDERSCORE>;
             key-positions = <4 14>;
-            timeout-ms = <50>;
+            timeout-ms = <20>;
             layers = <0 1>;
         };
     };
