@@ -249,7 +249,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        MAIN_layer {
+        BASE {
             bindings = <
                           &fn 7 W        &kp E           &kp R            &kp T        &kp Y         &kp U        &kp I     &fn 7 O
 &kp Q  &sft_t LSHFT A  &hm LGUI S  &hm LCTRL D  &hm LEFT_ALT F            &kp G        &kp H    &hm RALT J  &hm RCTRL K  &hm RGUI L  &sft_t RSHFT SQT  &kp P
@@ -258,7 +258,7 @@
             >;
         };
 
-        SYM_layer {
+        SYM {
             bindings = <
                    &kp TILDE    &kp ASTRK  &kp AMPERSAND       &kp EQUAL          &kp PLUS  &kp N7  &kp N8  &kp N9
 &trans  &kp GRAVE  &kp CARET  &kp PERCENT     &kp DOLLAR  &kp UNDERSCORE         &kp MINUS  &kp N4  &kp N5  &kp N6   &kp SQT  &kp PIPE
@@ -267,7 +267,7 @@
             >;
         };
 
-        NAV_layer {
+        NAV {
             bindings = <
                         &kp C_VOL_DN  &kp C_VOL_UP        &trans  &kp LG(GRAVE)    &kp F2  &kp PG_DN  &kp PG_UP     &kp F4
 &trans  &kp LEFT_SHIFT  &kp LEFT_GUI     &kp LCTRL  &kp LEFT_ALT    &kp LG(TAB)  &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT  &trans  &trans
@@ -305,10 +305,10 @@
 
         WIN {
             bindings = <
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                &trans  &trans  &trans  &trans
+                         &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans
+&kp LA(F4)     &trans     &trans     &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+           &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &trans  &trans  &trans  &trans  &trans  &trans
+                                               &trans  &trans  &trans  &trans
             >;
         };
 
