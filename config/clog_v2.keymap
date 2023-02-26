@@ -181,7 +181,7 @@
         combo_rprn {
             timeout-ms = <20>;
             key-positions = <5 15>;
-            bindings = <&kp RIGHT_PARENTHESIS>;
+            bindings = <&rprn>;
             layers = <0 1>;
         };
 
