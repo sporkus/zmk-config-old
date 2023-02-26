@@ -29,6 +29,16 @@
 
 / {
     behaviors {
+        bspc_del: bspc_del {
+            compatible = "zmk,behavior-mod-morph";
+            label = "backspace_del";
+            #binding-cells = <0>;
+            bindings =
+                <&kp BSPC>,
+                <&kp DEL>;
+
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
         rprn: rprn {
             compatible = "zmk,behavior-mod-morph";
             label = "reversible_parenthesis";
@@ -139,7 +149,7 @@
         combo_bspc {
             timeout-ms = <20>;
             key-positions = <6 7>;
-            bindings = <&kp BSPC>;
+            bindings = <&bspc_del>;
             layers = <0 1 2 3>;
         };
 
