@@ -50,7 +50,7 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
-            tapping-term-ms = <180>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <250>;
             global-quick-tap;
             flavor = "tap-preferred";
