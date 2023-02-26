@@ -168,6 +168,8 @@
         combo_underscore {
             bindings = <&kp UNDERSCORE>;
             key-positions = <4 14>;
+            timeout-ms = <50>;
+            layers = <0 1>;
         };
     };
 
