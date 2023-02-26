@@ -196,10 +196,10 @@
 
         NAV_layer {
             bindings = <
-                          &kp C_VOL_DN  &kp C_VOL_UP    &kp C_PREV       &kp C_NEXT   &kp F10  &kp PG_DN  &kp PG_UP     &kp F9
-&kp C_PP  &kp LEFT_SHIFT  &kp LEFT_GUI     &kp LCTRL  &kp LEFT_ALT      &kp LC(TAB)  &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT  &kp C_BRI_DN  &kp C_BRI_UP
-                &kp HOME     &kp PG_DN     &kp PG_UP       &kp END  &kp LS(LC(TAB))   &kp F12     &kp F4     &kp F5     &kp F6     &kp PSCRN
-                                                             &none            &none    &trans    &kp DEL
+                        &kp C_VOL_DN  &kp C_VOL_UP        &trans  &kp LG(GRAVE)    &kp F2  &kp PG_DN  &kp PG_UP     &kp F4
+&trans  &kp LEFT_SHIFT  &kp LEFT_GUI     &kp LCTRL  &kp LEFT_ALT    &kp LG(TAB)  &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT  &trans  &trans
+                &trans        &trans        &trans        &trans    &kp LA(TAB)   &kp F12     &trans     &trans     &trans  &trans
+                                                           &none          &none    &trans     &trans
             >;
         };
 
