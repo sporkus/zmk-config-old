@@ -56,6 +56,27 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+
+        fn: function_layer {
+            compatible = "zmk,behavior-hold-tap";
+            label = "fn_layer";
+            #binding-cells = <2>;
+            tapping-term-ms = <500>;
+            quick-tap-ms = <500>;
+            global-quick-tap;
+            flavor = "tap-preferred";
+            bindings = <&mo>, <&kp>;
+        };
+
+        qlt: quick_layer_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "quick_layer_tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "hold-preferred";
+            bindings = <&mo>, <&kp>;
+        };
+
     };
 
     combos {
@@ -145,10 +166,10 @@
 
         MAIN_layer {
             bindings = <
-                       &lt 3 W        &kp E           &kp R            &kp T        &kp Y       &kp U        &kp I     &lt 3 O
+                       &fn 3 W        &kp E           &kp R            &kp T        &kp Y       &kp U        &kp I     &fn 3 O
 &kp Q  &mt LSHFT A  &hm LGUI S  &hm LCTRL D  &hm LEFT_ALT F            &kp G        &kp H  &hm RALT J  &hm RCTRL K  &hm RGUI L  &mt RSHFT SQT  &kp P
-             &kp Z       &kp X        &kp C         &lt 1 V            &kp B        &kp N     &lt 1 M    &kp COMMA     &kp DOT    &kp SLASH
-                                                   &kp ESC  &skq LEFT_SHIFT  &lt 2 SPACE   &kp ENTER
+             &kp Z       &kp X        &kp C           &kp V            &kp B        &kp N       &kp M    &kp COMMA     &kp DOT    &kp SLASH
+                                                   &qlt 1 ESC  &skq LEFT_SHIFT  &lt 2 SPACE   &kp ENTER
             >;
         };
 
