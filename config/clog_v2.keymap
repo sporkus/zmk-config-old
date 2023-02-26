@@ -149,7 +149,7 @@
         combo_bspc {
             timeout-ms = <20>;
             key-positions = <6 7>;
-            bindings = <&bspc_del>;
+            bindings = <&kp BSPC>;
             layers = <0 1 2 3>;
         };
 
@@ -271,7 +271,7 @@
                           &fn 7 W        &kp E           &kp R            &kp T        &kp Y         &kp U        &kp I     &fn 7 O
 &kp Q  &sft_t LSHFT A  &hm LGUI S  &hm LCTRL D  &hm LEFT_ALT F            &kp G        &kp H    &hm RALT J  &hm RCTRL K  &hm RGUI L  &sft_t RSHFT SQT  &kp P
                 &kp Z       &kp X        &kp C           &kp V            &kp B        &kp N         &kp M   &comm_scln  &dot_colon         &kp SLASH
-                                                    &qlt 1 ESC  &skq LEFT_SHIFT  &lt 2 SPACE  &qlt 1 ENTER
+                                                    &qlt 1 ESC  &skq LEFT_SHIFT  &lt 4 SPACE  &qlt 1 ENTER
             >;
         };
 
@@ -307,7 +307,7 @@
                        &kp C_VOL_DN  &kp C_VOL_UP        &trans  &kp LG(GRAVE)    &kp F2  &kp PG_DN  &kp PG_UP      &none
 &none  &kp LEFT_SHIFT  &kp LEFT_GUI     &kp LCTRL  &kp LEFT_ALT    &kp LG(TAB)  &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT  &trans  &trans
                 &none         &none         &none         &none    &kp LA(TAB)   &kp F12     &trans     &trans     &trans  &trans
-                                                         &trans         &trans     &to 0      &to 2
+                                                         &trans         &trans    &tog 4     &tog 4
             >;
         };
 
@@ -331,7 +331,7 @@
 
         FN {
             bindings = <
-                     &to 6         &to 5        &reset  &bootloader  &bootloader        &reset         &none         &none
+                     &to 3         &to 2        &reset  &bootloader  &bootloader        &reset         &none         &none
 &none  &none  &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0   &bt BT_CLR   &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none  &none
        &none         &none  &bt BT_SEL 4  &bt BT_SEL 3        &none        &none  &bt BT_SEL 3  &bt BT_SEL 4         &none  &none
                                                  &none        &none       &trans         &none
