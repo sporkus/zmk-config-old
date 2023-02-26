@@ -208,6 +208,12 @@
             key-positions = <14 25>;
             layers = <0 1>;
         };
+
+        combo_capsword {
+            bindings = <&caps_word>;
+            key-positions = <31 32>;
+            layers = <0>;
+        };
     };
 
     keymap {
@@ -236,7 +242,7 @@
                         &kp C_VOL_DN  &kp C_VOL_UP        &trans  &kp LG(GRAVE)    &kp F2  &kp PG_DN  &kp PG_UP     &kp F4
 &trans  &kp LEFT_SHIFT  &kp LEFT_GUI     &kp LCTRL  &kp LEFT_ALT    &kp LG(TAB)  &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT  &trans  &trans
                 &trans        &trans        &trans        &trans    &kp LA(TAB)   &kp F12     &trans     &trans     &trans  &trans
-                                                           &none     &caps_word    &trans     &trans
+                                                           &none         &trans     &to 0      &to 2
             >;
         };
 
