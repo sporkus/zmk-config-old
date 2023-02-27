@@ -4,3 +4,5 @@ zephyr/
 zmk/
 .west/
 build/
+.vscode
+
