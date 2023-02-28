@@ -11,7 +11,7 @@
 #define SHIFT_MORPH(name, bind1, bind2) \
     ZMK_BEHAVIOR(name, 0)\
         compatible = "zmk,behavior-mod-morph";\
-        bindings = <&kp bind1>, <&kp bind2>;\
+        bindings = <bind1>, <bind2>;\
         mods = <(MOD_LSFT|MOD_RSFT)>;\
     }
 

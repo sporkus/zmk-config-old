@@ -31,11 +31,12 @@
 
 / {
     behaviors {
-        SHIFT_MORPH(bspc_del,   BSPC,               DEL);
-        SHIFT_MORPH(rpar_lpar,  RIGHT_PARENTHESIS,  LEFT_PARENTHESIS);
-        SHIFT_MORPH(rbrc_lbrc,  RIGHT_BRACE,        LEFT_BRACE);
-        SHIFT_MORPH(dot_coln,   DOT,                COLON);
-        SHIFT_MORPH(comm_scln,  COMMA,              SEMICOLON);
+        SHIFT_MORPH(bspc_morph,  &kp BSPC,               &kp DEL);
+        SHIFT_MORPH(rpar_morph,  &kp RIGHT_PARENTHESIS,  &kp LEFT_PARENTHESIS);
+        SHIFT_MORPH(rbrc_morph,  &kp RIGHT_BRACE,        &kp LEFT_BRACE);
+        SHIFT_MORPH(dot_morph,   &kp DOT,                &kp COLON);
+        SHIFT_MORPH(comm_morph,  &kp COMMA,              &kp SEMICOLON);
+        SHIFT_MORPH(spc_morph,   &kp SPACE,              &period_spc);
 
         STICKY(skp, &kp, STICKY_TIME);
         STICKY(smo, &mo, STICKY_TIME);
@@ -44,6 +45,7 @@
         MACRO(less_eql,       &kp LESS_THAN    &kp EQUAL);
         MACRO(greater_eql,    &kp GREATER_THAN &kp EQUAL);
         MACRO(not_eql,        &kp EXCL         &kp EQUAL);
+        MACRO(period_spc,     &kp DOT   &kp SPACE  &skp LSHFT);
 
         DOUBLE_TAP(lt_lte,    TAP_DANCE_FAST,   &kp LT,       &less_eql);
         DOUBLE_TAP(gt_gte,    TAP_DANCE_FAST,   &kp GT,       &greater_eql);
@@ -73,15 +75,15 @@
         COMBO(esc0        ,&kp ESC          ,LM1 LM2,   COMBO_QUICK_MS,  COMBO_ALL);
         COMBO(win_copy    ,&lht LC(V) LC(C) ,LM2 LM3,   COMBO_QUICK_MS,  _WIN);
         COMBO(mac_copy    ,&lht LG(V) LG(C) ,LM2 LM3,   COMBO_QUICK_MS,  _MAC);
-        COMBO(bspc        ,&bspc_del        ,RT2 RT3,   COMBO_QUICK_MS,  COMBO_ALL);
+        COMBO(bspc        ,&bspc_morph        ,RT2 RT3,   COMBO_QUICK_MS,  COMBO_ALL);
         COMBO(enter       ,&kp ENTER        ,RM1 RM2,   COMBO_QUICK_MS,  COMBO_ALL);
          
         // vertical combos
         COMBO(lbkt        ,&kp LBKT         ,LT3 LM3,   COMBO_SLOW_MS,   COMBO_ALL);
         COMBO(lbrc        ,&kp LBRC         ,LT2 LM2,   COMBO_SLOW_MS,   COMBO_ALL);
         COMBO(lpar        ,&kp LPAR         ,LT1 LM1,   COMBO_SLOW_MS,   COMBO_ALL);
-        COMBO(rpar        ,&rpar_lpar       ,RT1 RM1,   COMBO_SLOW_MS,   COMBO_ALL);
-        COMBO(rbrc        ,&rbrc_lbrc       ,RT2 RM2,   COMBO_SLOW_MS,   COMBO_ALL);
+        COMBO(rpar        ,&rpar_morph      ,RT1 RM1,   COMBO_SLOW_MS,   COMBO_ALL);
+        COMBO(rbrc        ,&rbrc_morph      ,RT2 RM2,   COMBO_SLOW_MS,   COMBO_ALL);
         COMBO(rbkt        ,&kp RBKT         ,RT3 RM3,   COMBO_SLOW_MS,   COMBO_ALL);
         COMBO(equal       ,&eql_neql        ,LT0 LM0,   COMBO_SLOW_MS,   COMBO_ALL);
         COMBO(under       ,&kp UNDER        ,RT0 RM0,   COMBO_SLOW_MS,   COMBO_ALL);
@@ -117,7 +119,7 @@
 //╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
        &kp Q      HRML(A,        S,         D,         F)        &kp G             &kp H      HRMR(J,      K,          L,        SQT)         &kp P
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
-                 &kp Z         &kp X      &kp C       &kp V      &kp B           &kp N       &kp M     &comm_scln  &dot_coln    &kp SLASH
+                 &kp Z         &kp X      &kp C       &kp V      &kp B           &kp N       &kp M     &comm_morph  &dot_morph    &kp SLASH
 //                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮
                                                       &smo 1    &sft_caps      &lt 4 SPACE   &smo 1 
 
@@ -169,7 +171,7 @@
         WIN {
             bindings = <
 //                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
-                               _____     _____        _____       _____         &win_sleep      _____      _____    &kp LC(LA(DEL))
+                               _____     _____        _____       _____            _____       _____      _____    &kp LC(LA(DEL))
 //╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
     &kp LA(F4)     _____      _____       _____       _____       _____            _____       _____      _____       _____       _____      _____
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
