@@ -36,6 +36,14 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;\
         }
 
+    #define STICKY(name, bind) \
+        ZMK_BEHAVIOR(skq, 1)\
+            compatible = "zmk,behavior-sticky-key";\
+            bindings = <bind>;\
+            release-after-ms = <STICKY_TIME_MS>;\
+            quick-release;\
+        }
+
     behaviors {
         SHIFT_MORPH(bspc_del,   BSPC,               DEL);
         SHIFT_MORPH(rpar_lpar,  RIGHT_PARENTHESIS,  LEFT_PARENTHESIS);
@@ -43,12 +51,7 @@
         SHIFT_MORPH(dot_coln,   DOT,                COLON);
         SHIFT_MORPH(comm_scln,  COMMA,              SEMICOLON);
 
-        ZMK_BEHAVIOR(skq, 1) 
-            compatible = "zmk,behavior-sticky-key";
-            bindings = <&kp>;
-            release-after-ms = <STICKY_TIME_MS>;
-            quick-release;
-        };
+        STICKY(skq, &kp);
 
         hrm: hrm {
             compatible = "zmk,behavior-hold-tap";
@@ -199,7 +202,7 @@
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
                    &none       &none       &none      &none    &kp LA(TAB)       &kp F12      _____       _____       _____       _____
 //                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮
-                                                       _____      _____           &tog 4     &tog 4
+                                                       _____      _____           &tog 4     &to 4
             >;
         };
 
