@@ -43,10 +43,8 @@
         SHIFT_MORPH(dot_coln,   DOT,                COLON);
         SHIFT_MORPH(comm_scln,  COMMA,              SEMICOLON);
 
-        skq: sticky_key_quick_release {
+        ZMK_BEHAVIOR(skq, 1) 
             compatible = "zmk,behavior-sticky-key";
-            label = "STICKY_KEY_QUICK_RELEASE";
-            #binding-cells = <1>;
             bindings = <&kp>;
             release-after-ms = <STICKY_TIME_MS>;
             quick-release;
