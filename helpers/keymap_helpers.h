@@ -45,21 +45,21 @@
 	    bindings = <keys>;\
     }
 
-#define HOLDTAP_(name, bind1, bind2, tapterm, quickterm) \
+#define HOLDTAP_(name, b1, b2, tapterm, quickterm) \
     ZMK_BEHAVIOR(name, 2)\
         compatible = "zmk,behavior-hold-tap";\
-        bindings = <bind1>, <bind2>;\
+        bindings = <b1>, <b2>;\
         tapping-term-ms = <tapterm>;\
         quick-tap-ms = <quickterm>;\
 
-#define HOLDTAP_TAP_PREFFERED(name, bind, tapterm, quickterm) \
-    HOLDTAP_(name, bind, &kp, tapterm, quickterm) \
+#define HOLDTAP_TAP_PREFFERED(name, b1, b2, tapterm, quickterm) \
+    HOLDTAP_(name, b1, b2, tapterm, quickterm) \
         flavor = "tap-preferred" ;\
         global-quick-tap;\
     }
 
-#define MODTAP_TAP_BALANCED_POSITIONAL(name, tapterm, quickterm, holdkeys) \
-    HOLDTAP_(name, &kp, &kp, tapterm, quickterm) \
+#define MODTAP_TAP_BALANCED_POSITIONAL(name, b1, b2, tapterm, quickterm, holdkeys) \
+    HOLDTAP_(name, b1, b2, tapterm, quickterm) \
         flavor = "balanced";\
         hold-trigger-key-positions = <holdkeys>;\
     }

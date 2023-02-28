@@ -53,10 +53,11 @@
 
         TRIPLE_TAP(sft_caps,  TAP_DANCE_SLOW,   &skp LSHFT,   &caps_word,   &kp K_CANCEL);  //thumbs are slow
 
-        HOLDTAP_TAP_PREFFERED(hrm, &kp,     TAPPING_TERM,     QUICK_TAP_MS);
-        MODTAP_TAP_BALANCED_POSITIONAL(lht, TAPPING_TERM,     QUICK_TAP_MS, KEYS_RH_THUMB);
-        MODTAP_TAP_BALANCED_POSITIONAL(rht, TAPPING_TERM,     QUICK_TAP_MS, KEYS_LH_THUMB);
-        HOLDTAP_TAP_PREFFERED(slt, &mo,     LAYTAP_SLOW_TERM, LAYTAP_SLOW_TERM);
+        HOLDTAP_TAP_PREFFERED(hrm,          &kp, &kp,        TAPPING_TERM,     QUICK_TAP_MS);
+        MODTAP_TAP_BALANCED_POSITIONAL(lht, &kp, &kp,        TAPPING_TERM,     QUICK_TAP_MS, KEYS_RH_THUMB);
+        MODTAP_TAP_BALANCED_POSITIONAL(rht, &kp, &kp,        TAPPING_TERM,     QUICK_TAP_MS, KEYS_LH_THUMB);
+        HOLDTAP_TAP_PREFFERED(slt,          &mo, &kp,        LAYTAP_SLOW_TERM, LAYTAP_SLOW_TERM);
+        HOLDTAP_TAP_PREFFERED(spc_lt,       &mo, &spc_morph, TAPPING_TERM,     QUICK_TAP_MS);
     };
 
 
@@ -75,7 +76,7 @@
         COMBO(esc0        ,&kp ESC          ,LM1 LM2,   COMBO_QUICK_MS,  COMBO_ALL);
         COMBO(win_copy    ,&lht LC(V) LC(C) ,LM2 LM3,   COMBO_QUICK_MS,  _WIN);
         COMBO(mac_copy    ,&lht LG(V) LG(C) ,LM2 LM3,   COMBO_QUICK_MS,  _MAC);
-        COMBO(bspc        ,&bspc_morph        ,RT2 RT3,   COMBO_QUICK_MS,  COMBO_ALL);
+        COMBO(bspc        ,&bspc_morph      ,RT2 RT3,   COMBO_QUICK_MS,  COMBO_ALL);
         COMBO(enter       ,&kp ENTER        ,RM1 RM2,   COMBO_QUICK_MS,  COMBO_ALL);
          
         // vertical combos
@@ -121,7 +122,7 @@
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
                  &kp Z         &kp X      &kp C       &kp V      &kp B           &kp N       &kp M     &comm_morph  &dot_morph    &kp SLASH
 //                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮
-                                                      &smo 1    &sft_caps      &lt 4 SPACE   &smo 1 
+                                                      &smo 1    &sft_caps      &spc_lt NAV 0  &smo 1 
 
             >;
         };
