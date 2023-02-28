@@ -6,21 +6,22 @@
 
 // SETTINGS 
 #define TAPPING_TERM 300 
+#define TAP_DANCE_TERM 220 
 #define QUICK_TAP_MS 500 
 #define LAYTAP_SLOW_TERM 1000 
 #define STICKY_TIME_MS 1000 
-#define COMBO_QUICK_MS 20  
-#define COMBO_SLOW_MS  40 
+#define COMBO_QUICK_MS 40  
+#define COMBO_SLOW_MS  70 
 
 // LAYERS
-#define BASE 0
-#define SYM 1
-#define _MAC 2
-#define _WIN 3
-#define NAV 4
-#define MAC_SHORTCUT 5
-#define WIN_SHORTCUT 6
-#define FN 7
+#define  BASE 0
+#define  SYM  1
+#define  _MAC 2
+#define  _WIN 3 
+#define  NAV  4 
+#define  MAC  5 
+#define  WIN  6 
+#define  FN   7
 
 &lt {
 	flavor = "tap-preferred";
@@ -37,6 +38,15 @@
 
         STICKY(skp, &kp);
         STICKY(smo, &mo);
+
+        MACRO(win_sleep,      &kp LG(X) &kp U &kp S);
+        MACRO(less_eql,       &kp LESS_THAN    &kp EQUAL);
+        MACRO(greater_eql,    &kp GREATER_THAN &kp EQUAL);
+        MACRO(not_eql,        &kp EXCL         &kp EQUAL);
+
+        DOUBLE_TAP(lt_lte,    TAP_DANCE_TERM,   &kp LT,     &less_eql);
+        DOUBLE_TAP(gt_gte,    TAP_DANCE_TERM,   &kp GT,     &greater_eql);
+        DOUBLE_TAP(eql_neql,  TAP_DANCE_TERM,   &kp EQUAL,  &not_eql);
 
         HOLDTAP_TAP_PREFFERED(hrm, &kp,     TAPPING_TERM,     QUICK_TAP_MS);
         MODTAP_TAP_BALANCED_POSITIONAL(lht, TAPPING_TERM,     QUICK_TAP_MS, KEYS_RH_THUMB);
@@ -56,25 +66,25 @@
     combos {
         compatible = "zmk,combos";
         // horizontal combos
-        COMBO(tab              ,&kp TAB       ,LT3 LT2,   COMBO_QUICK_MS);
-        COMBO(esc0             ,&kp ESC       ,LM1 LM2,   COMBO_QUICK_MS);
-        COMBO(bspc             ,&bspc_del     ,RT2 RT3,   COMBO_QUICK_MS);
-        COMBO(enter            ,&kp ENTER     ,RM1 RM2,   COMBO_QUICK_MS);
+        COMBO(tab         ,&kp TAB       ,LT3 LT2,   COMBO_QUICK_MS,  COMBO_ALL);
+        COMBO(esc0        ,&kp ESC       ,LM1 LM2,   COMBO_QUICK_MS,  COMBO_ALL);
+        COMBO(bspc        ,&bspc_del     ,RT2 RT3,   COMBO_QUICK_MS,  COMBO_ALL);
+        COMBO(enter       ,&kp ENTER     ,RM1 RM2,   COMBO_QUICK_MS,  COMBO_ALL);
          
         // vertical combos
-        COMBO(lbkt             ,&kp LBKT      ,LT3 LM3,   COMBO_SLOW_MS);
-        COMBO(lbrc             ,&kp LBRC      ,LT2 LM2,   COMBO_SLOW_MS);
-        COMBO(lpar             ,&kp LPAR      ,LT1 LM1,   COMBO_SLOW_MS);
-        COMBO(rpar             ,&rpar_lpar    ,RT1 RM1,   COMBO_SLOW_MS);
-        COMBO(rbrc             ,&rbrc_lbrc    ,RT2 RM2,   COMBO_SLOW_MS);
-        COMBO(rbkt             ,&kp RBKT      ,RT3 RM3,   COMBO_SLOW_MS);
-        COMBO(equal            ,&kp EQUAL     ,LT0 LM0,   COMBO_SLOW_MS);
-        COMBO(under            ,&kp UNDER     ,RT0 RM0,   COMBO_SLOW_MS);
+        COMBO(lbkt        ,&kp LBKT      ,LT3 LM3,   COMBO_SLOW_MS,   COMBO_ALL);
+        COMBO(lbrc        ,&kp LBRC      ,LT2 LM2,   COMBO_SLOW_MS,   COMBO_ALL);
+        COMBO(lpar        ,&kp LPAR      ,LT1 LM1,   COMBO_SLOW_MS,   COMBO_ALL);
+        COMBO(rpar        ,&rpar_lpar    ,RT1 RM1,   COMBO_SLOW_MS,   COMBO_ALL);
+        COMBO(rbrc        ,&rbrc_lbrc    ,RT2 RM2,   COMBO_SLOW_MS,   COMBO_ALL);
+        COMBO(rbkt        ,&kp RBKT      ,RT3 RM3,   COMBO_SLOW_MS,   COMBO_ALL);
+        COMBO(equal       ,&eql_neql     ,LT0 LM0,   COMBO_SLOW_MS,   COMBO_ALL);
+        COMBO(under       ,&kp UNDER     ,RT0 RM0,   COMBO_SLOW_MS,   COMBO_ALL);
 
         // thumb combos
-        COMBO(esc              ,&kp ESC       ,LH0 LH1,   COMBO_SLOW_MS);
-        COMBO(esc2             ,&kp ESC       ,RH0 RH1,   COMBO_SLOW_MS);
-        COMBO(caps             ,&caps_word    ,LH0 RH0,   COMBO_SLOW_MS);
+        COMBO(esc         ,&kp ESC       ,LH0 LH1,   COMBO_SLOW_MS,   COMBO_ALL);
+        COMBO(esc2        ,&kp ESC       ,RH0 RH1,   COMBO_SLOW_MS,   COMBO_ALL);
+        COMBO(caps        ,&caps_word    ,LH0 RH0,   COMBO_SLOW_MS,   COMBO_ALL);
 
     };
 
@@ -100,11 +110,11 @@
         BASE {
             bindings = <
 //                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
-                            &slt FN W      &kp E       &kp R      &kp T             &kp Y       &kp U     &kp I     &slt FN O
+                            &slt FN W      &kp E       &kp R      &kp T             &kp Y      &kp U     &kp I     &slt FN O
 //╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
        &kp Q      HRML(A,        S,         D,         F)        &kp G             &kp H      HRMR(J,      K,          L,        SQT)         &kp P
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
-                 &kp Z         &kp X      &kp C       &kp V      &kp B             &kp N       &kp M   &comm_scln  &dot_coln    &kp SLASH
+                 &kp Z         &kp X      &kp C       &kp V      &kp B           &kp N       &kp M     &comm_scln  &dot_coln    &kp SLASH
 //                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮
                                                       &smo 1    &skp LSHFT      &lt 4 SPACE   &smo 1 
 
@@ -114,11 +124,11 @@
         SYM {
             bindings = <
 //                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
-                            &kp TILDE   &kp ASTRK  &kp AMPS     &kp EQUAL        &kp PLUS    &kp N7       &kp N8     &kp N9
+                            &kp TILDE   &kp ASTRK   &kp AMPS    &eql_neql       &kp PLUS    &kp N7       &kp N8     &kp N9
 //╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
      _____      &kp GRAVE   &kp CARET  &kp PERCENT  &kp DOLLAR  &kp UNDER       &kp MINUS    &kp N4       &kp N5     &kp N6      &kp SQT    &kp PIPE
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
-                   _____     &kp HASH    &kp AT      &kp EXCL     &kp LT         &kp GT      &kp N1       &kp N2     &kp N3     &kp BSLH
+                   _____     &kp HASH    &kp AT      &kp EXCL    &lt_lte         &gt_gte     &kp N1       &kp N2     &kp N3     &kp BSLH
 //                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮
                                                       _____        _____          _____       &kp N0
             >;
@@ -156,7 +166,7 @@
         WIN_SHORTCUT {
             bindings = <
 //                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
-                               _____     _____        _____       _____            _____       _____      _____    &kp LC(LA(DEL))
+                               _____     _____        _____       _____         &win_sleep      _____      _____    &kp LC(LA(DEL))
 //╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
     &kp LA(F4)     _____      _____       _____       _____       _____            _____       _____      _____       _____       _____      _____
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
@@ -170,7 +180,7 @@
         FN {
             bindings = <
 //                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
-                              &to 3       &to 2      &reset     &bootloader    &bootloader    &reset      &none       &none
+                            &to  _MAC   &to _WIN     &reset    &bootloader     &bootloader    &reset      &none       &none
 //╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
    &bt BT_CLR     BT(4)       BT(3)       BT(2)       BT(1)        BT(0)         &none      &bt BT_NXT   &bt BT_PRV  &none        &none       &none     
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
@@ -184,8 +194,8 @@
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
-        TRI_LAYER(mac_shortcuts, NAV _MAC, MAC_SHORTCUT);
-        TRI_LAYER(win_shortcuts, NAV _WIN, WIN_SHORTCUT);
+        TRI_LAYER(mac_shortcuts, NAV _MAC, MAC);
+        TRI_LAYER(win_shortcuts, NAV _WIN, WIN);
     };
 
 

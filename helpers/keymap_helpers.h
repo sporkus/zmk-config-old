@@ -1,7 +1,11 @@
+#pragma once
+
+#define STRINGIFY(x) #x
+
 // -------- BEHAVIORS ---------
 #define ZMK_BEHAVIOR(name, cell) \
     name: name {\
-        label = #name;\
+        label = STRINGIFY(name);\
         #binding-cells = <cell>;
 
 #define SHIFT_MORPH(name, bind1, bind2) \
@@ -11,12 +15,27 @@
         mods = <(MOD_LSFT|MOD_RSFT)>;\
     }
 
+#define DOUBLE_TAP(name, tapterm, bind1, bind2) \
+    ZMK_BEHAVIOR(name, 0)\
+        compatible = "zmk,behavior-tap-dance";\
+        bindings = <bind1>, <bind2>;\
+        tapping-term-ms = <tapterm>;\
+    }
+
 #define STICKY(name, bind) \
     ZMK_BEHAVIOR(name, 1)\
         compatible = "zmk,behavior-sticky-key";\
         bindings = <bind>;\
         release-after-ms = <STICKY_TIME_MS>;\
         quick-release;\
+    }
+
+#define MACRO(name, keys) \
+    ZMK_BEHAVIOR(name, 0)\
+	    compatible = "zmk,behavior-macro";\
+    	tap-ms = <1>;\
+    	wait-ms = <1>;\
+	    bindings = <keys>;\
     }
 
 #define HOLDTAP_(name, bind1, bind2, tapterm, quickterm) \
@@ -40,11 +59,13 @@
 
 
 // -------- COMBOS ---------
-#define COMBO(name, keypress, keypos, term) \
+#define COMBO_ALL 0xff 
+#define COMBO(name, keypress, keypos, term, lay) \
 combo_##name {\
     timeout-ms = <term>;\
     bindings = <keypress>;\
     key-positions = <keypos>;\
+    layers = <lay>;\
 }
 
 // -------- CONDITIONAL_LAYERS ---------
