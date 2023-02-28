@@ -49,8 +49,6 @@
         DOUBLE_TAP(gt_gte,    TAP_DANCE_FAST,   &kp GT,       &greater_eql);
         DOUBLE_TAP(eql_neql,  TAP_DANCE_FAST,   &kp EQUAL,    &not_eql);
 
-        DOUBLE_TAP(win_copy,  TAP_DANCE_SLOW,   &kp LC(C),    &kp LC(V));
-        DOUBLE_TAP(mac_copy,  TAP_DANCE_SLOW,   &kp LG(C),    &kp LG(V));
         TRIPLE_TAP(sft_caps,  TAP_DANCE_SLOW,   &skp LSHFT,   &caps_word,   &kp K_CANCEL);  //thumbs are slow
 
         HOLDTAP_TAP_PREFFERED(hrm, &kp,     TAPPING_TERM,     QUICK_TAP_MS);
@@ -71,26 +69,26 @@
     combos {
         compatible = "zmk,combos";
         // horizontal combos
-        COMBO(tab         ,&kp TAB       ,LT3 LT2,   COMBO_QUICK_MS,  COMBO_ALL);
-        COMBO(esc0        ,&kp ESC       ,LM1 LM2,   COMBO_QUICK_MS,  COMBO_ALL);
-        COMBO(win_copy    ,&win_copy     ,LM1 LM3,   COMBO_QUICK_MS,  _WIN);
-        COMBO(mac_copy    ,&mac_copy     ,LM1 LM3,   COMBO_QUICK_MS,  BASE _MAC);
-        COMBO(bspc        ,&bspc_del     ,RT2 RT3,   COMBO_QUICK_MS,  COMBO_ALL);
-        COMBO(enter       ,&kp ENTER     ,RM1 RM2,   COMBO_QUICK_MS,  COMBO_ALL);
+        COMBO(tab         ,&kp TAB          ,LT3 LT2,   COMBO_QUICK_MS,  COMBO_ALL);
+        COMBO(esc0        ,&kp ESC          ,LM1 LM2,   COMBO_QUICK_MS,  COMBO_ALL);
+        COMBO(win_copy    ,&lht LC(C) LC(V) ,LM2 LM3,   COMBO_QUICK_MS,  _WIN);
+        COMBO(mac_copy    ,&lht LG(C) LG(V) ,LM2 LM3,   COMBO_QUICK_MS,  _MAC);
+        COMBO(bspc        ,&bspc_del        ,RT2 RT3,   COMBO_QUICK_MS,  COMBO_ALL);
+        COMBO(enter       ,&kp ENTER        ,RM1 RM2,   COMBO_QUICK_MS,  COMBO_ALL);
          
         // vertical combos
-        COMBO(lbkt        ,&kp LBKT      ,LT3 LM3,   COMBO_SLOW_MS,   COMBO_ALL);
-        COMBO(lbrc        ,&kp LBRC      ,LT2 LM2,   COMBO_SLOW_MS,   COMBO_ALL);
-        COMBO(lpar        ,&kp LPAR      ,LT1 LM1,   COMBO_SLOW_MS,   COMBO_ALL);
-        COMBO(rpar        ,&rpar_lpar    ,RT1 RM1,   COMBO_SLOW_MS,   COMBO_ALL);
-        COMBO(rbrc        ,&rbrc_lbrc    ,RT2 RM2,   COMBO_SLOW_MS,   COMBO_ALL);
-        COMBO(rbkt        ,&kp RBKT      ,RT3 RM3,   COMBO_SLOW_MS,   COMBO_ALL);
-        COMBO(equal       ,&eql_neql     ,LT0 LM0,   COMBO_SLOW_MS,   COMBO_ALL);
-        COMBO(under       ,&kp UNDER     ,RT0 RM0,   COMBO_SLOW_MS,   COMBO_ALL);
+        COMBO(lbkt        ,&kp LBKT         ,LT3 LM3,   COMBO_SLOW_MS,   COMBO_ALL);
+        COMBO(lbrc        ,&kp LBRC         ,LT2 LM2,   COMBO_SLOW_MS,   COMBO_ALL);
+        COMBO(lpar        ,&kp LPAR         ,LT1 LM1,   COMBO_SLOW_MS,   COMBO_ALL);
+        COMBO(rpar        ,&rpar_lpar       ,RT1 RM1,   COMBO_SLOW_MS,   COMBO_ALL);
+        COMBO(rbrc        ,&rbrc_lbrc       ,RT2 RM2,   COMBO_SLOW_MS,   COMBO_ALL);
+        COMBO(rbkt        ,&kp RBKT         ,RT3 RM3,   COMBO_SLOW_MS,   COMBO_ALL);
+        COMBO(equal       ,&eql_neql        ,LT0 LM0,   COMBO_SLOW_MS,   COMBO_ALL);
+        COMBO(under       ,&kp UNDER        ,RT0 RM0,   COMBO_SLOW_MS,   COMBO_ALL);
 
         // thumb combos
-        COMBO(esc         ,&kp ESC       ,LH0 LH1,   COMBO_SLOW_MS,   COMBO_ALL);
-        COMBO(esc2        ,&kp ESC       ,RH0 RH1,   COMBO_SLOW_MS,   COMBO_ALL);
+        COMBO(esc         ,&kp ESC          ,LH0 LH1,   COMBO_SLOW_MS,   COMBO_ALL);
+        COMBO(esc2        ,&kp ESC          ,RH0 RH1,   COMBO_SLOW_MS,   COMBO_ALL);
     };
 
 
