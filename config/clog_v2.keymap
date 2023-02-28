@@ -37,7 +37,7 @@
         }
 
     #define STICKY(name, bind) \
-        ZMK_BEHAVIOR(skq, 1)\
+        ZMK_BEHAVIOR(name, 1)\
             compatible = "zmk,behavior-sticky-key";\
             bindings = <bind>;\
             release-after-ms = <STICKY_TIME_MS>;\
@@ -51,7 +51,8 @@
         SHIFT_MORPH(dot_coln,   DOT,                COLON);
         SHIFT_MORPH(comm_scln,  COMMA,              SEMICOLON);
 
-        STICKY(skq, &kp);
+        STICKY(skp, &kp);
+        STICKY(smo, &mo);
 
         hrm: hrm {
             compatible = "zmk,behavior-hold-tap";
@@ -172,7 +173,7 @@
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
                  &kp Z         &kp X      &kp C       &kp V      &kp B             &kp N       &kp M   &comm_scln  &dot_coln    &kp SLASH
 //                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮
-                                                   &qlt 1 ESC  &skq LSHFT      &lt 4 SPACE &qlt 1 ENTER
+                                                      &smo 1    &skp LSHFT      &lt 4 SPACE   &smo 1 
 
             >;
         };
