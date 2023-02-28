@@ -17,32 +17,23 @@
 #define WIN_SHORTCUT 6
 #define FN 7
 
-
-#define TRI_LAYER(name, ifs, thens) \
-    tri_layer_##name {\
-        if-layers = <ifs>;\
-        then-layer = <thens>;\
-    }
-
-/ {
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-        TRI_LAYER(mac_shortcuts, NAV _MAC, MAC_SHORTCUT);
-        TRI_LAYER(win_shortcuts, NAV _WIN, WIN_SHORTCUT);
-    };
+&lt {
+	flavor = "tap-preferred";
+	quick-tap-ms = <QUICK_TAP_MS>;
 };
 
-
-#define SHIFT_MORPH(name, bind1, bind2) \
-    name: name {\
-        compatible = "zmk,behavior-mod-morph";\
-        label = #name;\
-        #binding-cells = <0>;\
-        bindings = <&kp bind1>, <&kp bind2>;\
-        mods = <(MOD_LSFT|MOD_RSFT)>;\
-    }
-
 / {
+    // -------- BEHAVIORS ---------
+
+    #define SHIFT_MORPH(name, bind1, bind2) \
+        name: name {\
+            compatible = "zmk,behavior-mod-morph";\
+            label = #name;\
+            #binding-cells = <0>;\
+            bindings = <&kp bind1>, <&kp bind2>;\
+            mods = <(MOD_LSFT|MOD_RSFT)>;\
+        }
+
     behaviors {
         SHIFT_MORPH(bspc_del,   BSPC,               DEL);
         SHIFT_MORPH(rpar_lpar,  RIGHT_PARENTHESIS,  LEFT_PARENTHESIS);
@@ -112,37 +103,28 @@
             bindings = <&mo>, <&kp>;
         };
     };
-};
 
-/*  key pos 
----------------------------------------------------------
-                LT3 LT2 LT1 LT0 │ RT0 RT1 RT2 RT3        
-        LM5 LM4 LM3 LM2 LM1 LM0 │ RM0 RM1 RM2 RM3 RM4 RM5
-            LB4 LB3 LB2 LB1 LB0 │ RB0 RB1 RB2 RB3 RB4    
-                        LH1 LH0 | RH0 RH1               
---------------------------------------------------------- */
 
-#define COMBO(name, keypress, keypos) \
-combo_##name {\
-	timeout-ms = <30>;\
-	bindings = <keypress>;\
-	key-positions = <keypos>;\
-}
+    // -------- COMBOS ---------
 
-#define COMBO_ON_LAYER(name, keypress, keypos, layer_array) \
-combo_##name {\
-	timeout-ms = <30>;\
-	bindings = <keypress>;\
-	key-positions = <keypos>;\
-	layers = <layer_array>;\
-}
+    #define COMBO(name, keypress, keypos) \
+    combo_##name {\
+        timeout-ms = <30>;\
+        bindings = <keypress>;\
+        key-positions = <keypos>;\
+    }
+    /*  key pos 
+    ---------------------------------------------------------
+                    LT3 LT2 LT1 LT0 │ RT0 RT1 RT2 RT3        
+            LM5 LM4 LM3 LM2 LM1 LM0 │ RM0 RM1 RM2 RM3 RM4 RM5
+                LB4 LB3 LB2 LB1 LB0 │ RB0 RB1 RB2 RB3 RB4    
+                            LH1 LH0 | RH0 RH1               
+    --------------------------------------------------------- */
 
-/ {
     combos {
         compatible = "zmk,combos";
         COMBO(tab              ,&kp TAB       ,LT3 LT2);
-        COMBO_ON_LAYER(bspc    ,&bspc_del     ,RT2 RT3,  0 1 2 3);
-        COMBO_ON_LAYER(del     ,&kp DEL       ,RR2 RT3,  4 5 6);
+        COMBO(bspc             ,&bspc_del     ,RT2 RT3);
         COMBO(enter            ,&kp ENTER     ,RM2 RM3);
         COMBO(esc              ,&kp ESC       ,LH0 LH1);
         COMBO(esc2             ,&kp ESC       ,RH0 RH1);
@@ -157,40 +139,51 @@ combo_##name {\
         COMBO(equal            ,&kp EQUAL     ,LT0 LM0);
         COMBO(under            ,&kp UNDER     ,RT0 RM0);
     };
-};
 
-#define TRANS_LAYER(layer_name) \
-    layer_name {
-        bindings = <\
-                        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans\
-        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans\
-                &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans\
-                                &trans  &trans  &trans  &trans\
-        >;\
-    }
 
-#define HRML(k1,k2,k3,k4) &lht LSHFT k1  &hrm LGUI k2   &hrm LCTRL k3  &hrm LALT k4
-#define HRMR(k1,k2,k3,k4) &rht RALT k1   &hrm RCTRL k2  &hrm RGUI k3   &hrm RSHFT k4
+    // -------- LAYERS ---------
 
-/ {
+    #define _____  &trans
+    #define TRANS_LAYER(layer_name) \
+        layer_name {\
+            bindings = <\
+                          _____  _____  _____  _____  _____  _____  _____\
+            _____  _____  _____  _____  _____  _____  _____  _____  _____  _____  _____  _____\
+                   _____  _____  _____  _____  _____  _____  _____  _____  _____  _____\
+                                        _____  _____  _____  _____\
+            >;\
+        }
+
+    #define HRML(k1,k2,k3,k4) &lht LSHFT k1  &hrm LGUI k2   &hrm LCTRL k3  &hrm LALT k4
+    #define HRMR(k1,k2,k3,k4) &rht RALT k1   &hrm RCTRL k2  &hrm RGUI k3   &hrm RSHFT k4
+
     keymap {
         compatible = "zmk,keymap";
 
         BASE {
             bindings = <
-                          &slt 7 W       &kp E           &kp R            &kp T        &kp Y         &kp U        &kp I     &slt 7 O
-         &kp Q  HRML(A,         S,           D,              F)           &kp G        &kp H        HRMR(J,           K,         L,           SQT)   &kp P
-                &kp Z       &kp X        &kp C           &kp V            &kp B        &kp N         &kp M    &comm_scln    &dot_coln    &kp SLASH
-                                                    &qlt 1 ESC  &skq LEFT_SHIFT  &lt 4 SPACE  &qlt 1 ENTER
+//                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
+                               &kp W      &kp E       &kp R      &kp T             &kp Y       &kp U     &kp I       &kp O
+//╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
+       &kp Q      HRML(A,        S,         D,         F)        &kp G             &kp H      HRMR(J,      K,          L,        SQT)         &kp P
+//            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
+                 &kp Z         &kp X      &kp C       &kp V      &kp B             &kp N       &kp M   &comm_scln  &dot_coln    &kp SLASH
+//                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮
+                                                   &qlt 1 ESC  &skq LSHFT      &lt 4 SPACE &qlt 1 ENTER
+
             >;
         };
 
         SYM {
             bindings = <
-                   &kp TILDE    &kp ASTRK  &kp AMPERSAND       &kp EQUAL          &kp PLUS  &kp N7  &kp N8  &kp N9
-&trans  &kp GRAVE  &kp CARET  &kp PERCENT     &kp DOLLAR  &kp UNDERSCORE         &kp MINUS  &kp N4  &kp N5  &kp N6   &kp SQT  &kp PIPE
-           &trans   &kp HASH       &kp AT       &kp EXCL   &kp LESS_THAN  &kp GREATER_THAN  &kp N1  &kp N2  &kp N3  &kp BSLH
-                                                  &trans          &trans            &trans  &kp N0
+//                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
+                            &kp TILDE   &kp ASTRK  &kp AMPS     &kp EQUAL        &kp PLUS    &kp N7       &kp N8     &kp N9
+//╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
+     _____      &kp GRAVE   &kp CARET  &kp PERCENT  &kp DOLLAR  &kp UNDER       &kp MINUS    &kp N4       &kp N5     &kp N6      &kp SQT    &kp PIPE
+//            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
+                   _____     &kp HASH    &kp AT      &kp EXCL     &kp LT         &kp GT      &kp N1       &kp N2     &kp N3     &kp BSLH
+//                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮
+                                                      _____        _____          _____       &kp N0
             >;
         };
         
@@ -199,38 +192,72 @@ combo_##name {\
 
         NAV {
             bindings = <
-                       &kp C_VOL_DN  &kp C_VOL_UP        &trans  &kp LG(GRAVE)    &kp F2  &kp PG_DN  &kp PG_UP      &none
-&none  &kp LEFT_SHIFT  &kp LEFT_GUI     &kp LCTRL  &kp LEFT_ALT    &kp LG(TAB)  &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT  &trans  &trans
-                &none         &none         &none         &none    &kp LA(TAB)   &kp F12     &trans     &trans     &trans  &trans
-                                                         &trans         &trans    &tog 4     &tog 4
+//                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
+                           &kp C_VOL_DN &kp C_VOL_UP    _____ &kp LG(GRAVE)       &kp F2    &kp PG_DN   &kp PG_UP    &none
+//╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
+      &none    &kp LSHIFT  &kp LGUI     &kp LCTRL  &kp LALT    &kp LG(TAB)       &kp LEFT   &kp DOWN     &kp UP     &kp RIGHT     _____      _____
+//            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
+                   &none       &none       &none      &none    &kp LA(TAB)       &kp F12      _____       _____       _____       _____
+//                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮
+                                                       _____      _____           &tog 4     &tog 4
             >;
         };
 
         MAC_SHORTCUT {
             bindings = <
-                         &trans     &trans     &trans         &trans  &trans  &trans  &trans  &kp LA(LG(ESC))
-&kp LG(Q)     &trans     &trans     &trans     &trans         &trans  &trans  &trans  &trans           &trans  &trans  &trans
-           &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)         &trans  &trans  &trans  &trans           &trans  &trans
-                                               &trans  &kp LG(SPACE)  &trans  &trans
+//                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
+                               _____     _____        _____       _____            _____       _____      _____  &kp LA(LG(ESC))
+//╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
+     &kp LG(Q)     _____      _____      _____        _____       _____            _____       _____      _____       _____       _____      _____
+//            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
+                &kp LG(Z)   &kp LG(X)   &kp LG(C)   &kp LG(V)     _____            _____       _____      _____       _____       _____
+//                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮
+                                                       _____   &kp LG(SPACE)       _____       _____
             >;
         };
-
+                
         WIN_SHORTCUT {
             bindings = <
-                          &trans     &trans     &trans        &trans  &trans  &trans  &trans  &kp LC(LA(DEL))
-&kp LA(F4)     &trans     &trans     &trans     &trans        &trans  &trans  &trans  &trans           &trans  &trans  &trans
-            &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)        &trans  &trans  &trans  &trans           &trans  &trans
-                                                &trans  &kp LEFT_GUI  &trans  &trans
+//                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
+                               _____     _____        _____       _____            _____       _____      _____    &kp LC(LA(DEL))
+//╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
+    &kp LA(F4)     _____      _____       _____       _____       _____            _____       _____      _____       _____       _____      _____
+//            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
+                &kp LC(Z)   &kp LC(X)   &kp LC(C)   &kp LC(V)     _____            _____       _____      _____       _____       _____
+//                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮
+                                                       _____    &kp LGUI           _____       _____
             >;
         };
 
+#define BT(num) &bt BT_SEL num
         FN {
             bindings = <
-                     &to 3         &to 2        &reset  &bootloader  &bootloader        &reset         &none         &none
-&none  &none  &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0   &bt BT_CLR   &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none  &none
-       &none         &none  &bt BT_SEL 4  &bt BT_SEL 3        &none        &none  &bt BT_SEL 3  &bt BT_SEL 4         &none  &none
-                                                 &none        &none       &trans         &none
+//                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
+                              &to 3       &to 2      &reset     &bootloader    &bootloader    &reset      &none       &none
+//╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
+   &bt BT_CLR     BT(4)       BT(3)       BT(2)       BT(1)        BT(0)         &none      &bt BT_NXT   &bt BT_PRV  &none        &none       &none     
+//            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
+                  &none       &none       &none       &none        &none         &none        &none       &none       &none       &none     
+//                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮
+                                                      &none        &none         &none        &none
             >;
         };
     };
+
+
+    // -------- CONDITIONAL_LAYERS ---------
+
+    #define TRI_LAYER(name, ifs, thens) \
+        tri_layer_##name {\
+            if-layers = <ifs>;\
+            then-layer = <thens>;\
+        }
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        TRI_LAYER(mac_shortcuts, NAV _MAC, MAC_SHORTCUT);
+        TRI_LAYER(win_shortcuts, NAV _WIN, WIN_SHORTCUT);
+    };
+
+
 };
