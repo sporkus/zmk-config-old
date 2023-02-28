@@ -1,11 +1,16 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include "../keypos_def/keypos_clog_v2.h"
+#include "../helpers/keypos_clog_v2.h"
+#include "../helpers/keymap_helpers.h"
 
 // SETTINGS 
-#define QUICK_TAP_MS 300 
+#define TAPPING_TERM 300 
+#define QUICK_TAP_MS 1000 
+#define LAYTAP_SLOW_TERM 1000 
 #define STICKY_TIME_MS 1000 
+#define COMBO_QUICK_MS 20  
+#define COMBO_SLOW_MS  40 
 
 // LAYERS
 #define BASE 0
@@ -23,27 +28,6 @@
 };
 
 / {
-    // -------- BEHAVIORS ---------
-    #define ZMK_BEHAVIOR(name, cell) \
-        name: name {\
-            label = #name;\
-            #binding-cells = <cell>;
-
-    #define SHIFT_MORPH(name, bind1, bind2) \
-        ZMK_BEHAVIOR(name, 0)\
-            compatible = "zmk,behavior-mod-morph";\
-            bindings = <&kp bind1>, <&kp bind2>;\
-            mods = <(MOD_LSFT|MOD_RSFT)>;\
-        }
-
-    #define STICKY(name, bind) \
-        ZMK_BEHAVIOR(name, 1)\
-            compatible = "zmk,behavior-sticky-key";\
-            bindings = <bind>;\
-            release-after-ms = <STICKY_TIME_MS>;\
-            quick-release;\
-        }
-
     behaviors {
         SHIFT_MORPH(bspc_del,   BSPC,               DEL);
         SHIFT_MORPH(rpar_lpar,  RIGHT_PARENTHESIS,  LEFT_PARENTHESIS);
@@ -54,69 +38,13 @@
         STICKY(skp, &kp);
         STICKY(smo, &mo);
 
-        hrm: hrm {
-            compatible = "zmk,behavior-hold-tap";
-            label = "home-row mods";
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <QUICK_TAP_MS>;
-            global-quick-tap;
-            bindings = <&kp>, <&kp>;
-            #binding-cells = <2>;
-        };
-
-        lht: lht {
-            compatible = "zmk,behavior-hold-tap";
-            label = "left hold-tap";
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <QUICK_TAP_MS>;
-            bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <KEYS_RH KEYS_THUMB>;
-            #binding-cells = <2>;
-        };
-
-        rht: rht {
-            compatible = "zmk,behavior-hold-tap";
-            label = "right hold-tap";
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <QUICK_TAP_MS>;
-            bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <KEYS_LH KEYS_THUMB>;
-            #binding-cells = <2>;
-        };
-
-        slt: slt {
-            compatible = "zmk,behavior-hold-tap";
-            label = "slow layer-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <750>;
-            quick-tap-ms = <750>;
-            global-quick-tap;
-            flavor = "tap-preferred";
-            bindings = <&mo>, <&kp>;
-        };
-
-        qlt: qlt {
-            compatible = "zmk,behavior-hold-tap";
-            label = "quick layer-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            flavor = "hold-preferred";
-            bindings = <&mo>, <&kp>;
-        };
+        HOLDTAP_TAP_PREFFERED(hrm, &kp,     TAPPING_TERM,     QUICK_TAP_MS);
+        MODTAP_TAP_BALANCED_POSITIONAL(lht, TAPPING_TERM,     QUICK_TAP_MS, KEYS_RH_THUMB);
+        MODTAP_TAP_BALANCED_POSITIONAL(rht, TAPPING_TERM,     QUICK_TAP_MS, KEYS_LH_THUMB);
+        HOLDTAP_TAP_PREFFERED(slt, &mo,     LAYTAP_SLOW_TERM, LAYTAP_SLOW_TERM);
     };
 
 
-    // -------- COMBOS ---------
-
-    #define COMBO(name, keypress, keypos) \
-    combo_##name {\
-        timeout-ms = <30>;\
-        bindings = <keypress>;\
-        key-positions = <keypos>;\
-    }
     /*  key pos 
     ---------------------------------------------------------
                     LT3 LT2 LT1 LT0 │ RT0 RT1 RT2 RT3        
@@ -127,26 +55,31 @@
 
     combos {
         compatible = "zmk,combos";
-        COMBO(tab              ,&kp TAB       ,LT3 LT2);
-        COMBO(bspc             ,&bspc_del     ,RT2 RT3);
-        COMBO(enter            ,&kp ENTER     ,RM2 RM3);
-        COMBO(esc              ,&kp ESC       ,LH0 LH1);
-        COMBO(esc2             ,&kp ESC       ,RH0 RH1);
-        COMBO(caps             ,&caps_word    ,LH0 RH0);
-        //vertical combos
-        COMBO(lbkt             ,&kp LBKT      ,LT3 LM3);
-        COMBO(lbrc             ,&kp LBRC      ,LT2 LM2);
-        COMBO(lpar             ,&kp LPAR      ,LT1 LM1);
-        COMBO(rpar             ,&rpar_lpar    ,RT1 RM1);
-        COMBO(rbrc             ,&rbrc_lbrc    ,RT2 RM2);
-        COMBO(rbkt             ,&kp RBKT      ,RT3 RM3);
-        COMBO(equal            ,&kp EQUAL     ,LT0 LM0);
-        COMBO(under            ,&kp UNDER     ,RT0 RM0);
+        // horizontal combos
+        COMBO(tab              ,&kp TAB       ,LT3 LT2,   COMBO_QUICK_MS);
+        COMBO(esc0             ,&kp ESC       ,LM1 LM2,   COMBO_QUICK_MS);
+        COMBO(bspc             ,&bspc_del     ,RT2 RT3,   COMBO_QUICK_MS);
+        COMBO(enter            ,&kp ENTER     ,RM1 RM2,   COMBO_QUICK_MS);
+         
+        // vertical combos
+        COMBO(lbkt             ,&kp LBKT      ,LT3 LM3,   COMBO_SLOW_MS);
+        COMBO(lbrc             ,&kp LBRC      ,LT2 LM2,   COMBO_SLOW_MS);
+        COMBO(lpar             ,&kp LPAR      ,LT1 LM1,   COMBO_SLOW_MS);
+        COMBO(rpar             ,&rpar_lpar    ,RT1 RM1,   COMBO_SLOW_MS);
+        COMBO(rbrc             ,&rbrc_lbrc    ,RT2 RM2,   COMBO_SLOW_MS);
+        COMBO(rbkt             ,&kp RBKT      ,RT3 RM3,   COMBO_SLOW_MS);
+        COMBO(equal            ,&kp EQUAL     ,LT0 LM0,   COMBO_SLOW_MS);
+        COMBO(under            ,&kp UNDER     ,RT0 RM0,   COMBO_SLOW_MS);
+
+        // thumb combos
+        COMBO(esc              ,&kp ESC       ,LH0 LH1,   COMBO_SLOW_MS);
+        COMBO(esc2             ,&kp ESC       ,RH0 RH1,   COMBO_SLOW_MS);
+        COMBO(caps             ,&caps_word    ,LH0 RH0,   COMBO_SLOW_MS);
+
     };
 
 
     // -------- LAYERS ---------
-
     #define _____  &trans
     #define TRANS_LAYER(layer_name) \
         layer_name {\
@@ -167,7 +100,7 @@
         BASE {
             bindings = <
 //                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
-                               &kp W      &kp E       &kp R      &kp T             &kp Y       &kp U     &kp I       &kp O
+                            &slt FN W      &kp E       &kp R      &kp T             &kp Y       &kp U     &kp I     &slt FN O
 //╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
        &kp Q      HRML(A,        S,         D,         F)        &kp G             &kp H      HRMR(J,      K,          L,        SQT)         &kp P
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
@@ -248,14 +181,6 @@
         };
     };
 
-
-    // -------- CONDITIONAL_LAYERS ---------
-
-    #define TRI_LAYER(name, ifs, thens) \
-        tri_layer_##name {\
-            if-layers = <ifs>;\
-            then-layer = <thens>;\
-        }
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
