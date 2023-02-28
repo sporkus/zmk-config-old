@@ -60,7 +60,7 @@
         flavor = "tap-preferred" ;\
     }
 
-#define MODTAP_TAP_BALANCED_POSITIONAL(name, b1, b2, tapterm, quickterm, holdkeys, global_quick_tap) \
+#define MODTAP_TAP_BALANCED_POS(name, b1, b2, tapterm, quickterm, global_quick_tap, holdkeys) \
     HOLDTAP_(name, b1, b2, tapterm, quickterm, global_quick_tap) \
         flavor = "balanced";\
         hold-trigger-key-positions = <holdkeys>;\
