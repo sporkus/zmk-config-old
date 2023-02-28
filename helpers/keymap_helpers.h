@@ -46,7 +46,7 @@
     }
 
 #define NO_GLOBAL_QT
-#define GLOBAL_QT global-quick-tap;\
+#define GLOBAL_QT global-quick-tap;
 #define HOLDTAP_(name, b1, b2, tapterm, quickterm, global_quick_tap) \
     ZMK_BEHAVIOR(name, 2)\
         compatible = "zmk,behavior-hold-tap";\
