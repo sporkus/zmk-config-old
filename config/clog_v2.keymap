@@ -40,7 +40,7 @@
         STICKY(skp, &kp, STICKY_TIME);
         STICKY(smo, &mo, STICKY_TIME);
 
-        MACRO(win_sleep,      &kp LG(X) &kp U &kp S);
+        MACRO(win_sleep,      &macro_wait_time 100 &kp LG(X) &kp U &kp S);
         MACRO(less_eql,       &kp LESS_THAN    &kp EQUAL);
         MACRO(greater_eql,    &kp GREATER_THAN &kp EQUAL);
         MACRO(not_eql,        &kp EXCL         &kp EQUAL);
