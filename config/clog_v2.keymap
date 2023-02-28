@@ -71,8 +71,8 @@
         // horizontal combos
         COMBO(tab         ,&kp TAB          ,LT3 LT2,   COMBO_QUICK_MS,  COMBO_ALL);
         COMBO(esc0        ,&kp ESC          ,LM1 LM2,   COMBO_QUICK_MS,  COMBO_ALL);
-        COMBO(win_copy    ,&lht LC(C) LC(V) ,LM2 LM3,   COMBO_QUICK_MS,  _WIN);
-        COMBO(mac_copy    ,&lht LG(C) LG(V) ,LM2 LM3,   COMBO_QUICK_MS,  _MAC);
+        COMBO(win_copy    ,&lht LC(V) LC(C) ,LM2 LM3,   COMBO_QUICK_MS,  _WIN);
+        COMBO(mac_copy    ,&lht LG(V) LG(C) ,LM2 LM3,   COMBO_QUICK_MS,  _MAC);
         COMBO(bspc        ,&bspc_del        ,RT2 RT3,   COMBO_QUICK_MS,  COMBO_ALL);
         COMBO(enter       ,&kp ENTER        ,RM1 RM2,   COMBO_QUICK_MS,  COMBO_ALL);
          
