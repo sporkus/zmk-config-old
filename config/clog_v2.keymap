@@ -6,7 +6,7 @@
 
 // SETTINGS 
 #define TAPPING_TERM 300 
-#define TAP_DANCE_TERM 220 
+#define TAP_DANCE_TERM 200 
 #define QUICK_TAP_MS 500 
 #define LAYTAP_SLOW_TERM 1000 
 #define STICKY_TIME_MS 1000 
