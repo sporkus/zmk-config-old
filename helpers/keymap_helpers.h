@@ -8,17 +8,17 @@
         label = STRINGIFY(name);\
         #binding-cells = <cell>;
 
-#define SHIFT_MORPH(name, bind1, bind2) \
+#define SHIFT_MORPH(name, b1, b2) \
     ZMK_BEHAVIOR(name, 0)\
         compatible = "zmk,behavior-mod-morph";\
-        bindings = <bind1>, <bind2>;\
+        bindings = <b1>, <b2>;\
         mods = <(MOD_LSFT|MOD_RSFT)>;\
     }
 
-#define DOUBLE_TAP(name, tapterm, bind1, bind2) \
+#define DOUBLE_TAP(name, tapterm, b1, b2) \
     ZMK_BEHAVIOR(name, 0)\
         compatible = "zmk,behavior-tap-dance";\
-        bindings = <bind1>, <bind2>;\
+        bindings = <b1>, <b2>;\
         tapping-term-ms = <tapterm>;\
     }
 
@@ -45,21 +45,23 @@
 	    bindings = <keys>;\
     }
 
-#define HOLDTAP_(name, b1, b2, tapterm, quickterm) \
+#define NO_GLOBAL_QT
+#define GLOBAL_QT global-quick-tap;\
+#define HOLDTAP_(name, b1, b2, tapterm, quickterm, global_quick_tap) \
     ZMK_BEHAVIOR(name, 2)\
         compatible = "zmk,behavior-hold-tap";\
         bindings = <b1>, <b2>;\
         tapping-term-ms = <tapterm>;\
         quick-tap-ms = <quickterm>;\
+        global_quick_tap
 
-#define HOLDTAP_TAP_PREFFERED(name, b1, b2, tapterm, quickterm) \
-    HOLDTAP_(name, b1, b2, tapterm, quickterm) \
+#define HOLDTAP_TAP_PREFFERED(name, b1, b2, tapterm, quickterm, global_quick_tap) \
+    HOLDTAP_(name, b1, b2, tapterm, quickterm, global_quick_tap) \
         flavor = "tap-preferred" ;\
-        global-quick-tap;\
     }
 
-#define MODTAP_TAP_BALANCED_POSITIONAL(name, b1, b2, tapterm, quickterm, holdkeys) \
-    HOLDTAP_(name, b1, b2, tapterm, quickterm) \
+#define MODTAP_TAP_BALANCED_POSITIONAL(name, b1, b2, tapterm, quickterm, holdkeys, global_quick_tap) \
+    HOLDTAP_(name, b1, b2, tapterm, quickterm, global_quick_tap) \
         flavor = "balanced";\
         hold-trigger-key-positions = <holdkeys>;\
     }
