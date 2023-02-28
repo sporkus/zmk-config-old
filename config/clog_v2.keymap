@@ -47,7 +47,7 @@
         DOUBLE_TAP(lt_lte,    TAP_DANCE_TERM,   &kp LT,     &less_eql);
         DOUBLE_TAP(gt_gte,    TAP_DANCE_TERM,   &kp GT,     &greater_eql);
         DOUBLE_TAP(eql_neql,  TAP_DANCE_TERM,   &kp EQUAL,  &not_eql);
-        DOUBLE_TAP(sft_caps,  TAP_DANCE_TERM,   &skp LSHFT, &caps_word);
+        DOUBLE_TAP(sft_caps,  TAPPING_TERM,     &skp LSHFT, &caps_word);  //thumbs are a bit slower to tap
 
         HOLDTAP_TAP_PREFFERED(hrm, &kp,     TAPPING_TERM,     QUICK_TAP_MS);
         MODTAP_TAP_BALANCED_POSITIONAL(lht, TAPPING_TERM,     QUICK_TAP_MS, KEYS_RH_THUMB);
