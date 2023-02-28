@@ -9,7 +9,7 @@
 #define TAP_DANCE_TERM 200 
 #define QUICK_TAP_MS 500 
 #define LAYTAP_SLOW_TERM 1000 
-#define STICKY_TIME_MS 1000 
+#define STICKY_TIME 1000 
 #define COMBO_QUICK_MS 40  
 #define COMBO_SLOW_MS  70 
 
@@ -36,8 +36,8 @@
         SHIFT_MORPH(dot_coln,   DOT,                COLON);
         SHIFT_MORPH(comm_scln,  COMMA,              SEMICOLON);
 
-        STICKY(skp, &kp);
-        STICKY(smo, &mo);
+        STICKY(skp, &kp, STICKY_TIME);
+        STICKY(smo, &mo, STICKY_TIME);
 
         MACRO(win_sleep,      &kp LG(X) &kp U &kp S);
         MACRO(less_eql,       &kp LESS_THAN    &kp EQUAL);
@@ -48,6 +48,7 @@
         DOUBLE_TAP(gt_gte,    TAP_DANCE_TERM,   &kp GT,       &greater_eql);
         DOUBLE_TAP(eql_neql,  TAP_DANCE_TERM,   &kp EQUAL,    &not_eql);
         DOUBLE_TAP(win_copy,  TAP_DANCE_TERM,   &kp LC(C),    &kp LC(V));
+        DOUBLE_TAP(mac_copy,  TAP_DANCE_TERM,   &kp LG(C),    &kp LG(V));
         TRIPLE_TAP(sft_caps,  TAPPING_TERM,     &skp LSHFT,   &caps_word,   &kp K_CANCEL);  //thumbs are slow
 
         HOLDTAP_TAP_PREFFERED(hrm, &kp,     TAPPING_TERM,     QUICK_TAP_MS);
@@ -70,7 +71,8 @@
         // horizontal combos
         COMBO(tab         ,&kp TAB       ,LT3 LT2,   COMBO_QUICK_MS,  COMBO_ALL);
         COMBO(esc0        ,&kp ESC       ,LM1 LM2,   COMBO_QUICK_MS,  COMBO_ALL);
-        COMBO(win_copy    ,&win_copy     ,LM1 LM3,   COMBO_QUICK_MS,  COMBO_ALL);
+        COMBO(win_copy    ,&win_copy     ,LM1 LM3,   COMBO_QUICK_MS,  _WIN);
+        COMBO(mac_copy    ,&mac_copy     ,LM1 LM3,   COMBO_QUICK_MS,  BASE _MAC);
         COMBO(bspc        ,&bspc_del     ,RT2 RT3,   COMBO_QUICK_MS,  COMBO_ALL);
         COMBO(enter       ,&kp ENTER     ,RM1 RM2,   COMBO_QUICK_MS,  COMBO_ALL);
          
@@ -87,8 +89,6 @@
         // thumb combos
         COMBO(esc         ,&kp ESC       ,LH0 LH1,   COMBO_SLOW_MS,   COMBO_ALL);
         COMBO(esc2        ,&kp ESC       ,RH0 RH1,   COMBO_SLOW_MS,   COMBO_ALL);
-        COMBO(caps        ,&caps_word    ,LH0 RH0,   COMBO_SLOW_MS,   COMBO_ALL);
-
     };
 
 

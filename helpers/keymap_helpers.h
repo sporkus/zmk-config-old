@@ -29,11 +29,11 @@
         tapping-term-ms = <tapterm>;\
     }
 
-#define STICKY(name, bind) \
+#define STICKY(name, bind, timeout) \
     ZMK_BEHAVIOR(name, 1)\
         compatible = "zmk,behavior-sticky-key";\
         bindings = <bind>;\
-        release-after-ms = <STICKY_TIME_MS>;\
+        release-after-ms = <timeout>;\
         quick-release;\
     }
 
