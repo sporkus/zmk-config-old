@@ -6,7 +6,8 @@
 
 // SETTINGS 
 #define TAPPING_TERM 300 
-#define TAP_DANCE_TERM 200 
+#define TAP_DANCE_FAST 200 
+#define TAP_DANCE_SLOW 350 
 #define QUICK_TAP_MS 500 
 #define LAYTAP_SLOW_TERM 1000 
 #define STICKY_TIME 1000 
@@ -44,12 +45,13 @@
         MACRO(greater_eql,    &kp GREATER_THAN &kp EQUAL);
         MACRO(not_eql,        &kp EXCL         &kp EQUAL);
 
-        DOUBLE_TAP(lt_lte,    TAP_DANCE_TERM,   &kp LT,       &less_eql);
-        DOUBLE_TAP(gt_gte,    TAP_DANCE_TERM,   &kp GT,       &greater_eql);
-        DOUBLE_TAP(eql_neql,  TAP_DANCE_TERM,   &kp EQUAL,    &not_eql);
-        DOUBLE_TAP(win_copy,  TAP_DANCE_TERM,   &kp LC(C),    &kp LC(V));
-        DOUBLE_TAP(mac_copy,  TAP_DANCE_TERM,   &kp LG(C),    &kp LG(V));
-        TRIPLE_TAP(sft_caps,  TAPPING_TERM,     &skp LSHFT,   &caps_word,   &kp K_CANCEL);  //thumbs are slow
+        DOUBLE_TAP(lt_lte,    TAP_DANCE_FAST,   &kp LT,       &less_eql);
+        DOUBLE_TAP(gt_gte,    TAP_DANCE_FAST,   &kp GT,       &greater_eql);
+        DOUBLE_TAP(eql_neql,  TAP_DANCE_FAST,   &kp EQUAL,    &not_eql);
+
+        DOUBLE_TAP(win_copy,  TAP_DANCE_SLOW,   &kp LC(C),    &kp LC(V));
+        DOUBLE_TAP(mac_copy,  TAP_DANCE_SLOW,   &kp LG(C),    &kp LG(V));
+        TRIPLE_TAP(sft_caps,  TAP_DANCE_SLOW,   &skp LSHFT,   &caps_word,   &kp K_CANCEL);  //thumbs are slow
 
         HOLDTAP_TAP_PREFFERED(hrm, &kp,     TAPPING_TERM,     QUICK_TAP_MS);
         MODTAP_TAP_BALANCED_POSITIONAL(lht, TAPPING_TERM,     QUICK_TAP_MS, KEYS_RH_THUMB);
@@ -153,7 +155,7 @@
             >;
         };
 
-        MAC_SHORTCUT {
+        MAC {
             bindings = <
 //                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
                                _____     _____        _____       _____            _____       _____      _____  &kp LA(LG(ESC))
@@ -166,7 +168,7 @@
             >;
         };
                 
-        WIN_SHORTCUT {
+        WIN {
             bindings = <
 //                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
                                _____     _____        _____       _____         &win_sleep      _____      _____    &kp LC(LA(DEL))
