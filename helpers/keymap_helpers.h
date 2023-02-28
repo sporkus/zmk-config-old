@@ -22,6 +22,13 @@
         tapping-term-ms = <tapterm>;\
     }
 
+#define TRIPLE_TAP(name, tapterm, b1, b2, b3) \
+    ZMK_BEHAVIOR(name, 0)\
+        compatible = "zmk,behavior-tap-dance";\
+        bindings = <b1>, <b2>, <b3>;\
+        tapping-term-ms = <tapterm>;\
+    }
+
 #define STICKY(name, bind) \
     ZMK_BEHAVIOR(name, 1)\
         compatible = "zmk,behavior-sticky-key";\

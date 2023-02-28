@@ -44,10 +44,11 @@
         MACRO(greater_eql,    &kp GREATER_THAN &kp EQUAL);
         MACRO(not_eql,        &kp EXCL         &kp EQUAL);
 
-        DOUBLE_TAP(lt_lte,    TAP_DANCE_TERM,   &kp LT,     &less_eql);
-        DOUBLE_TAP(gt_gte,    TAP_DANCE_TERM,   &kp GT,     &greater_eql);
-        DOUBLE_TAP(eql_neql,  TAP_DANCE_TERM,   &kp EQUAL,  &not_eql);
-        DOUBLE_TAP(sft_caps,  TAPPING_TERM,     &skp LSHFT, &caps_word);  //thumbs are a bit slower to tap
+        DOUBLE_TAP(lt_lte,    TAP_DANCE_TERM,   &kp LT,       &less_eql);
+        DOUBLE_TAP(gt_gte,    TAP_DANCE_TERM,   &kp GT,       &greater_eql);
+        DOUBLE_TAP(eql_neql,  TAP_DANCE_TERM,   &kp EQUAL,    &not_eql);
+        DOUBLE_TAP(win_copy,  TAP_DANCE_TERM,   &kp LC(C),    &kp LC(V));
+        TRIPLE_TAP(sft_caps,  TAPPING_TERM,     &skp LSHFT,   &caps_word,   &kp K_CANCEL);  //thumbs are slow
 
         HOLDTAP_TAP_PREFFERED(hrm, &kp,     TAPPING_TERM,     QUICK_TAP_MS);
         MODTAP_TAP_BALANCED_POSITIONAL(lht, TAPPING_TERM,     QUICK_TAP_MS, KEYS_RH_THUMB);
@@ -69,6 +70,7 @@
         // horizontal combos
         COMBO(tab         ,&kp TAB       ,LT3 LT2,   COMBO_QUICK_MS,  COMBO_ALL);
         COMBO(esc0        ,&kp ESC       ,LM1 LM2,   COMBO_QUICK_MS,  COMBO_ALL);
+        COMBO(win_copy    ,&win_copy     ,LM1 LM3,   COMBO_QUICK_MS,  COMBO_ALL);
         COMBO(bspc        ,&bspc_del     ,RT2 RT3,   COMBO_QUICK_MS,  COMBO_ALL);
         COMBO(enter       ,&kp ENTER     ,RM1 RM2,   COMBO_QUICK_MS,  COMBO_ALL);
          
