@@ -6,9 +6,10 @@
 
 // SETTINGS 
 #define TAPPING_TERM 300 
+#define AUTOSHIFT_TERM 200 
 #define TAP_DANCE_FAST 200 
 #define TAP_DANCE_SLOW 350 
-#define QUICK_TAP_MS 300 
+#define QUICK_TAP_MS 200 
 #define LAYTAP_SLOW_TERM 1000 
 #define STICKY_TIME 1000 
 #define COMBO_QUICK_MS 40  
@@ -22,7 +23,7 @@
 #define  NAV  4 
 #define  MAC  5 
 #define  WIN  6 
-#define  ADJ   7
+#define  ADJ  7
 
 &lt {
 	flavor = "tap-preferred";
@@ -69,6 +70,8 @@
     HOLDTAP_BAL(spc_lt,       &mo, &spc_morph, TAPPING_TERM,     QUICK_TAP_MS,      NO_GLOBAL_QT);
     HOLDTAP_TAP(autoshift,    &kp, &kp,        TAPPING_TERM,     0,                 NO_GLOBAL_QT);
     #define AS(keycode) &autoshift LS(keycode) keycode     // Autoshift Macro
+    #define LP_CTRL(letter) &hrm LC(letter) letter 
+    #define LP_GUI(letter)  &hrm LG(letter) letter 
 
     // POSITIONHAL HOLD TAPS: binding1, binding2, tapping_term, quick_tap_time, global_quick_tap, hold_triggers 
     MODTAP_POSITIONAL_BAL(lht, &kp, &kp,  TAPPING_TERM,  QUICK_TAP_MS,  GLOBAL_QT,  KEYS_RH_THUMB);
@@ -93,9 +96,6 @@
     #define BASE_MAC BASE _MAC 
     #define NAV_MAC NAV MAC 
     #define NAV_WIN NAV WIN 
-    #define LP_CTRL(letter) &hrm LC(letter) letter 
-    #define LP_GUI(letter)  &hrm LG(letter) letter 
-    
    
     // horizontal combos
     COMBO(tab         ,&kp TAB          ,LT3 LT2   ,COMBO_QUICK_MS   ,ALL_LAYERS);
