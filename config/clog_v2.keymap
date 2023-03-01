@@ -50,12 +50,16 @@
     MACRO(greater_eql,    &kp GREATER_THAN &kp EQUAL);
     MACRO(not_eql,        &kp EXCL         &kp EQUAL);
     MACRO(period_spc,     &kp DOT   &kp SPACE  &skp LSHFT);
+    MACRO(win_delword,    &kp LC(RIGHT) &kp LS(LC(LEFT)) &kp BSPC);
+    MACRO(mac_delword,    &kp LA(RIGHT) &kp LS(LA(LEFT)) &kp BSPC);
 
     // TAP DANCES: tapping_term, bindings...
-    DOUBLE_TAP(lt_lte,    TAP_DANCE_FAST,   &kp LT,       &less_eql);
-    DOUBLE_TAP(gt_gte,    TAP_DANCE_FAST,   &kp GT,       &greater_eql);
-    DOUBLE_TAP(eql_neql,  TAP_DANCE_FAST,   &kp EQUAL,    &not_eql);
-    TRIPLE_TAP(sft_caps,  TAP_DANCE_SLOW,   &skp LSHFT,   &caps_word,   &kp K_CANCEL);  //thumbs are slow
+    DOUBLE_TAP(lt_lte,    TAP_DANCE_FAST,   &kp LT,         &less_eql);
+    DOUBLE_TAP(gt_gte,    TAP_DANCE_FAST,   &kp GT,         &greater_eql);
+    DOUBLE_TAP(eql_neql,  TAP_DANCE_FAST,   &kp EQUAL,      &not_eql);
+    DOUBLE_TAP(win_copy,  TAP_DANCE_SLOW,   &kp LC(INSERT), &LS(INSERT));
+    DOUBLE_TAP(mac_copy,  TAP_DANCE_SLOW,   &kp LG(C),      &LG(V));
+    TRIPLE_TAP(sft_caps,  TAP_DANCE_SLOW,   &skp LSHFT,     &caps_word,   &kp K_CANCEL);  //thumbs are slow
 
     // HOLD TAPS: binding1, binding2, tapping_term, quick_tap_time, global_quick_tap 
     HOLDTAP_TAP_PREFFERED(hrm,          &kp, &kp,        TAPPING_TERM,     QUICK_TAP_MS,      GLOBAL_QT);
@@ -82,8 +86,12 @@
     // horizontal combos
     COMBO(tab         ,&kp TAB          ,LT3 LT2,   COMBO_QUICK_MS,  COMBO_ALL);
     COMBO(esc0        ,&kp ESC          ,LM1 LM2,   COMBO_QUICK_MS,  COMBO_ALL);
-    COMBO(win_copy    ,&lht LC(V) LC(C) ,LM2 LM3,   COMBO_QUICK_MS,  _WIN);
-    COMBO(mac_copy    ,&lht LG(V) LG(C) ,LM2 LM3,   COMBO_QUICK_MS,  _MAC);
+//  COMBO(win_copy    ,&lht LC(V) LC(C) ,LB1 LB2,   COMBO_QUICK_MS,  _WIN);
+//  COMBO(mac_copy    ,&lht LG(V) LG(C) ,LB1 LB2,   COMBO_QUICK_MS,  _MAC);
+    COMBO(win_copy    ,&win_copy        ,LB1 LB2,   COMBO_QUICK_MS,  _WIN);
+    COMBO(mac_copy    ,&mac_copy        ,LB1 LB2,   COMBO_QUICK_MS,  _MAC);
+    COMBO(win_delword ,&win_delword     ,RT1 RT3,   COMBO_QUICK_MS,  _WIN);
+    COMBO(mac_delword ,&mac_delword     ,RT1 RT3,   COMBO_QUICK_MS,  _MAC);
     COMBO(bspc        ,&bspc_morph      ,RT2 RT3,   COMBO_QUICK_MS,  COMBO_ALL);
     COMBO(enter       ,&kp ENTER        ,RM1 RM2,   COMBO_QUICK_MS,  COMBO_ALL);
      
@@ -124,11 +132,11 @@
         BASE {
             bindings = <
 //                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
-                            &slt FN W      &kp E       &kp R      &kp T             &kp Y      &kp U     &kp I     &slt FN O
+                            &slt FN W      &kp E       &kp R      &kp T           &kp Y      &kp U     &kp I     &slt FN O
 //╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
-       &kp Q      HRML(A,        S,         D,         F)        &kp G             &kp H      HRMR(J,      K,          L,        SQT)         &kp P
+       &kp Q      HRML(A,        S,         D,         F)        &kp G            &kp H      HRMR(J,      K,          L,        SQT)         &kp P
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
-                 &kp Z         &kp X      &kp C       &kp V      &kp B           &kp N       &kp M     &comm_morph  &dot_morph    &kp SLASH
+                 &kp Z         &kp X      &kp C       &kp V      &kp B            &kp N       &kp M     &comm_morph  &dot_morph    &kp SLASH
 //                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮
                                                       &smo 1    &sft_caps      &spc_lt NAV 0  &smo 1 
 
