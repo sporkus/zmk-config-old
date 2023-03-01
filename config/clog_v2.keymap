@@ -8,7 +8,7 @@
 #define TAPPING_TERM 300 
 #define TAP_DANCE_FAST 200 
 #define TAP_DANCE_SLOW 350 
-#define QUICK_TAP_MS 500 
+#define QUICK_TAP_MS 300 
 #define LAYTAP_SLOW_TERM 1000 
 #define STICKY_TIME 1000 
 #define COMBO_QUICK_MS 40  
@@ -93,6 +93,7 @@
     #define NAV_WIN NAV WIN 
     #define LP_CTRL(letter) &hrm LC(letter) letter 
     #define LP_GUI(letter)  &hrm LG(letter) letter 
+    #define AS(keycode)     &as LS(keycode) keycode     // Autoshift Macro
     
    
     // horizontal combos
@@ -150,7 +151,7 @@
 //╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
     &qlt NAV Q      HRML(A,        S,         D,         F)        &kp G          &kp H      HRMR(J,      K,          L,        SQT)         &kp P
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
-                 &kp Z         &kp X      &kp C     LP_CTRL(V)     &kp B          &kp N       &kp M     &comm_morph  &dot_morph    &kp SLASH
+                 &kp Z         &kp X      &kp C     LP_CTRL(V)     &kp B          &kp N       &kp M    &comm_morph &dot_morph   AS(SLASH)
 //                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮
                                                       &smo 1    &sft_caps      &spc_lt NAV 0  &smo 1 
 
