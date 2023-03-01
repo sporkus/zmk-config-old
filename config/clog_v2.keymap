@@ -12,7 +12,7 @@
 #define LAYTAP_SLOW_TERM 1000 
 #define STICKY_TIME 1000 
 #define COMBO_QUICK_MS 40  
-#define COMBO_SLOW_MS  70 
+#define COMBO_SLOW_MS  80 
 
 // LAYERS
 #define  BASE 0
@@ -85,17 +85,24 @@
                 LB4 LB3 LB2 LB1 LB0 │ RB0 RB1 RB2 RB3 RB4    
                             LH1 LH0 | RH0 RH1               
     --------------------------------------------------------- */
+    #define ALL_LAYERS COMBO_ALL
+    #define BASE_LAYERS BASE _WIN _MAC 
+    #define BASE_WIN BASE _WIN 
+    #define BASE_MAC BASE _MAC 
+    #define NAV_MAC NAV MAC 
+    #define NAV_WIN NAV WIN 
+    
+   
     // horizontal combos
-    COMBO(tab         ,&kp TAB          ,LT3 LT2,   COMBO_QUICK_MS,  COMBO_ALL);
-    COMBO(esc0        ,&kp ESC          ,LM1 LM2,   COMBO_QUICK_MS,  COMBO_ALL);
-//  COMBO(win_copy    ,&lht LC(V) LC(C) ,LB1 LB2,   COMBO_QUICK_MS,  _WIN);
-//  COMBO(mac_copy    ,&lht LG(V) LG(C) ,LB1 LB2,   COMBO_QUICK_MS,  _MAC);
-    COMBO(win_copy    ,&win_copy        ,LB1 LB2,   COMBO_QUICK_MS,  _WIN);
-    COMBO(win_delword ,&win_delword     ,RT1 RT3,   COMBO_QUICK_MS,  _WIN);
-    COMBO(mac_copy    ,&mac_copy        ,LB1 LB2,   COMBO_QUICK_MS,  _MAC);
-    COMBO(mac_delword ,&mac_delword     ,RT1 RT3,   COMBO_QUICK_MS,  _MAC);
-    COMBO(bspc        ,&bspc_morph      ,RT2 RT3,   COMBO_QUICK_MS,  COMBO_ALL);
-    COMBO(enter       ,&kp ENTER        ,RM1 RM2,   COMBO_QUICK_MS,  COMBO_ALL);
+    COMBO(tab         ,&kp TAB          ,LT3 LT2   ,COMBO_QUICK_MS   ,ALL_LAYERS);
+    COMBO(esc0        ,&kp ESC          ,LM1 LM2   ,COMBO_QUICK_MS   ,BASE_LAYERS);
+    COMBO(win_copy    ,&win_copy        ,LB1 LB2   ,COMBO_QUICK_MS   ,BASE_WIN);
+    COMBO(win_delword ,&win_delword     ,RT1 RT3   ,COMBO_QUICK_MS   ,BASE_WIN);
+    COMBO(mac_copy    ,&mac_copy        ,LB1 LB2   ,COMBO_QUICK_MS   ,BASE_MAC);
+    COMBO(mac_delword ,&mac_delword     ,RT1 RT3   ,COMBO_QUICK_MS   ,BASE_MAC);
+    COMBO(bspc        ,&bspc_morph      ,RT2 RT3   ,COMBO_QUICK_MS   ,ALL_LAYERS);
+    COMBO(enter       ,&kp ENTER        ,RM1 RM2   ,COMBO_QUICK_MS   ,ALL_LAYERS);
+    COMBO(screenshot) ,&kp LG(LS(S))    ,LM2 LM3   ,COMBO_SLOW_MS    ,NAV WIN MAC);
      
     // vertical combos
     COMBO(lbkt        ,&kp LBKT         ,LT3 LM3,   COMBO_SLOW_MS,   COMBO_ALL);
@@ -173,33 +180,33 @@
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
                    &none       &none       &none      &none    &kp LA(TAB)       _____      _____       _____       _____       _____
 //                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮
-                                                       _____      _____           &tog 4     &to 4
+                                                       _____   &key_repeat          &tog 4     &to 4
             >;
         };
 
         MAC {
             bindings = <
 //                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
-                            &kp LG(W)   &mac_finder   _____       _____            _____       _____      _____       _____ 
+                            &kp LG(W)   &mac_finder &kp LG(R)     _____            _____       _____      _____       _____ 
 //╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
      &kp LG(Q)     _____      _____      _____        _____       _____            _____       _____      _____       _____       _____      _____
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
                 &kp LG(Z)   &kp LG(X)   &kp LG(C)   &kp LG(V)     _____            _____       _____      _____       _____    &kp LG(LA(S)) 
 //                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮
-                                                       _____   &kp LG(SPACE)       _____       _____
+                                                  &kp LG(SPACE)   _____            _____       _____
             >;
         };
                 
         WIN {
             bindings = <
 //                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
-                            &kp LC(W)   &kp LG(E)     _____       _____            _____       _____      _____      _____ 
+                            &kp LC(W)   &kp LG(E)   &kp LC(R)     _____            _____       _____      _____      _____ 
 //╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
     &kp LA(F4)     _____      _____       _____       _____       _____            _____       _____      _____       _____       _____      _____
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
                 &kp LC(Z)   &kp LC(X)   &kp LC(C)   &kp LC(V)     _____            _____       _____      _____       _____    &win_sleep
 //                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮
-                                                       _____    &kp LGUI           _____       _____
+                                                    &kp LGUI      _____            _____       _____
             >;
         };
 
