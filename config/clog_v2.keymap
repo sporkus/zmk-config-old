@@ -91,6 +91,8 @@
     #define BASE_MAC BASE _MAC 
     #define NAV_MAC NAV MAC 
     #define NAV_WIN NAV WIN 
+    #define LP_CTRL(letter) &hrm LC(letter) letter 
+    #define LP_GUI(letter)  &hrm LG(letter) letter 
     
    
     // horizontal combos
@@ -101,7 +103,8 @@
     COMBO(mac_copy    ,&mac_copy        ,LB1 LB2   ,COMBO_QUICK_MS   ,BASE_MAC);
     COMBO(mac_delword ,&mac_delword     ,RT1 RT3   ,COMBO_QUICK_MS   ,BASE_MAC);
     COMBO(bspc        ,&bspc_morph      ,RT2 RT3   ,COMBO_QUICK_MS   ,ALL_LAYERS);
-    COMBO(enter       ,&kp ENTER        ,RM1 RM2   ,COMBO_QUICK_MS   ,ALL_LAYERS);
+    COMBO(enter       ,LP_CTRL(ENTER)   ,RM1 RM2   ,COMBO_QUICK_MS   ,BASE_WIN);
+    COMBO(enter       ,LP_GUI(ENTER)    ,RM1 RM2   ,COMBO_QUICK_MS   ,BASE_MAC);
     COMBO(screenshot  ,&kp LG(LS(S))    ,LM2 LM3   ,COMBO_SLOW_MS    ,NAV WIN MAC);
      
     // vertical combos
@@ -136,7 +139,6 @@
 
     #define HRML(k1,k2,k3,k4) &hrm LALT  k1   &hrm LGUI k2  &lht LSHFT k3  &hrm LCTRL k4
     #define HRMR(k1,k2,k3,k4) &hrm RCTRL k1  &rht RSHFT k2  &hrm RGUI k3   &hrm RALT k4
-    #define LP_CTRL(letter) &hrm LC(letter) letter 
 
     keymap {
         compatible = "zmk,keymap";
