@@ -52,12 +52,13 @@
     MACRO(period_spc,     &kp DOT   &kp SPACE  &skp LSHFT);
     MACRO(win_delword,    &kp LC(RIGHT) &kp LS(LC(LEFT)) &kp BSPC);
     MACRO(mac_delword,    &kp LA(RIGHT) &kp LS(LA(LEFT)) &kp BSPC);
-
+    MACRO(mac_finder,      &kp LG(SPACE) &kp F &kp I &kp N &kp D &kp E &kp R &kp ENTER);
 
     // TAP DANCES: tapping_term, bindings...
     DOUBLE_TAP(lt_lte,    TAP_DANCE_FAST,   &kp LT,         &less_eql);
     DOUBLE_TAP(gt_gte,    TAP_DANCE_FAST,   &kp GT,         &greater_eql);
     DOUBLE_TAP(eql_neql,  TAP_DANCE_FAST,   &kp EQUAL,      &not_eql);
+    DOUBLE_TAP(u_ctrlr,   TAP_DANCE_FAST,   &kp U,          &kp LC(R));
     DOUBLE_TAP(win_copy,  TAP_DANCE_SLOW,   &kp LC(INSERT), &kp LS(INSERT));
     DOUBLE_TAP(mac_copy,  TAP_DANCE_SLOW,   &kp LG(C),      &kp LG(V));
     TRIPLE_TAP(sft_caps,  TAP_DANCE_SLOW,   &skp LSHFT,     &caps_word,   &kp K_CANCEL);  //thumbs are slow
@@ -136,11 +137,11 @@
         BASE {
             bindings = <
 //                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
-                            LP_CTRL(W)    &kp E     LP_CTRL(R)      &kp T           &kp Y       &kp U       &kp I        &kp O
+                            LP_CTRL(W)    &kp E     LP_CTRL(R)     &kp T          &kp Y     &u_ctrlr     &kp I        &kp O
 //╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
     &qlt NAV Q      HRML(A,        S,         D,         F)        &kp G          &kp H      HRMR(J,      K,          L,        SQT)         &kp P
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
-                 &kp Z         &kp X      &kp C     LP_CTRL(V)    &kp B           &kp N       &kp M     &comm_morph  &dot_morph    &kp SLASH
+                 &kp Z         &kp X      &kp C     LP_CTRL(V)     &kp B          &kp N       &kp M     &comm_morph  &dot_morph    &kp SLASH
 //                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮
                                                       &smo 1    &sft_caps      &spc_lt NAV 0  &smo 1 
 
@@ -179,7 +180,7 @@
         MAC {
             bindings = <
 //                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
-                            &kp LG(W)     _____        _____       _____            _____       _____      _____       _____ 
+                            &kp LG(W)   &mac_finder   _____       _____            _____       _____      _____       _____ 
 //╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
      &kp LG(Q)     _____      _____      _____        _____       _____            _____       _____      _____       _____       _____      _____
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
