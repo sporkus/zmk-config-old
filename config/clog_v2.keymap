@@ -57,8 +57,8 @@
     DOUBLE_TAP(lt_lte,    TAP_DANCE_FAST,   &kp LT,         &less_eql);
     DOUBLE_TAP(gt_gte,    TAP_DANCE_FAST,   &kp GT,         &greater_eql);
     DOUBLE_TAP(eql_neql,  TAP_DANCE_FAST,   &kp EQUAL,      &not_eql);
-    DOUBLE_TAP(win_copy,  TAP_DANCE_SLOW,   &kp LC(INSERT), &LS(INSERT));
-    DOUBLE_TAP(mac_copy,  TAP_DANCE_SLOW,   &kp LG(C),      &LG(V));
+    DOUBLE_TAP(win_copy,  TAP_DANCE_SLOW,   &kp LC(INSERT), &kp LS(INSERT));
+    DOUBLE_TAP(mac_copy,  TAP_DANCE_SLOW,   &kp LG(C),      &kp LG(V));
     TRIPLE_TAP(sft_caps,  TAP_DANCE_SLOW,   &skp LSHFT,     &caps_word,   &kp K_CANCEL);  //thumbs are slow
 
     // HOLD TAPS: binding1, binding2, tapping_term, quick_tap_time, global_quick_tap 
@@ -89,8 +89,8 @@
 //  COMBO(win_copy    ,&lht LC(V) LC(C) ,LB1 LB2,   COMBO_QUICK_MS,  _WIN);
 //  COMBO(mac_copy    ,&lht LG(V) LG(C) ,LB1 LB2,   COMBO_QUICK_MS,  _MAC);
     COMBO(win_copy    ,&win_copy        ,LB1 LB2,   COMBO_QUICK_MS,  _WIN);
-    COMBO(mac_copy    ,&mac_copy        ,LB1 LB2,   COMBO_QUICK_MS,  _MAC);
     COMBO(win_delword ,&win_delword     ,RT1 RT3,   COMBO_QUICK_MS,  _WIN);
+    COMBO(mac_copy    ,&mac_copy        ,LB1 LB2,   COMBO_QUICK_MS,  _MAC);
     COMBO(mac_delword ,&mac_delword     ,RT1 RT3,   COMBO_QUICK_MS,  _MAC);
     COMBO(bspc        ,&bspc_morph      ,RT2 RT3,   COMBO_QUICK_MS,  COMBO_ALL);
     COMBO(enter       ,&kp ENTER        ,RM1 RM2,   COMBO_QUICK_MS,  COMBO_ALL);
