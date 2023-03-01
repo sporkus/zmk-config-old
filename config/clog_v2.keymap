@@ -68,13 +68,13 @@
     HOLDTAP_TAP(htm,          &kp, &kp,        TAPPING_TERM,     GLOBAL_QT_MS,    GLOBAL_QT);
     HOLDTAP_TAP(qlt,          &mo, &kp,        TAPPING_TERM,     GLOBAL_QT_MS,    GLOBAL_QT);
     HOLDTAP_BAL(spc_lt,       &mo, &spc_morph, TAPPING_TERM,     GLOBAL_QT_MS,    NO_GLOBAL_QT);
-
     HOLDTAP_TAP(autoshift,    &kp, &kp,        AUTOSHIFT_TERM,   0,               NO_GLOBAL_QT);
     #define AS(keycode) &autoshift LS(keycode) keycode
     
-    #define AS_MORPH(morph)  HOLDTAP_TAP(as_ ## morph,  &kp, &morph, AUTOSHIFT_TERM,   0, NO_GLOBAL_QT)
-    AS_MORPH(dot_morph);
-    AS_MORPH(comm_morph);
+    HOLDTAP_TAP(as_comm,      &kp, &comm_morph, AUTOSHIFT_TERM,   0,              NO_GLOBAL_QT);
+    #define AS_COMM &as_comm SEMICOLON 0
+    HOLDTAP_TAP(as_dotm,      &kp, &dot_morph,  AUTOSHIFT_TERM,   0,              NO_GLOBAL_QT);
+    #define AS_DOTM &as_dotm COLON 0
 
     // POSITIONHAL HOLD TAPS: binding1, binding2, tapping_term, quick_tap_time, global_quick_tap, hold_triggers 
     MODTAP_POSITIONAL_BAL(lht,     &kp, &kp,  TAPPING_TERM,  GLOBAL_QT_MS,  GLOBAL_QT,  KEYS_RH_THUMB);
@@ -154,11 +154,11 @@
         BASE {
             bindings = <
 //                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
-                            LP_CTRL(W)    &kp E     LP_CTRL(R)     &kp T          &kp Y     &u_ctrlr    LP_CTRL(I)  LP_CTRL(O) 
+                             &kp W        &kp E       &kp R       &kp T          &kp Y     &u_ctrlr      &kp I      &kp O   
 //╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
-    &qlt NAV Q      HRML(A,        S,         D,         F)        &kp G          &kp H      HRMR(J,      K,          L,        SQT)        LP_CTRL(P)
+    &qlt NAV Q      HRML(A,        S,         D,         F)        &kp G          &kp H      HRMR(J,      K,          L,        SQT)          &kp P  
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
-                 &kp Z         &kp X   LP_CTRL(C)  LP_CTRL(V)     &kp B          &kp N       &kp M     &as_comm_morph &as_dot_morph   AS(SLASH)
+                 &kp Z         &kp X   LP_CTRL(C)  LP_CTRL(V)     &kp B          &kp N       &kp M        AS_COMM    AS_DOTM   AS(SLASH)
 //                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮
                                                       &smo 1    &sft_caps      &spc_lt NAV 0  &smo 1 
 
