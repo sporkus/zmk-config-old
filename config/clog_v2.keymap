@@ -45,14 +45,14 @@
     STICKY(smo, &mo, STICKY_TIME);
 
     // KEYPRESS SEQUENCES: bindings...
-    MACRO(win_sleep,      &macro_wait_time 100 &kp LG(X) &kp U &kp S);
+    MACRO(win_sleep,      &kp LG(X) &kp U &kp S);
     MACRO(less_eql,       &kp LESS_THAN    &kp EQUAL);
     MACRO(greater_eql,    &kp GREATER_THAN &kp EQUAL);
     MACRO(not_eql,        &kp EXCL         &kp EQUAL);
     MACRO(period_spc,     &kp DOT   &kp SPACE  &skp LSHFT);
     MACRO(win_delword,    &kp LC(RIGHT) &kp LS(LC(LEFT)) &kp BSPC);
     MACRO(mac_delword,    &kp LA(RIGHT) &kp LS(LA(LEFT)) &kp BSPC);
-    MACRO(mac_finder,      &kp LG(SPACE) &kp F &kp I &kp N &kp D &kp E &kp R &kp ENTER);
+    MACRO(mac_finder,     &kp LG(SPACE) &macro_wait_time 1 &kp F &kp I &kp N &kp D &kp E &kp R &kp ENTER);
 
     // TAP DANCES: tapping_term, bindings...
     DOUBLE_TAP(lt_lte,    TAP_DANCE_FAST,   &kp LT,         &less_eql);
@@ -64,13 +64,15 @@
     TRIPLE_TAP(sft_caps,  TAP_DANCE_SLOW,   &skp LSHFT,     &caps_word,   &kp K_CANCEL);  //thumbs are slow
 
     // HOLD TAPS: binding1, binding2, tapping_term, quick_tap_time, global_quick_tap 
-    HOLDTAP_TAP_PREFFERED(hrm,          &kp, &kp,        TAPPING_TERM,     QUICK_TAP_MS,      GLOBAL_QT);
-    HOLDTAP_TAP_PREFFERED(qlt,          &mo, &kp,        TAPPING_TERM,     QUICK_TAP_MS,      GLOBAL_QT);
-    HOLDTAP_TAP_PREFFERED(spc_lt,       &mo, &spc_morph, TAPPING_TERM,     QUICK_TAP_MS,      NO_GLOBAL_QT);
+    HOLDTAP_TAP(hrm,          &kp, &kp,        TAPPING_TERM,     QUICK_TAP_MS,      GLOBAL_QT);
+    HOLDTAP_TAP(qlt,          &mo, &kp,        TAPPING_TERM,     QUICK_TAP_MS,      GLOBAL_QT);
+    HOLDTAP_BAL(spc_lt,       &mo, &spc_morph, TAPPING_TERM,     QUICK_TAP_MS,      NO_GLOBAL_QT);
+    HOLDTAP_TAP(autoshift,    &kp, &kp,        TAPPING_TERM,     0,                 NO_GLOBAL_QT);
+    #define AS(keycode) &autoshift LS(keycode) keycode     // Autoshift Macro
 
     // POSITIONHAL HOLD TAPS: binding1, binding2, tapping_term, quick_tap_time, global_quick_tap, hold_triggers 
-    MODTAP_TAP_BALANCED_POS(lht, &kp, &kp,  TAPPING_TERM,  QUICK_TAP_MS,  GLOBAL_QT,  KEYS_RH_THUMB);
-    MODTAP_TAP_BALANCED_POS(rht, &kp, &kp,  TAPPING_TERM,  QUICK_TAP_MS,  GLOBAL_QT,  KEYS_LH_THUMB);
+    MODTAP_POSITIONAL_BAL(lht, &kp, &kp,  TAPPING_TERM,  QUICK_TAP_MS,  GLOBAL_QT,  KEYS_RH_THUMB);
+    MODTAP_POSITIONAL_BAL(rht, &kp, &kp,  TAPPING_TERM,  QUICK_TAP_MS,  GLOBAL_QT,  KEYS_LH_THUMB);
     };
 
 
@@ -93,7 +95,6 @@
     #define NAV_WIN NAV WIN 
     #define LP_CTRL(letter) &hrm LC(letter) letter 
     #define LP_GUI(letter)  &hrm LG(letter) letter 
-    #define AS(keycode)     &as LS(keycode) keycode     // Autoshift Macro
     
    
     // horizontal combos
@@ -104,8 +105,8 @@
     COMBO(mac_copy    ,&mac_copy        ,LB1 LB2   ,COMBO_QUICK_MS   ,BASE_MAC);
     COMBO(mac_delword ,&mac_delword     ,RT1 RT3   ,COMBO_QUICK_MS   ,BASE_MAC);
     COMBO(bspc        ,&bspc_morph      ,RT2 RT3   ,COMBO_QUICK_MS   ,ALL_LAYERS);
-    COMBO(enter       ,LP_CTRL(ENTER)   ,RM1 RM2   ,COMBO_QUICK_MS   ,BASE_WIN);
-    COMBO(enter       ,LP_GUI(ENTER)    ,RM1 RM2   ,COMBO_QUICK_MS   ,BASE_MAC);
+    COMBO(win_enter       ,LP_CTRL(ENTER)   ,RM1 RM2   ,COMBO_QUICK_MS   ,BASE_WIN);
+    COMBO(mac_enter       ,LP_GUI(ENTER)    ,RM1 RM2   ,COMBO_QUICK_MS   ,BASE_MAC);
     COMBO(screenshot  ,&kp LG(LS(S))    ,LM2 LM3   ,COMBO_SLOW_MS    ,NAV WIN MAC);
      
     // vertical combos
@@ -147,11 +148,11 @@
         BASE {
             bindings = <
 //                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
-                            LP_CTRL(W)    &kp E     LP_CTRL(R)     &kp T          &kp Y     &u_ctrlr     &kp I        &kp O
+                            LP_CTRL(W)    &kp E     LP_CTRL(R)     &kp T          &kp Y     &u_ctrlr    LP_CTRL(I)  LP_CTRL(O) 
 //╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
-    &qlt NAV Q      HRML(A,        S,         D,         F)        &kp G          &kp H      HRMR(J,      K,          L,        SQT)         &kp P
+    &qlt NAV Q      HRML(A,        S,         D,         F)        &kp G          &kp H      HRMR(J,      K,          L,        SQT)        LP_CTRL(P)
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
-                 &kp Z         &kp X      &kp C     LP_CTRL(V)     &kp B          &kp N       &kp M    &comm_morph &dot_morph   AS(SLASH)
+                 &kp Z         &kp X   LP_CTRL(C)  LP_CTRL(V)     &kp B          &kp N       &kp M    &comm_morph &dot_morph   AS(SLASH)
 //                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮
                                                       &smo 1    &sft_caps      &spc_lt NAV 0  &smo 1 
 
