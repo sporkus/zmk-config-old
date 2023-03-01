@@ -22,7 +22,7 @@
 #define  NAV  4 
 #define  MAC  5 
 #define  WIN  6 
-#define  FN   7
+#define  ADJ   7
 
 &lt {
 	flavor = "tap-preferred";
@@ -64,7 +64,7 @@
 
     // HOLD TAPS: binding1, binding2, tapping_term, quick_tap_time, global_quick_tap 
     HOLDTAP_TAP_PREFFERED(hrm,          &kp, &kp,        TAPPING_TERM,     QUICK_TAP_MS,      GLOBAL_QT);
-    HOLDTAP_TAP_PREFFERED(slt,          &mo, &kp,        LAYTAP_SLOW_TERM, LAYTAP_SLOW_TERM,  GLOBAL_QT);
+    HOLDTAP_TAP_PREFFERED(qlt,          &mo, &kp,        TAPPING_TERM,     QUICK_TAP_MS,      GLOBAL_QT);
     HOLDTAP_TAP_PREFFERED(spc_lt,       &mo, &spc_morph, TAPPING_TERM,     QUICK_TAP_MS,      NO_GLOBAL_QT);
 
     // POSITIONHAL HOLD TAPS: binding1, binding2, tapping_term, quick_tap_time, global_quick_tap, hold_triggers 
@@ -109,6 +109,7 @@
     // thumb combos
     COMBO(esc         ,&kp ESC          ,LH0 LH1,   COMBO_SLOW_MS,   COMBO_ALL);
     COMBO(esc2        ,&kp ESC          ,RH0 RH1,   COMBO_SLOW_MS,   COMBO_ALL);
+    COMBO(tog_adj     ,&tog ADJ         ,LH1 LH0 RH0 RH1,   COMBO_SLOW_MS,   COMBO_ALL);
     };
 
 
@@ -135,9 +136,9 @@
         BASE {
             bindings = <
 //                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
-                              &kp  W      &kp E       &kp R      &kp T           &kp Y      &kp U       &kp I        &kp O
+                            LP_CTRL(W)    &kp E     LP_CTRL(R)      &kp T           &kp Y       &kp U       &kp I        &kp O
 //╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
-    &slt FN Q      HRML(A,        S,         D,         F)        &kp G            &kp H      HRMR(J,      K,          L,        SQT)         &kp P
+    &qlt NAV Q      HRML(A,        S,         D,         F)        &kp G          &kp H      HRMR(J,      K,          L,        SQT)         &kp P
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
                  &kp Z         &kp X      &kp C     LP_CTRL(V)    &kp B           &kp N       &kp M     &comm_morph  &dot_morph    &kp SLASH
 //                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮
@@ -149,7 +150,7 @@
         SYM {
             bindings = <
 //                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
-                            &kp TILDE   &kp ASTRK   &kp AMPS    &eql_neql       &kp PLUS    &kp N7       &kp N8     &kp N9
+                            &kp TILDE   &kp ASTRK   &kp AMPS    &eql_neql       &kp PLUS     &kp N7       &kp N8     &kp N9
 //╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
      _____      &kp GRAVE   &kp CARET  &kp PERCENT  &kp DOLLAR  &kp UNDER       &kp MINUS    &kp N4       &kp N5     &kp N6      &kp SQT    &kp PIPE
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
@@ -202,7 +203,7 @@
         };
 
 #define BT(num) &bt BT_SEL num
-        FN {
+        ADJ {
             bindings = <
 //                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
                             &to  _MAC   &to _WIN     &reset    &bootloader     &bootloader    &reset      &none       &none
