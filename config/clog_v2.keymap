@@ -68,8 +68,13 @@
     HOLDTAP_TAP(htm,          &kp, &kp,        TAPPING_TERM,     GLOBAL_QT_MS,    GLOBAL_QT);
     HOLDTAP_TAP(qlt,          &mo, &kp,        TAPPING_TERM,     GLOBAL_QT_MS,    GLOBAL_QT);
     HOLDTAP_BAL(spc_lt,       &mo, &spc_morph, TAPPING_TERM,     GLOBAL_QT_MS,    NO_GLOBAL_QT);
+
     HOLDTAP_TAP(autoshift,    &kp, &kp,        AUTOSHIFT_TERM,   0,               NO_GLOBAL_QT);
-    #define AS(keycode) &autoshift LS(keycode) keycode     // Autoshift Macro
+    #define AS(keycode) &autoshift LS(keycode) keycode
+    
+    #define AS_MORPH(morph)  HOLDTAP_TAP(as_ ## morph,  &kp, &morph, AUTOSHIFT_TERM,   0, NO_GLOBAL_QT)
+    AS_MORPH(dot_morph);
+    AS_MORPH(comm_morph);
 
     // POSITIONHAL HOLD TAPS: binding1, binding2, tapping_term, quick_tap_time, global_quick_tap, hold_triggers 
     MODTAP_POSITIONAL_BAL(lht,     &kp, &kp,  TAPPING_TERM,  GLOBAL_QT_MS,  GLOBAL_QT,  KEYS_RH_THUMB);
@@ -142,7 +147,7 @@
 
     #define HRML(k1,k2,k3,k4) &lht LALT  k1  &lht LGUI  k2  &lht LSHFT k3  &lht LCTRL k4
     #define HRMR(k1,k2,k3,k4) &rht RCTRL k1  &rht RSHFT k2  &rht RGUI  k3  &rht RALT k4
-
+    
     keymap {
         compatible = "zmk,keymap";
 
@@ -153,7 +158,7 @@
 //╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
     &qlt NAV Q      HRML(A,        S,         D,         F)        &kp G          &kp H      HRMR(J,      K,          L,        SQT)        LP_CTRL(P)
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
-                 &kp Z         &kp X   LP_CTRL(C)  LP_CTRL(V)     &kp B          &kp N       &kp M    &comm_morph &dot_morph   AS(SLASH)
+                 &kp Z         &kp X   LP_CTRL(C)  LP_CTRL(V)     &kp B          &kp N       &kp M     &as_comm_morph &as_dot_morph   AS(SLASH)
 //                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮
                                                       &smo 1    &sft_caps      &spc_lt NAV 0  &smo 1 
 
