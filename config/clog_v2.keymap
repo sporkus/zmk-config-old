@@ -55,7 +55,7 @@
 
 
     // TAP DANCES: tapping_term, bindings...
-    #define DOUBLE_TAP_CTRL(letter) DOUBLE_TAP(dt_ctrl_ ## letter, TAP_DANCE_SLOW, &kp letter, &kp LC(letter));
+    #define DOUBLE_TAP_CTRL(letter) DOUBLE_TAP(dt_ctrl_ ## letter, TAP_DANCE_SLOW, &kp letter, &kp LC(letter))
     DOUBLE_TAP(lt_lte,    TAP_DANCE_FAST,   &kp LT,         &less_eql);
     DOUBLE_TAP(gt_gte,    TAP_DANCE_FAST,   &kp GT,         &greater_eql);
     DOUBLE_TAP(eql_neql,  TAP_DANCE_FAST,   &kp EQUAL,      &not_eql);
