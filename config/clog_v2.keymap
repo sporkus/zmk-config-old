@@ -102,7 +102,7 @@
     COMBO(mac_delword ,&mac_delword     ,RT1 RT3   ,COMBO_QUICK_MS   ,BASE_MAC);
     COMBO(bspc        ,&bspc_morph      ,RT2 RT3   ,COMBO_QUICK_MS   ,ALL_LAYERS);
     COMBO(enter       ,&kp ENTER        ,RM1 RM2   ,COMBO_QUICK_MS   ,ALL_LAYERS);
-    COMBO(screenshot) ,&kp LG(LS(S))    ,LM2 LM3   ,COMBO_SLOW_MS    ,NAV WIN MAC);
+    COMBO(screenshot  ,&kp LG(LS(S))    ,LM2 LM3   ,COMBO_SLOW_MS    ,NAV WIN MAC);
      
     // vertical combos
     COMBO(lbkt        ,&kp LBKT         ,LT3 LM3,   COMBO_SLOW_MS,   COMBO_ALL);
