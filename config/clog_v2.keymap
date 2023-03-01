@@ -55,16 +55,12 @@
 
 
     // TAP DANCES: tapping_term, bindings...
-    #define DOUBLE_TAP_CTRL(letter) DOUBLE_TAP(dt_ctrl_ ## letter, TAP_DANCE_FAST, &kp letter, &kp LC(letter))
     DOUBLE_TAP(lt_lte,    TAP_DANCE_FAST,   &kp LT,         &less_eql);
     DOUBLE_TAP(gt_gte,    TAP_DANCE_FAST,   &kp GT,         &greater_eql);
     DOUBLE_TAP(eql_neql,  TAP_DANCE_FAST,   &kp EQUAL,      &not_eql);
     DOUBLE_TAP(win_copy,  TAP_DANCE_SLOW,   &kp LC(INSERT), &kp LS(INSERT));
     DOUBLE_TAP(mac_copy,  TAP_DANCE_SLOW,   &kp LG(C),      &kp LG(V));
     TRIPLE_TAP(sft_caps,  TAP_DANCE_SLOW,   &skp LSHFT,     &caps_word,   &kp K_CANCEL);  //thumbs are slow
-    DOUBLE_TAP_CTRL(V);
-    DOUBLE_TAP_CTRL(I);
-    DOUBLE_TAP_CTRL(O);
 
     // HOLD TAPS: binding1, binding2, tapping_term, quick_tap_time, global_quick_tap 
     HOLDTAP_TAP_PREFFERED(hrm,          &kp, &kp,        TAPPING_TERM,     QUICK_TAP_MS,      GLOBAL_QT);
@@ -131,6 +127,7 @@
 
     #define HRML(k1,k2,k3,k4) &hrm LALT  k1   &hrm LGUI k2  &lht LSHFT k3  &hrm LCTRL k4
     #define HRMR(k1,k2,k3,k4) &hrm RCTRL k1  &rht RSHFT k2  &hrm RGUI k3   &hrm RALT k4
+    #define LP_CTRL(letter) &hrm LC(letter) letter 
 
     keymap {
         compatible = "zmk,keymap";
@@ -138,11 +135,11 @@
         BASE {
             bindings = <
 //                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
-                            &slt FN W      &kp E       &kp R      &kp T           &kp Y      &kp U     &kp I     &slt FN O
+                            &slt FN W      &kp E       &kp R      &kp T           &kp Y      &kp U       &kp I     &slt FN O
 //╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
        &kp Q      HRML(A,        S,         D,         F)        &kp G            &kp H      HRMR(J,      K,          L,        SQT)         &kp P
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
-                 &kp Z         &kp X      &kp C     &dt_ctrl_V    &kp B            &kp N       &kp M     &comm_morph  &dot_morph    &kp SLASH
+                 &kp Z         &kp X      &kp C     LP_CTRL(V)    &kp B           &kp N       &kp M     &comm_morph  &dot_morph    &kp SLASH
 //                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮
                                                       &smo 1    &sft_caps      &spc_lt NAV 0  &smo 1 
 
