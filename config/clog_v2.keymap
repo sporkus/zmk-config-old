@@ -116,8 +116,8 @@
     COMBO(rpar        ,&rpar_morph      ,RT1 RM1,   COMBO_SLOW_MS,   COMBO_ALL);
     COMBO(rbrc        ,&rbrc_morph      ,RT2 RM2,   COMBO_SLOW_MS,   COMBO_ALL);
     COMBO(rbkt        ,&kp RBKT         ,RT3 RM3,   COMBO_SLOW_MS,   COMBO_ALL);
-    COMBO(under       ,&kp UNDER        ,LB1 LB1,   COMBO_SLOW_MS,   COMBO_ALL);
-    COMBO(minus       ,&kp MINUS        ,RB1 RB1,   COMBO_SLOW_MS,   COMBO_ALL);
+    COMBO(under       ,&kp UNDER        ,LB1 LM1,   COMBO_SLOW_MS,   COMBO_ALL);
+    COMBO(minus       ,&kp MINUS        ,RB1 RM1,   COMBO_SLOW_MS,   COMBO_ALL);
     COMBO(equal       ,&eql_neql        ,LT0 LM0,   COMBO_SLOW_MS,   COMBO_ALL);
     COMBO(under1      ,&kp UNDER        ,RT0 RM0,   COMBO_SLOW_MS,   COMBO_ALL);
 
