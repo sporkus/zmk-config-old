@@ -127,8 +127,6 @@
 
     // -------- LAYERS ---------------------------------------------------------------
     #define _____  &trans
-    #define TRANS_LAYER(layer_name) \
-    
     #define HRML(k1,k2,k3,k4) &lht LALT  k1  &lht LGUI  k2  &lht LSHFT k3  &lht LCTRL k4
     #define HRMR(k1,k2,k3,k4) &rht RCTRL k1  &rht RSHFT k2  &rht RGUI  k3  &rht RALT k4
     
