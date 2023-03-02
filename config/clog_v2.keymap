@@ -5,14 +5,14 @@
 #include "../helpers/keymap_helpers.h"
 
 // SETTINGS 
-#define TAPPING_TERM 300 
-#define AUTOSHIFT_TERM 150 
-#define TAP_DANCE_FAST 200 
-#define TAP_DANCE_SLOW 350 
-#define GLOBAL_QT_MS 180 
-#define STICKY_TIME 1000 
-#define COMBO_FAST_MS  20  
-#define COMBO_SLOW_MS  80 
+#define TAPPING_TERM     300 
+#define AUTOSHIFT_TERM   150 
+#define TAP_DANCE_FAST   200 
+#define TAP_DANCE_SLOW   350 
+#define GLOBAL_QT_MS     200 
+#define STICKY_TIME      1000 
+#define COMBO_FAST_MS    20  
+#define COMBO_SLOW_MS    80 
 
 // LAYERS
 #define  BASE 0
@@ -124,7 +124,7 @@
     // thumb combos
     COMBO(esc         ,&kp ESC          ,LH0 LH1,   COMBO_SLOW_MS,   COMBO_ALL);
     COMBO(esc2        ,&kp ESC          ,RH0 RH1,   COMBO_SLOW_MS,   COMBO_ALL);
-    COMBO(tog_adj     ,&tog ADJ         ,LH1 LH0 RH0 RH1,   COMBO_SLOW_MS,   COMBO_ALL);
+    COMBO(tog_adj     ,&smo ADJ         ,LH1 LH0 RH0 RH1,   COMBO_SLOW_MS,   COMBO_ALL);
     };
 
 
