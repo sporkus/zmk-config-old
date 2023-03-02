@@ -22,11 +22,6 @@
 #define  _MAC_NAV 4 
 #define  ADJ  5
 
-&lt {
-	flavor = "tap-preferred";
-	quick-tap-ms = <250>;
-};
-
 / {
     // -------- BEHAVIORS ---------------------------------------------------------------
     behaviors {
