@@ -11,8 +11,9 @@
 #define TAP_DANCE_SLOW   350
 #define GLOBAL_QT_MS     200
 #define STICKY_TIME      1000
-#define COMBO_FAST_MS    20
+#define COMBO_FAST_MS    30
 #define COMBO_SLOW_MS    80
+#define COMBO_GQT_MS     80
 
 // LAYERS
 #define  BASE 0
@@ -87,33 +88,33 @@
     #define NAV_MAC NAV _MAC_NAV
 
     // horizontal combos
-    COMBO(tab         ,&kp TAB          ,LM1 LM2   ,COMBO_FAST_MS   ,BASE_MAC);
-    COMBO(esc0        ,&kp ESC          ,LM2 LM3   ,COMBO_FAST_MS   ,BASE_MAC);
-    COMBO(esc1        ,&kp ESC          ,RM2 RM3   ,COMBO_FAST_MS   ,BASE_MAC);
-    COMBO(win_copy    ,WIN_COPY         ,LB1 LB2   ,COMBO_FAST_MS   ,BASE);
-    COMBO(mac_copy    ,MAC_COPY         ,LB1 LB2   ,COMBO_FAST_MS   ,BASE_MAC);
-    COMBO(bspc        ,&bspc_morph      ,RT2 RT3   ,COMBO_FAST_MS   ,BASE_MAC);
-    COMBO(del         ,&kp DEL          ,RT2 RT3   ,COMBO_FAST_MS   ,NAV_MAC);
-    COMBO(win_enter   ,LP_CTRL(ENTER)   ,RM1 RM2   ,COMBO_FAST_MS   ,BASE);
-    COMBO(mac_enter   ,LP_GUI(ENTER)    ,RM1 RM2   ,COMBO_FAST_MS   ,BASE_MAC);
-    COMBO(screenshot  ,&kp LG(LS(S))    ,LM2 LM3   ,COMBO_SLOW_MS   ,NAV _MAC_NAV);
+    COMBO(tab         ,&kp TAB          ,LM1 LM2   ,COMBO_FAST_MS   ,COMBO_GQT_MS  ,BASE_MAC);
+    COMBO(esc0        ,&kp ESC          ,LM2 LM3   ,COMBO_FAST_MS   ,COMBO_GQT_MS  ,BASE_MAC);
+    COMBO(esc1        ,&kp ESC          ,RM2 RM3   ,COMBO_FAST_MS   ,COMBO_GQT_MS  ,BASE_MAC);
+    COMBO(win_copy    ,WIN_COPY         ,LB1 LB2   ,COMBO_FAST_MS   ,COMBO_GQT_MS  ,BASE);
+    COMBO(mac_copy    ,MAC_COPY         ,LB1 LB2   ,COMBO_FAST_MS   ,COMBO_GQT_MS  ,BASE_MAC);
+    COMBO(bspc        ,&bspc_morph      ,RT2 RT3   ,COMBO_FAST_MS   ,COMBO_GQT_MS  ,BASE_MAC);
+    COMBO(del         ,&kp DEL          ,RT2 RT3   ,COMBO_FAST_MS   ,COMBO_GQT_MS  ,NAV_MAC);
+    COMBO(win_enter   ,LP_CTRL(ENTER)   ,RM1 RM2   ,COMBO_FAST_MS   ,COMBO_GQT_MS  ,BASE);
+    COMBO(mac_enter   ,LP_GUI(ENTER)    ,RM1 RM2   ,COMBO_FAST_MS   ,COMBO_GQT_MS  ,BASE_MAC);
+    COMBO(screenshot  ,&kp LG(LS(S))    ,LM2 LM3   ,COMBO_SLOW_MS   ,COMBO_GQT_MS  ,NAV _MAC_NAV);
 
     // vertical combos
-    COMBO(lbkt        ,&kp LBKT         ,LT3 LM3   ,COMBO_SLOW_MS,   ALL_LAYERS);
-    COMBO(lbrc        ,&kp LBRC         ,LT2 LM2   ,COMBO_SLOW_MS,   ALL_LAYERS);
-    COMBO(lpar        ,&kp LPAR         ,LT1 LM1   ,COMBO_SLOW_MS,   ALL_LAYERS);
-    COMBO(rpar        ,&rpar_morph      ,RT1 RM1   ,COMBO_SLOW_MS,   ALL_LAYERS);
-    COMBO(rbrc        ,&rbrc_morph      ,RT2 RM2   ,COMBO_SLOW_MS,   ALL_LAYERS);
-    COMBO(rbkt        ,&kp RBKT         ,RT3 RM3   ,COMBO_SLOW_MS,   ALL_LAYERS);
-    COMBO(under       ,&kp UNDER        ,LB1 LM1   ,COMBO_SLOW_MS,   ALL_LAYERS);
-    COMBO(minus       ,&kp MINUS        ,RB1 RM1   ,COMBO_SLOW_MS,   ALL_LAYERS);
-    COMBO(equal       ,&eql_neql        ,LT0 LM0   ,COMBO_SLOW_MS,   ALL_LAYERS);
-    COMBO(under1      ,&kp UNDER        ,RT0 RM0   ,COMBO_SLOW_MS,   ALL_LAYERS);
+    COMBO(lbkt        ,&kp LBKT         ,LT3 LM3   ,COMBO_SLOW_MS   ,COMBO_GQT_MS  ,ALL_LAYERS);
+    COMBO(lbrc        ,&kp LBRC         ,LT2 LM2   ,COMBO_SLOW_MS   ,COMBO_GQT_MS  ,ALL_LAYERS);
+    COMBO(lpar        ,&kp LPAR         ,LT1 LM1   ,COMBO_SLOW_MS   ,COMBO_GQT_MS  ,ALL_LAYERS);
+    COMBO(rpar        ,&rpar_morph      ,RT1 RM1   ,COMBO_SLOW_MS   ,COMBO_GQT_MS  ,ALL_LAYERS);
+    COMBO(rbrc        ,&rbrc_morph      ,RT2 RM2   ,COMBO_SLOW_MS   ,COMBO_GQT_MS  ,ALL_LAYERS);
+    COMBO(rbkt        ,&kp RBKT         ,RT3 RM3   ,COMBO_SLOW_MS   ,COMBO_GQT_MS  ,ALL_LAYERS);
+    COMBO(under       ,&kp UNDER        ,LB1 LM1   ,COMBO_SLOW_MS   ,COMBO_GQT_MS  ,ALL_LAYERS);
+    COMBO(minus       ,&kp MINUS        ,RB1 RM1   ,COMBO_SLOW_MS   ,COMBO_GQT_MS  ,ALL_LAYERS);
+    COMBO(equal       ,&eql_neql        ,LT0 LM0   ,COMBO_SLOW_MS   ,COMBO_GQT_MS  ,ALL_LAYERS);
+    COMBO(under1      ,&kp UNDER        ,RT0 RM0   ,COMBO_SLOW_MS   ,COMBO_GQT_MS  ,ALL_LAYERS);
 
     // thumb combos
-    COMBO(mo_media      ,&mo  MEDIA       ,LH0 LT2           ,COMBO_SLOW_MS,   ALL_LAYERS);
-    COMBO(smo_adj       ,&smo ADJ         ,LT0 LT1 LT2 LT3   ,COMBO_SLOW_MS,   ALL_LAYERS);
-    COMBO(tog_nav       ,&tog NAV         ,RT0 RT1 RT2 RT3   ,COMBO_SLOW_MS,   ALL_LAYERS);
+    COMBO(mo_media      ,&mo  MEDIA       ,LH0 LT2           ,COMBO_SLOW_MS  ,COMBO_GQT_MS  ,ALL_LAYERS);
+    COMBO(smo_adj       ,&smo ADJ         ,LT0 LT1 LT2 LT3   ,COMBO_SLOW_MS  ,COMBO_GQT_MS  ,ALL_LAYERS);
+    COMBO(tog_nav       ,&tog NAV         ,RT0 RT1 RT2 RT3   ,COMBO_SLOW_MS  ,COMBO_GQT_MS  ,ALL_LAYERS);
     };
 
 

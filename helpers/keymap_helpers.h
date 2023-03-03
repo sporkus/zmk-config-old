@@ -78,12 +78,13 @@
 
 
 // -------- COMBOS ---------
-#define COMBO_ALL 0xff 
-#define COMBO(name, keypress, keypos, term, lay) \
+#define COMBO_ALL 0xff
+#define COMBO(name, keypress, keypos, term, global_qt_ms, lay) \
 combo_##name {\
     timeout-ms = <term>;\
     bindings = <keypress>;\
     key-positions = <keypos>;\
+    global-quick-tap-ms = <global_qt_ms>;\
     layers = <lay>;\
 }
 
