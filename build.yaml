@@ -7,7 +7,7 @@
 include:
    - board: seeeduino_xiao_ble
      shield: clog_v2_left
-   - board: seeeduino_xiao_ble
-     shield: clog_v2_right
-   - board: seeeduino_xiao_ble
-     shield: xiao_settings_reset
+   # - board: seeeduino_xiao_ble
+   #   shield: clog_v2_right
+   # - board: seeeduino_xiao_ble
+   #   shield: xiao_settings_reset
