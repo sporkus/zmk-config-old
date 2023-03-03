@@ -1,0 +1,8 @@
+tools/
+modules/
+zephyr/
+zmk/
+.west/
+build/
+.vscode
+**.uf2

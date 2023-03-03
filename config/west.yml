@@ -2,10 +2,13 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: sporkus
+      url-base: https://github.com/sporkus
   projects:
     - name: zmk
-      remote: zmkfirmware
+      remote: sporkus
       revision: main
       import: app/west.yml
   self:
     path: config
+
