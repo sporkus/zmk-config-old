@@ -2,6 +2,7 @@
 import os
 import yaml
 import logging
+from time import sleep
 from datetime import datetime
 
 logger = logging.getLogger(__name__)
@@ -19,18 +20,20 @@ def main():
     try:
         process_dirs(PATHS)
         os.environ['ZEPHYR_TOOLCHAIN_VARIANT'] = ZEPHYR_TOOLCHAIN_VARIANT
+        os.chdir(PATHS['zmk_config'])
+        git_branch = get_git_branch()
 
         os.chdir(PATHS['zmk_app'])
         keyboards = parse_yaml(PATHS['yaml_path'])
         for kb in keyboards:
-            kb.update(zmk_build(kb))
+            kb.update(zmk_build(kb, git_branch))
 
         msg('Build summary:')
         print(keyboards)
     except Exception as e:
         logger.exception(e)
 
-def zmk_build(kb: dict) -> dict:
+def zmk_build(kb: dict, git_branch:str) -> dict:
     # kb should have at least a value for 'board', 'shield' is optional
     board = kb.get('board')
     shield = kb.get('shield')
@@ -38,7 +41,7 @@ def zmk_build(kb: dict) -> dict:
         logger.warning("No 'board' found. Check build.yaml")
 
     build_status = {}
-    cmd, target = get_build_cmd(board, shield, PATHS['zmk_config'], PATHS['output'])
+    cmd, target = get_build_cmd(board, shield, PATHS['zmk_config'], PATHS['output'], git_branch)
     if os.system(cmd) == 0:
         msg(f"Build sucess. Firmware copied to {target}")
         build_status['build'] = 'success'
@@ -59,7 +62,18 @@ def process_dirs(config:dict) -> None:
     if not os.path.exists(PATHS['output']):
         os.mkdir(PATHS['output'])
 
-def get_build_cmd(board:str, shield:str, config_dir:str, outdir:str) -> tuple:
+def get_git_branch() -> str:
+    try:
+        from git import Repo
+        b = Repo().active_branch.name
+        if b in ['master', 'main']:
+            return ''
+        else:
+            return f"[{b}]"
+    except:
+        return ''
+
+def get_build_cmd(board:str, shield:str, config_dir:str, outdir:str, git_branch:str) -> tuple:
     if shield is not None:
         shield_flag = " -DSHIELD=" + shield
         shield_nm = f'{shield}-'
@@ -67,7 +81,7 @@ def get_build_cmd(board:str, shield:str, config_dir:str, outdir:str) -> tuple:
         shield_flag = ''
         shield_nm = ''
     now = datetime.now().strftime('%Y%m%d%H%M')
-    output = f'{outdir}/{shield_nm}{board}-{now}.uf2'
+    output = f'{outdir}/{shield_nm}{board}{git_branch}-{now}.uf2'
     cmd = f'west build -c -p -b {board} --{shield_flag} -DZMK_CONFIG="{config_dir}/config"'
     cmd += f' && cp build/zephyr/zmk.uf2 ' + output
 
@@ -89,6 +103,16 @@ def copy_to_flash(src:str) -> str:
     if cmd == 'n':
         print('USB copying skipped...')
         return 'skipped'
+
+    boot_ready = os.path.exists(PATHS['flash'])
+    if not boot_ready:
+        print('waiting for usb bootloader', end='')
+        while not boot_ready:
+            print('.', end='', flush=True)
+            sleep(1)
+            boot_ready = os.path.exists(PATHS['flash'])
+        print(PATHS['flash'] + ' ready')
+        sleep(1)  # can't write to usb when it first pops up
 
     if os.system(f'cp {src} {target}') == 0:
         print(f'copied {src} to {target}')
