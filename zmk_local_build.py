@@ -13,7 +13,7 @@ PATHS = {
     ,"output":  '~/code/zmk-config/firmware'
     ,"flash":  '/Volumes/XIAO-SENSE'
 }
-ZEPHYR_TOOLCHAIN_VARIANT='zehpyr'
+ZEPHYR_TOOLCHAIN_VARIANT='zephyr'
 
 def main():
     try:
