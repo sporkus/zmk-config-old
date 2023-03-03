@@ -6,3 +6,4 @@ zmk/
 build/
 .vscode
 **.uf2
+Makefile
