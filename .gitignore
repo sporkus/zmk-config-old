@@ -5,4 +5,4 @@ zmk/
 .west/
 build/
 .vscode
-
+**.uf2
