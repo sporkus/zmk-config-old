@@ -1,4 +1,11 @@
 #!/usr/bin/env python3
+"""ZMK local build script
+
+A simple script to build ZMK firmware from your local zmk-config and zmk folders.
+After building, the firmware will be copied to an output folder with branch name and timestamp.
+If specified, it will also copy the firmare to your usb device.
+You can also run it as a git hook.
+"""
 import os
 import yaml
 import logging
