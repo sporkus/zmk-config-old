@@ -6,7 +6,7 @@
 
 // SETTINGS
 #define TAPPING_TERM     300
-#define AUTOSHIFT_TERM   150
+#define AUTOSHIFT_TERM   180
 #define TAP_DANCE_FAST   200
 #define TAP_DANCE_SLOW   350
 #define GLOBAL_QT_MS     200
@@ -61,7 +61,7 @@
     #define COMM_SEMI &autoshift SEMICOLON COMMA
     #define DOT_COLN  &autoshift COLON DOT
     #define WIN_COPY  &autoshift LS(INSERT) LC(INSERT)
-    #define MAC_COPY  &autoshift LG(V) LG(C)
+    #define MAC_COPYP &autoshift LG(V) LG(C)
 
     // POSITIONHAL HOLD TAPS: binding1, binding2, tapping_term, quick_tap_time, global_quick_tap, hold_triggers
     MODTAP_POSITIONAL_BAL(lht,     &kp, &kp,  TAPPING_TERM,  GLOBAL_QT_MS,  GLOBAL_QT,  KEYS_RH_THUMB);
@@ -92,7 +92,9 @@
     COMBO(esc0        ,&kp ESC          ,LM2 LM3   ,COMBO_FAST_MS   ,COMBO_GQT_MS  ,BASE_MAC);
     COMBO(esc1        ,&kp ESC          ,RM2 RM3   ,COMBO_FAST_MS   ,COMBO_GQT_MS  ,BASE_MAC);
     COMBO(win_copy    ,WIN_COPY         ,LB1 LB2   ,COMBO_FAST_MS   ,COMBO_GQT_MS  ,BASE);
-    COMBO(mac_copy    ,MAC_COPY         ,LB1 LB2   ,COMBO_FAST_MS   ,COMBO_GQT_MS  ,BASE_MAC);
+    COMBO(mac_copyp   ,MAC_COPYP        ,LB1 LB2   ,COMBO_FAST_MS   ,COMBO_GQT_MS  ,_MAC);
+    COMBO(mac_cut     ,&kp LG(X)        ,LB1 LB3   ,COMBO_FAST_MS   ,COMBO_GQT_MS  ,_MAC);
+    COMBO(mac_unredo  ,AS(LG(Z))        ,LB1 LB4   ,COMBO_FAST_MS   ,COMBO_GQT_MS  ,_MAC);
     COMBO(bspc        ,&bspc_morph      ,RT2 RT3   ,COMBO_FAST_MS   ,COMBO_GQT_MS  ,BASE_MAC);
     COMBO(del         ,&kp DEL          ,RT2 RT3   ,COMBO_FAST_MS   ,COMBO_GQT_MS  ,NAV_MAC);
     COMBO(win_enter   ,LP_CTRL(ENTER)   ,RM1 RM2   ,COMBO_FAST_MS   ,COMBO_GQT_MS  ,BASE);
