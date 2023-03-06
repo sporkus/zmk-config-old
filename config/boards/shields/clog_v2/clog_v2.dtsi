@@ -63,3 +63,8 @@
 &spi1 {
     status = "disabled";
 };
+
+&uart0 {
+    /* this is necessary for usb logging */
+    status = "disabled";
+};
