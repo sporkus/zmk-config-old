@@ -6,12 +6,13 @@
 
 // SETTINGS
 #define TAPPING_TERM     300
-#define AUTOSHIFT_TERM   180
+#define AUTOSHIFT_FAST   130
+#define AUTOSHIFT_SLOW   250
 #define TAP_DANCE_FAST   200
 #define TAP_DANCE_SLOW   350
 #define GLOBAL_QT_MS     200
 #define STICKY_TIME      1000
-#define COMBO_FAST_MS    30
+#define COMBO_FAST_MS    40
 #define COMBO_SLOW_MS    80
 #define COMBO_GQT_MS     80
 
@@ -52,23 +53,23 @@
     DOUBLE_TAP(u_ctrlr,   TAP_DANCE_FAST,   &kp U,          &kp LC(R));
     TRIPLE_TAP(sft_caps,  TAP_DANCE_SLOW,   &skp LSHFT,     &caps_word,   &kp K_CANCEL);  //thumbs are slow
 
-    // HOLD TAPS: binding1, binding2, tapping_term, quick_tap_time, global_quick_tap
-    HOLDTAP_TAP(htm,          &kp, &kp,        TAPPING_TERM,     GLOBAL_QT_MS,    GLOBAL_QT);
-    HOLDTAP_TAP(qlt,          &mo, &kp,        TAPPING_TERM,     GLOBAL_QT_MS,    GLOBAL_QT);
-    HOLDTAP_BAL(spc_lt,       &mo, &spc_morph, TAPPING_TERM,     GLOBAL_QT_MS,    NO_GLOBAL_QT);
-    HOLDTAP_TAP(autoshift,    &kp, &kp,        AUTOSHIFT_TERM,   0,               NO_GLOBAL_QT);
-    #define AS(keycode) &autoshift LS(keycode) keycode
-    #define COMM_SEMI &autoshift SEMICOLON COMMA
-    #define DOT_COLN  &autoshift COLON DOT
-    #define WIN_COPY  &autoshift LS(INSERT) LC(INSERT)
-    #define MAC_COPYP &autoshift LG(V) LG(C)
+    // HOLD TAPS: binding1, binding2, tapping_term, global_quick_tap_time
+    HOLDTAP_TAP(qlt,          &mo, &kp,        TAPPING_TERM,     GLOBAL_QT_MS);
+    HOLDTAP_BAL(spc_lt,       &mo, &spc_morph, TAPPING_TERM,     100);
+    HOLDTAP_TAP(ht_fast,      &kp, &kp,        AUTOSHIFT_FAST,   0);
+    HOLDTAP_TAP(ht_slow,      &kp, &kp,        AUTOSHIFT_SLOW,   100);
+    #define AS(keycode) &ht_fast LS(keycode) keycode
+    #define COMM_SEMI   &ht_fast SEMICOLON COMMA
+    #define DOT_COLN    &ht_fast COLON DOT
+    #define WIN_COPY    &ht_slow LS(INSERT) LC(INSERT)
+    #define MAC_COPYP   &ht_slow LG(V) LG(C)
 
-    // POSITIONHAL HOLD TAPS: binding1, binding2, tapping_term, quick_tap_time, global_quick_tap, hold_triggers
-    MODTAP_POSITIONAL_BAL(lht,     &kp, &kp,  TAPPING_TERM,  GLOBAL_QT_MS,  GLOBAL_QT,  KEYS_RH_THUMB);
-    MODTAP_POSITIONAL_BAL(rht,     &kp, &kp,  TAPPING_TERM,  GLOBAL_QT_MS,  GLOBAL_QT,  KEYS_LH_THUMB);
+    // POSITIONHAL HOLD TAPS: binding1, binding2, tapping_term, global_quick_tap_time, hold_triggers
+    MODTAP_POSITIONAL_BAL(lht, &kp, &kp,  TAPPING_TERM,  GLOBAL_QT_MS,  KEYS_RH_THUMB);
+    MODTAP_POSITIONAL_BAL(rht, &kp, &kp,  TAPPING_TERM,  GLOBAL_QT_MS,  KEYS_LH_THUMB);
 
-    #define LP_CTRL(letter) &htm LC(letter) letter
-    #define LP_GUI(letter)  &htm LG(letter) letter
+    #define LP_CTRL(letter) &ht_slow LC(letter) letter
+    #define LP_GUI(letter)  &ht_slow LG(letter) letter
     };
 
 
@@ -148,7 +149,7 @@
 //                        ╭───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────╮
                             &kp TILDE   &kp ASTRK   &kp AMPS    &eql_neql       &kp PLUS     AS(N7)       AS(N8)     AS(N9)
 //╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
-     _____      &kp GRAVE   &kp CARET  &kp PERCENT  &kp DOLLAR  &kp UNDER       &kp MINUS    AS(N4)       AS(N5)     AS(N6)     &kp PIPE      _____
+    AS(GRAVE)   AS(GRAVE)   &kp CARET  &kp PERCENT  &kp DOLLAR  &kp UNDER       &kp MINUS    AS(N4)       AS(N5)     AS(N6)     &kp PIPE      _____
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
                    _____     &kp HASH    &kp AT      &kp EXCL    &lt_lte         &gt_gte     AS(N1)       AS(N2)     AS(N3)     &kp BSLH
 //                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮

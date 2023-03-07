@@ -45,32 +45,30 @@
 	    bindings = <keys>;\
     }
 
-#define NO_GLOBAL_QT
-#define GLOBAL_QT global-quick-tap;
+#define NO_GLOBAL_QT 0
 #define TAP_PREFERRED flavor = "tap-preferred";
 #define HOLD_PREFERRED flavor = "hold-preferred";
 #define BALANCED flavor = "balanced";
-#define HOLDTAP_CORE(name, b1, b2, tapterm, global_qt_ms, global_quick_tap) \
+#define HOLDTAP_CORE(name, b1, b2, tapterm, global_qt_ms) \
     ZMK_BEHAVIOR(name, 2)\
         compatible = "zmk,behavior-hold-tap";\
         bindings = <b1>, <b2>;\
         tapping-term-ms = <tapterm>;\
         quick-tap-ms = <250>;\
-        global-quick-tap-ms = <global_qt_ms>;\
-        global_quick_tap
+        global-quick-tap-ms = <global_qt_ms>;
 
-#define HOLDTAP_TAP(name, b1, b2, tapterm, global_qt_ms, global_quick_tap) \
-    HOLDTAP_CORE(name, b1, b2, tapterm, global_qt_ms, global_quick_tap) \
+#define HOLDTAP_TAP(name, b1, b2, tapterm, global_qt_ms) \
+    HOLDTAP_CORE(name, b1, b2, tapterm, global_qt_ms) \
     TAP_PREFERRED\
     }
 
-#define HOLDTAP_BAL(name, b1, b2, tapterm, global_qt_ms, global_quick_tap) \
-    HOLDTAP_CORE(name, b1, b2, tapterm, global_qt_ms, global_quick_tap) \
+#define HOLDTAP_BAL(name, b1, b2, tapterm, global_qt_ms) \
+    HOLDTAP_CORE(name, b1, b2, tapterm, global_qt_ms) \
     BALANCED\
     }
 
-#define MODTAP_POSITIONAL_BAL(name, b1, b2, tapterm, global_qt_ms, global_quick_tap, holdkeys) \
-    HOLDTAP_CORE(name, b1, b2, tapterm, global_qt_ms, global_quick_tap) \
+#define MODTAP_POSITIONAL_BAL(name, b1, b2, tapterm, global_qt_ms, holdkeys) \
+    HOLDTAP_CORE(name, b1, b2, tapterm, global_qt_ms) \
         hold-trigger-key-positions = <holdkeys>;\
         hold-trigger-on-release;\
         BALANCED\
