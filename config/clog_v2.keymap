@@ -142,6 +142,8 @@
                                                       &smo 1    &sft_caps      &spc_lt NAV 0  &smo 1
 
             >;
+            // sensor-binding b1:<-- | b2:-->
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
         };
 
         SYM {

@@ -44,6 +44,7 @@
 		resolution = <4>;
         a-gpios = <&xiao_d 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         b-gpios = <&xiao_d 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        status = "disabled";
 	};
 
 	right_encoder: encoder_right {
@@ -52,6 +53,7 @@
 		resolution = <4>;
         a-gpios = <&xiao_d 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         b-gpios = <&xiao_d 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        status = "disabled";
 	};
 
 	sensors {
