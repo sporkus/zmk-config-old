@@ -51,8 +51,8 @@
 		compatible = "alps,ec11";
 		label = "RIGHT_ENCODER";
 		resolution = <4>;
-        a-gpios = <&xiao_d 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        b-gpios = <&xiao_d 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        a-gpios = <&xiao_d 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        b-gpios = <&xiao_d 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         status = "disabled";
 	};
 
