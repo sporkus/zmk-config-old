@@ -27,6 +27,13 @@
 #define  ADJ  6
 #define BT(num) &bt BT_SEL num
 
+
+&num_word {
+    layers = <SYM>;  // replace NUM by the location of numbers layer
+    continue-list = <EQUAL MINUS PLUS ASTRK SLASH SPACE BSPC DEL DOT LPAR RPAR LT GT PERCENT DOLLAR>;
+};
+
+
 / {
     // -------- BEHAVIORS ---------------------------------------------------------------
     behaviors {
@@ -56,7 +63,8 @@
     DOUBLE_TAP(gt_gte,    TAP_DANCE_FAST,   &kp GT,         &greater_eql);
     DOUBLE_TAP(eql_neql,  TAP_DANCE_FAST,   &kp EQUAL,      &not_eql);
     DOUBLE_TAP(u_ctrlr,   TAP_DANCE_FAST,   &kp U,          &kp LC(R));
-    TRIPLE_TAP(sft_caps,  TAP_DANCE_SLOW,   &skp LSHFT,     &caps_word,   &kp K_CANCEL);  //thumbs are slow
+    TRIPLE_TAP(sft_caps,  TAP_DANCE_SLOW,   &skp LSHFT,     &caps_word,   &kp K_CANCEL);
+    TRIPLE_TAP(num_thumb, TAP_DANCE_SLOW,   &smo SYM,       &num_word,    &kp K_CANCEL);
 
     // HOLD TAPS: binding1, binding2, tapping_term, global_quick_tap_time
     HOLDTAP_TAP(qlt,          &mo, &kp,        TAPPING_TERM,     GLOBAL_QT_MS);
@@ -91,7 +99,7 @@
                             LH1 LH0 | RH0 RH1
     --------------------------------------------------------- */
     #define ALL_LAYERS COMBO_ALL
-    #define BASE_MAC BASE _MAC
+    #define BASE_MAC BASE SYM _MAC
     #define NAV_MAC NAV _MAC_NAV
 
     // horizontal combos
@@ -123,7 +131,7 @@
     // thumb combos
     COMBO(mo_media      ,&mo  MEDIA       ,LH0 LT2           ,COMBO_SLOW_MS  ,COMBO_GQT_MS  ,ALL_LAYERS);
     COMBO(smo_adj       ,&smo ADJ         ,LT0 LT1 LT2 LT3   ,COMBO_SLOW_MS  ,COMBO_GQT_MS  ,ALL_LAYERS);
-    COMBO(smo_adj_r     ,&smo ADJ         ,RT0 RT1 RT2 RT3   ,COMBO_SLOW_MS  ,COMBO_GQT_MS  ,ALL_LAYERS);
+    COMBO(tog_nav       ,&tog NAV         ,RT0 RT1 RT2 RT3   ,COMBO_SLOW_MS  ,COMBO_GQT_MS  ,ALL_LAYERS);
     };
 
 
@@ -145,7 +153,7 @@
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
                  &kp Z        &kp X     LP_CTRL(C)  LP_CTRL(V)     &kp B          &kp N       &kp M     COMM_SEMI   DOT_COLN    AS(SLASH)
 //                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮
-                                                      &smo 1    &sft_caps      &spc_lt NAV 0  &smo 1
+                                                    &num_thumb   &sft_caps      &spc_lt NAV 0  &smo 1
 
             >;
             // sensor-binding b1:<-- | b2:-->
@@ -159,9 +167,9 @@
 //╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
     AS(GRAVE)   AS(GRAVE)   &kp CARET  &kp PERCENT  &kp DOLLAR  &kp UNDER       &kp MINUS    AS(N4)       AS(N5)     AS(N6)     &kp PIPE      _____
 //            ╭───────────┬───────────┬───────────┬───────────┬───────────╮   ╭───────────┬───────────┬───────────┬───────────┬───────────╮
-                   _____     &kp HASH    &kp AT      &kp EXCL    &lt_lte         &gt_gte     AS(N1)       AS(N2)     AS(N3)     &kp BSLH
+                   _____     &kp HASH    &kp AT     &kp COMMA    &lt_lte         &gt_gte     AS(N1)       AS(N2)     AS(N3)     &kp BSLH
 //                                                ╭───────────┬───────────╮   ╭───────────┬───────────╮
-                                                      _____        _____          &kp N0     _____
+                                                  &kp K_CANCEL   &kp DOT           _____      &kp N0
             >;
         };
 
