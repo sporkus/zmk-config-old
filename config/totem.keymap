@@ -34,7 +34,7 @@
         combo_bspc {
             bindings = <&bspc_morph>;
             key-positions = <8 7>;
-            timeout-ms = <30>;
+            timeout-ms = <35>;
         };
 
         combo_enter {
@@ -50,6 +50,21 @@
         combo_rpar {
             bindings = <&kp RPAR>;
             key-positions = <6 16>;
+        };
+
+        combo_tab {
+            bindings = <&kp TAB>;
+            key-positions = <12 13>;
+        };
+
+        combo_esc0 {
+            bindings = <&kp ESC>;
+            key-positions = <11 12>;
+        };
+
+        combo_esc1 {
+            bindings = <&kp ESC>;
+            key-positions = <18 17>;
         };
     };
 
@@ -124,16 +139,16 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-                 &kp Q  &kp W             &kp E  &kp R             &kp T        &kp Y  &kp U           &kp I          &kp O           &kp P
-                 &kp A  &kp S             &kp D  &kp F             &kp G        &kp H  &kp J           &kp K          &kp L     &ht DQT SQT
-&skq LEFT_SHIFT  &kp Z  &kp X             &kp C  &kp V             &kp B        &kp N  &kp M  &ht SEMI COMMA  &ht COLON DOT  &ht BSLH SLASH  &skq LEFT_SHIFT
-                               &mt LEFT_ALT TAB  &sl 1  &mt LEFT_GUI ESC  &lt 2 SPACE  &sl 1     &bspc_morph
+       &kp Q  &kp W          &kp E  &kp R            &kp T      &kp Y  &kp U           &kp I          &kp O               &kp P
+       &kp A  &kp S          &kp D  &kp F            &kp G      &kp H  &kp J           &kp K          &kp L         &ht DQT SQT
+&mo 2  &kp Z  &kp X          &kp C  &kp V            &kp B      &kp N  &kp M  &ht SEMI COMMA  &ht COLON DOT  &ht QUESTION SLASH  &kp LCTRL
+                     &skq LEFT_GUI  &sl 1  &skq LEFT_SHIFT  &kp SPACE  &sl 1           &mo 2
             >;
         };
 
         // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
-        nav_layer {
+        num {
             // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 
             label = "NAVI";
@@ -153,13 +168,13 @@
           &kp ESC      &none      &kp UP  &kp EQUAL  &kp EQUAL   &kp PLUS  &ht AMPS NUMBER_7    &ht ASTRK NUMBER_8   &ht LPAR NUMBER_9  &kp BACKSLASH
         &kp LSHFT   &kp LEFT    &kp DOWN  &kp RIGHT  &kp UNDER  &kp MINUS      &ht DOLLAR N4  &ht PERCENT NUMBER_5  &ht CARET NUMBER_6   &kp KP_MINUS
 &trans    &kp DEL  &kp PG_UP  &caps_word  &kp PG_DN     &kp LT     &kp GT  &ht EXCL NUMBER_1       &ht AT NUMBER_2   &ht HASH NUMBER_3      &kp SLASH  &trans
-                                  &trans     &trans     &trans      &mo 3       &kp NUMBER_0         &ht COMMA DOT
+                                  &trans     &trans     &trans  &kp SPACE       &kp NUMBER_0         &ht COMMA DOT
             >;
         };
 
         // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
-        sim_layer {
+        nav {
             // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 
             label = "SYM";
@@ -176,10 +191,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-           &kp EXCL       &kp AT   &kp HASH  &kp DLLR  &kp PRCNT     &kp CARET        &kp AMPS   &kp RA(U)     &kp SQT    &kp DQT
-          &kp RA(A)       &trans  &kp RA(S)    &trans     &trans    &kp C_MUTE  &kp LS(RA(N4))  &kp RA(N5)  &kp RA(N4)  &kp RA(O)
-&trans  &kp RA(F18)  &kp RA(F19)     &trans    &trans     &trans  &kp C_VOL_DN    &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT   &kp BSLH  &trans
-                                     &trans     &none      &mo 3        &trans        &kp C_PP      &trans
+           &kp EXCL       &kp AT   &kp HASH  &kp DLLR  &kp PRCNT    &kp HOME     &kp PG_UP        &kp PG_DN     &kp END  &none
+          &kp RA(A)       &trans  &kp RA(S)    &trans     &trans    &kp LEFT      &kp DOWN           &kp UP   &kp RIGHT  &none
+&trans  &kp RA(F18)  &kp RA(F19)     &trans    &trans     &trans  &kp C_PREV  &kp C_VOL_DN  &kp C_VOLUME_UP  &kp C_NEXT  &none  &trans
+                                     &trans     &none      &mo 3      &trans      &kp C_PP           &trans
             >;
         };
 
