@@ -54,26 +54,24 @@
     };
 
     macros {
-        gif: gif {
+        win_sleep: win_sleep {
             label = "giphy";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LSHFT>,
-                <&macro_tap>,
-                <&kp N2>,
-                <&macro_release>,
-                <&kp LSHFT>,
-                <&macro_tap>,
-                <&kp G &kp I &kp F>;
+            bindings = <&kp LEFT_GUI &kp X &kp U &kp S>;
+        };
+        mac_finder: mac_finder {
+            compatible = "zmk,behavior-macro";
+            label = "mac_finder";
+            #binding-cells = <0>;
+            bindings = <&kp LG(SPACE) &kp F &kp I &kp N &kp D &kp E &kp R &kp DOT &kp A &kp P &kp P &kp RET>;
         };
     };
 
     behaviors {
         ht: ht {
             compatible = "zmk,behavior-hold-tap";
-            label = "HT";
+            label = "(hold, tap)";
             bindings =
                 <&kp>,
                 <&kp>;
@@ -83,6 +81,14 @@
             quick-tap-ms = <50>;
             global-quick-tap;
             flavor = "tap-preferred";
+        };
+        skq: skq {
+            compatible = "zmk,behavior-sticky-key";
+            label = "quick release";
+            bindings = <&kp>;
+            #binding-cells = <1>;
+            release-after-ms = <500>;
+            quick-release;
         };
     };
 
@@ -108,10 +114,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-                &kp Q  &kp W             &kp E             &kp R  &kp T        &kp Y            &kp U           &kp I          &kp O           &kp P
-                &kp A  &kp S             &kp D             &kp F  &kp G        &kp H            &kp J           &kp K          &kp L     &ht DQT SQT
-&sk LEFT_SHIFT  &kp Z  &kp X             &kp C             &kp V  &kp B        &kp N            &kp M  &ht SEMI COMMA  &ht COLON DOT  &ht BSLH SLASH  &sk LEFT_SHIFT
-                              &mt LEFT_ALT TAB  &mt LEFT_GUI ESC  &sl 1  &lt 2 SPACE  &mt LCTRL ENTER        &kp BSPC
+                 &kp Q  &kp W             &kp E             &kp R  &kp T        &kp Y            &kp U           &kp I          &kp O           &kp P
+                 &kp A  &kp S             &kp D             &kp F  &kp G        &kp H            &kp J           &kp K          &kp L     &ht DQT SQT
+&skq LEFT_SHIFT  &kp Z  &kp X             &kp C             &kp V  &kp B        &kp N            &kp M  &ht SEMI COMMA  &ht COLON DOT  &ht BSLH SLASH  &skq LEFT_SHIFT
+                               &mt LEFT_ALT TAB  &mt LEFT_GUI ESC  &sl 1  &lt 2 SPACE  &mt LCTRL ENTER        &kp BSPC
             >;
         };
 
