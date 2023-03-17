@@ -114,10 +114,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-                 &kp Q  &kp W             &kp E             &kp R  &kp T        &kp Y            &kp U           &kp I          &kp O           &kp P
-                 &kp A  &kp S             &kp D             &kp F  &kp G        &kp H            &kp J           &kp K          &kp L     &ht DQT SQT
-&skq LEFT_SHIFT  &kp Z  &kp X             &kp C             &kp V  &kp B        &kp N            &kp M  &ht SEMI COMMA  &ht COLON DOT  &ht BSLH SLASH  &skq LEFT_SHIFT
-                               &mt LEFT_ALT TAB  &mt LEFT_GUI ESC  &sl 1  &lt 2 SPACE  &mt LCTRL ENTER        &kp BSPC
+                 &kp Q  &kp W             &kp E  &kp R             &kp T        &kp Y  &kp U           &kp I          &kp O           &kp P
+                 &kp A  &kp S             &kp D  &kp F             &kp G        &kp H  &kp J           &kp K          &kp L     &ht DQT SQT
+&skq LEFT_SHIFT  &kp Z  &kp X             &kp C  &kp V             &kp B        &kp N  &kp M  &ht SEMI COMMA  &ht COLON DOT  &ht BSLH SLASH  &skq LEFT_SHIFT
+                               &mt LEFT_ALT TAB  &sl 1  &mt LEFT_GUI ESC  &lt 2 SPACE  &sl 1        &kp BSPC
             >;
         };
 
@@ -169,7 +169,7 @@
            &kp EXCL       &kp AT   &kp HASH  &kp DLLR  &kp PRCNT     &kp CARET        &kp AMPS   &kp RA(U)     &kp SQT    &kp DQT
           &kp RA(A)       &trans  &kp RA(S)    &trans     &trans    &kp C_MUTE  &kp LS(RA(N4))  &kp RA(N5)  &kp RA(N4)  &kp RA(O)
 &trans  &kp RA(F18)  &kp RA(F19)     &trans    &trans     &trans  &kp C_VOL_DN    &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT   &kp BSLH  &trans
-                                     &trans      &gif      &mo 3        &trans        &kp C_PP      &trans
+                                     &trans     &none      &mo 3        &trans        &kp C_PP      &trans
             >;
         };
 
