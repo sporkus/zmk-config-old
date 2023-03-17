@@ -32,7 +32,7 @@
         compatible = "zmk,combos";
 
         combo_bspc {
-            bindings = <&kp BSPC>;
+            bindings = <&bspc_morph>;
             key-positions = <8 7>;
             timeout-ms = <30>;
         };
@@ -90,6 +90,16 @@
             release-after-ms = <500>;
             quick-release;
         };
+        bspc_morph: bspc_morph {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BSPC_MORPH";
+            bindings =
+                <&kp BSPC>,
+                <&kp DEL>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RSFT|MOD_LSFT)>;
+        };
     };
 
     keymap {
@@ -117,7 +127,7 @@
                  &kp Q  &kp W             &kp E  &kp R             &kp T        &kp Y  &kp U           &kp I          &kp O           &kp P
                  &kp A  &kp S             &kp D  &kp F             &kp G        &kp H  &kp J           &kp K          &kp L     &ht DQT SQT
 &skq LEFT_SHIFT  &kp Z  &kp X             &kp C  &kp V             &kp B        &kp N  &kp M  &ht SEMI COMMA  &ht COLON DOT  &ht BSLH SLASH  &skq LEFT_SHIFT
-                               &mt LEFT_ALT TAB  &sl 1  &mt LEFT_GUI ESC  &lt 2 SPACE  &sl 1        &kp BSPC
+                               &mt LEFT_ALT TAB  &sl 1  &mt LEFT_GUI ESC  &lt 2 SPACE  &sl 1     &bspc_morph
             >;
         };
 
