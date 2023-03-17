@@ -36,6 +36,21 @@
             key-positions = <8 7>;
             timeout-ms = <30>;
         };
+
+        combo_enter {
+            bindings = <&kp ENTER>;
+            key-positions = <16 17>;
+        };
+
+        combo_lpar {
+            bindings = <&kp LPAR>;
+            key-positions = <3 13>;
+        };
+
+        combo_rpar {
+            bindings = <&kp RPAR>;
+            key-positions = <6 16>;
+        };
     };
 
     macros {
