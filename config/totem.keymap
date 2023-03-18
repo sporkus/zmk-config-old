@@ -46,15 +46,9 @@
             global-quick-tap-ms = <COMBO_FAST>;
         };
 
-        combo_lpar {
-            bindings = <&kp LPAR>;
-            key-positions = <3 13>;
-            global-quick-tap-ms = <80>;
-        };
-
-        combo_rpar {
-            bindings = <&kp RPAR>;
-            key-positions = <6 16>;
+        combo_lbkt {
+            bindings = <&kp LBKT>;
+            key-positions = <1 11>;
             global-quick-tap-ms = <80>;
         };
 
@@ -64,15 +58,33 @@
             global-quick-tap-ms = <80>;
         };
 
-        combo_rbrc {
-            bindings = <&kp RBRC>;
-            key-positions = <7 17>;
+        combo_lpar {
+            bindings = <&kp LPAR>;
+            key-positions = <3 13>;
             global-quick-tap-ms = <80>;
         };
 
-        combo_lbkt {
-            bindings = <&kp LBKT>;
-            key-positions = <1 11>;
+        combo_mins {
+            bindings = <&ht UNDER MINUS>;
+            key-positions = <4 14>;
+            global-quick-tap-ms = <80>;
+        };
+
+        combo_eql {
+            bindings = <&ht PLUS EQL>;
+            key-positions = <5 15>;
+            global-quick-tap-ms = <80>;
+        };
+
+        combo_rpar {
+            bindings = <&kp RPAR>;
+            key-positions = <6 16>;
+            global-quick-tap-ms = <80>;
+        };
+
+        combo_rbrc {
+            bindings = <&kp RBRC>;
+            key-positions = <7 17>;
             global-quick-tap-ms = <80>;
         };
 
