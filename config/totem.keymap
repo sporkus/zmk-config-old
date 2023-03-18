@@ -22,6 +22,8 @@
 #define SHORTCUT_MAC  4
 #define ADJ           5
 
+#define COMBO_FAST 35
+
 &mt {
     quick-tap-ms = <100>;
     global-quick-tap-ms = <150>;
@@ -29,7 +31,6 @@
     tapping-term-ms = <220>;
 };
 
-#define COMBO_FAST 35
 / {
     combos {
         compatible = "zmk,combos";
@@ -192,7 +193,7 @@
 &trans  &kp LC(Z)       &kp LC(X)      &kp LC(INS)     &kp LS(INS)   &kp LS(LC(Z))       &trans     &trans      &trans      &trans      &trans  &trans
                         &trans  &trans  &trans  &trans  &trans  &trans
             >;
-
+        };
 
         shortcut_mac {
             label = "SHORTCUT_MAC";
@@ -202,6 +203,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
                         &trans  &trans  &trans  &trans  &trans  &trans
             >;
+        };
 
 
         adjust_layer {
@@ -214,6 +216,6 @@
             >;
         };
 
-        };
+
     };
 };
