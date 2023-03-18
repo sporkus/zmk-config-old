@@ -35,12 +35,15 @@
         ht: ht {
             compatible = "zmk,behavior-hold-tap";
             label = "(hold, tap)";
-            bindings = <&kp>, <&kp>;
+            bindings =
+                <&kp>,
+                <&kp>;
+
             #binding-cells = <2>;
-            tapping-term-ms = <170>;
-            quick-tap-ms = <220>;
-            global-quick-tap-ms = <80>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <50>;
             flavor = "tap-preferred";
+            global-quick-tap;
         };
         skq: skq {
             compatible = "zmk,behavior-sticky-key";
@@ -217,8 +220,18 @@
             #binding-cells = <0>;
             bindings = <&kp SPACE &skq LEFT_SHIFT>;
         };
+        bt0_mac: bt0_mac {
+            compatible = "zmk,behavior-macro";
+            label = "new_macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap>,
+                <&macro_press>,
+                <&bt BT_SEL 0>,
+                <&macro_press>,
+                <&tog 6>;
+        };
     };
-
 
     keymap {
         compatible = "zmk,keymap";
@@ -228,7 +241,7 @@
             bindings = <
        &ht LS(Q) Q  &ht LS(W) W  &ht LS(E) E  &ht LS(R) R  &ht LS(T) T  &ht LS(Y) Y  &ht LS(U) U     &ht LS(I) I    &ht LS(O) O         &ht LS(P) P
        &ht LS(A) A  &ht LS(S) S  &ht LS(D) D  &ht LS(F) F  &ht LS(G) G  &ht LS(H) H  &ht LS(J) J     &ht LS(K) K    &ht LS(L) L         &ht DQT SQT
-&mo 4  &ht LS(Z) Z  &ht LS(X) X  &ht LS(C) C  &ht LS(V) V  &ht LS(B) B  &ht LS(N) N  &ht LS(M) M  &ht SEMI COMMA  &ht COLON DOT  &ht QUESTION SLASH  &mo 4
+&mo 3  &ht LS(Z) Z  &ht LS(X) X  &ht LS(C) C  &ht LS(V) V  &ht LS(B) B  &ht LS(N) N  &ht LS(M) M  &ht SEMI COMMA  &ht COLON DOT  &ht QUESTION SLASH  &mo 3
                                   &skq LCTRL    &tap2_num        &mo 2    &kp SPACE    &tap2_num           &sl 2
             >;
         };
@@ -280,6 +293,15 @@
         &bootloader  &bt BT_NXT        &trans  &trans  &trans  &trans  &kp F4  &kp F5  &kp F6  &kp F11
 &trans       &trans  &bt BT_PRV        &trans  &trans  &trans  &trans  &kp F1  &kp F2  &kp F3  &kp F10  &trans
                                        &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        MAC {
+            bindings = <
+        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
