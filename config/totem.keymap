@@ -226,7 +226,7 @@
             label = "NUM";
             bindings = <
          &none    &ht LPAR  N9    &ht ASTRK N8    &ht AMPS N7     &kp EQUAL           &kp PLUS     &ht AMPS N7  &ht ASTRK N8  &ht LPAR N9    &kp BACKSLASH
-         &none    &ht CARET N6    &ht PERCENT N5  &ht DOLLAR N4   &kp UNDER           &kp MINUS    &ht DOLLAR N4      &ht PERCENT N5 &ht CARET N6  &kp KP_MINUS         &trans
+         &none    &ht CARET N6    &ht PERCENT N5  &ht DOLLAR N4   &kp UNDER           &kp MINUS    &ht DOLLAR N4      &ht PERCENT N5 &ht CARET N6  &kp KP_MINUS
  &none   &none    &ht HASH  N3    &ht AT N2       &ht EXCL N1     &kp LT              &kp GT       &ht EXCL N1        &ht AT N2   &ht HASH N3          &kp SLASH        &trans
                                          &trans &kp 0            &kp DOT              &kp SPACE       &kp NUMBER_0         &ht COMMA DOT
             >;
