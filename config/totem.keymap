@@ -44,19 +44,20 @@
             bindings = <&kp ENTER>;
             key-positions = <16 17>;
             global-quick-tap-ms = <80>;
+            layers = <0 1 2>;
         };
 
         combo_ctrl_enter {
-            bindings = <&kp ENTER>;
+            bindings = <&kp LC(ENTER)>;
             key-positions = <16 17>;
-            layers = <SHORTCUT>;
+            layers = <SHORTCUT 3>;
             global-quick-tap-ms = <80>;
         };
 
         combo_gui_enter {
-            bindings = <&kp ENTER>;
+            bindings = <&kp LG(ENTER)>;
             key-positions = <16 17>;
-            layers = <SHORTCUT_MAC>;
+            layers = <SHORTCUT_MAC 4>;
             global-quick-tap-ms = <80>;
         };
 
