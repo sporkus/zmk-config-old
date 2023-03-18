@@ -3,7 +3,7 @@
 //                                                        ▄▀▀▀▄  ▄  ▄▀▀▀▄  ▄  ▄▀▀▀▄  █  ▄▀▀▀▄
 //                                                        █   █  █  █   █  █  █   █  █  █   █
 //                                                         ▀▀▀   █   ▀▀▀   █   ▀▀▀   ▀   ▀▀▀
-//                                                               █      ▄▄▄█▄▄▄    █   █  
+//                                                               █      ▄▄▄█▄▄▄    █   █
 //                                                               ▀      █  █  █     █▄█
 //                                                             ▀▀▀▀▀    █  █  █      ▀
 //                                                                      ▀  ▀  ▀
@@ -35,36 +35,67 @@
             bindings = <&bspc_morph>;
             key-positions = <8 7>;
             timeout-ms = <35>;
+            global-quick-tap-ms = <80>;
         };
 
         combo_enter {
             bindings = <&kp ENTER>;
             key-positions = <16 17>;
+            global-quick-tap-ms = <80>;
         };
 
         combo_lpar {
             bindings = <&kp LPAR>;
             key-positions = <3 13>;
+            global-quick-tap-ms = <80>;
         };
 
         combo_rpar {
             bindings = <&kp RPAR>;
             key-positions = <6 16>;
+            global-quick-tap-ms = <80>;
+        };
+
+        combo_lbrc {
+            bindings = <&kp LBRC>;
+            key-positions = <2 12>;
+            global-quick-tap-ms = <80>;
+        };
+
+        combo_rbrc {
+            bindings = <&kp RBRC>;
+            key-positions = <7 17>;
+            global-quick-tap-ms = <80>;
+        };
+
+        combo_lbkt {
+            bindings = <&kp LBKT>;
+            key-positions = <1 11>;
+            global-quick-tap-ms = <80>;
+        };
+
+        combo_rbkt {
+            bindings = <&kp RBKT>;
+            key-positions = <8 18>;
+            global-quick-tap-ms = <80>;
         };
 
         combo_tab {
             bindings = <&kp TAB>;
             key-positions = <12 13>;
+            global-quick-tap-ms = <80>;
         };
 
         combo_esc0 {
             bindings = <&kp ESC>;
             key-positions = <11 12>;
+            global-quick-tap-ms = <80>;
         };
 
         combo_esc1 {
             bindings = <&kp ESC>;
             key-positions = <18 17>;
+            global-quick-tap-ms = <80>;
         };
     };
 
