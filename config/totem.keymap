@@ -21,7 +21,6 @@
 #define SHORTCUT      3
 #define SHORTCUT_MAC  4
 #define ADJ           5
-
 #define COMBO_FAST 35
 
 &mt {
@@ -38,7 +37,6 @@
         combo_bspc {
             bindings = <&bspc_morph>;
             key-positions = <8 7>;
-            timeout-ms = <COMBO_FAST>;
             global-quick-tap-ms = <80>;
         };
 
@@ -150,6 +148,14 @@
             #binding-cells = <0>;
             mods = <(MOD_RSFT|MOD_LSFT)>;
         };
+        tap2_sleep_win: tap2_sleep_win {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP2_SLEEP_WIN";
+            #binding-cells = <0>;
+            bindings =
+                <&none>,
+                <&win_sleep>;
+        };
     };
 
     keymap {
@@ -188,10 +194,10 @@
         shortcut {
             label = "SHORTCUT";
             bindings = <
-        &kp LA(F4)      &kp LC(W)      &kp LG(E)       &kp LC(R)     &kp LC(T)           &trans     &trans      &trans      &trans      &trans
-        &trans      &trans      &trans       &trans     &trans       &trans              &trans      &trans      &trans      &trans
-&trans  &kp LC(Z)       &kp LC(X)      &kp LC(INS)     &kp LS(INS)   &kp LS(LC(Z))       &trans     &trans      &trans      &trans      &trans  &trans
-                        &trans  &trans  &trans  &trans  &trans  &trans
+        &kp LA(F4)  &kp LC(W)    &kp LG(E)    &kp LC(R)      &kp LC(T)  &trans  &trans  &trans  &trans           &trans
+            &trans     &trans       &trans       &trans         &trans  &trans  &trans  &trans  &trans           &trans
+&trans   &kp LC(Z)  &kp LC(X)  &kp LC(INS)  &kp LS(INS)  &kp LS(LC(Z))  &trans  &trans  &trans  &trans  &tap2_sleep_win  &trans
+                                    &trans       &trans         &trans  &trans  &trans  &trans
             >;
         };
 
@@ -205,7 +211,6 @@
             >;
         };
 
-
         adjust_layer {
             label = "ADJ";
             bindings = <
@@ -215,7 +220,5 @@
                                        &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
-
-
     };
 };
