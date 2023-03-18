@@ -148,6 +148,7 @@
             #binding-cells = <0>;
             mods = <(MOD_RSFT|MOD_LSFT)>;
         };
+
         tap2_sleep_win: tap2_sleep_win {
             compatible = "zmk,behavior-tap-dance";
             label = "TAP2_SLEEP_WIN";
@@ -156,6 +157,16 @@
                 <&none>,
                 <&win_sleep>;
         };
+
+        tap2_sleep_mac: tap2_sleep_mac {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP2_SLEEP_MAC";
+            #binding-cells = <0>;
+            bindings =
+                <&none>,
+                <&win_sleep>;
+        };
+
     };
 
     keymap {
@@ -174,10 +185,10 @@
         num {
             label = "NAVI";
             bindings = <
-          &kp ESC      &none      &kp UP  &kp EQUAL  &kp EQUAL   &kp PLUS  &ht AMPS NUMBER_7    &ht ASTRK NUMBER_8   &ht LPAR NUMBER_9  &kp BACKSLASH
-        &kp LSHFT   &kp LEFT    &kp DOWN  &kp RIGHT  &kp UNDER  &kp MINUS      &ht DOLLAR N4  &ht PERCENT NUMBER_5  &ht CARET NUMBER_6   &kp KP_MINUS
-&trans    &kp DEL  &kp PG_UP  &caps_word  &kp PG_DN     &kp LT     &kp GT  &ht EXCL NUMBER_1       &ht AT NUMBER_2   &ht HASH NUMBER_3      &kp SLASH  &trans
-                                  &trans     &trans     &trans  &kp SPACE       &kp NUMBER_0         &ht COMMA DOT
+          &kp ESC     &ht AMPS NUMBER_7    &ht ASTRK NUMBER_8   &ht LPAR NUMBER_9     &kp EQUAL   &kp PLUS  &ht AMPS NUMBER_7    &ht ASTRK NUMBER_8   &ht LPAR NUMBER_9  &kp BACKSLASH
+          &kp LSHFT   &ht DOLLAR N4  &ht PERCENT NUMBER_5  &ht CARET NUMBER_6         &kp UNDER  &kp MINUS  &ht DOLLAR N4  &ht PERCENT NUMBER_5  &ht CARET NUMBER_6      &kp KP_MINUS
+&trans    &kp DEL     &ht EXCL NUMBER_1       &ht AT NUMBER_2   &ht HASH NUMBER_3     &kp LT     &kp GT     &ht EXCL NUMBER_1       &ht AT NUMBER_2   &ht HASH NUMBER_3      &kp SLASH  &trans
+                                  &trans     &kp 0     &kp DOT  &kp SPACE        &kp NUMBER_0         &ht COMMA DOT
             >;
         };
 
@@ -194,7 +205,7 @@
         shortcut {
             label = "SHORTCUT";
             bindings = <
-        &kp LA(F4)  &kp LC(W)    &kp LG(E)    &kp LC(R)      &kp LC(T)  &trans  &trans  &trans  &trans           &trans
+        &kp LA(F4)  &kp LC(W)    &mac_finder    &kp LC(R)      &kp LC(T)  &trans  &trans  &trans  &trans           &trans
             &trans     &trans       &trans       &trans         &trans  &trans  &trans  &trans  &trans           &trans
 &trans   &kp LC(Z)  &kp LC(X)  &kp LC(INS)  &kp LS(INS)  &kp LS(LC(Z))  &trans  &trans  &trans  &trans  &tap2_sleep_win  &trans
                                     &trans       &trans         &trans  &trans  &trans  &trans
@@ -204,10 +215,10 @@
         shortcut_mac {
             label = "SHORTCUT_MAC";
             bindings = <
-        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans  &trans  &trans  &trans
+        &kp LG(Q)  &kp LG(W)    &kp LG(E)    &kp LG(R)      &kp LG(T)  &trans  &trans  &trans  &trans           &trans
+            &trans     &trans       &trans       &trans         &trans  &trans  &trans  &trans  &trans           &trans
+&trans   &kp LG(Z)  &kp LG(X)  &kp LC(C)  &kp LG(V)  &kp LS(LG(Z))  &trans  &trans  &trans  &trans  &tap2_sleep_mac  &trans
+                                    &trans       &trans         &trans  &trans  &trans  &trans
             >;
         };
 
