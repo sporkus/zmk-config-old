@@ -31,6 +31,72 @@
 };
 
 / {
+    behaviors {
+        ht: ht {
+            compatible = "zmk,behavior-hold-tap";
+            label = "(hold, tap)";
+            bindings =
+                <&kp>,
+                <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <50>;
+            global-quick-tap;
+            flavor = "tap-preferred";
+        };
+        skq: skq {
+            compatible = "zmk,behavior-sticky-key";
+            label = "quick release";
+            bindings = <&kp>;
+            #binding-cells = <1>;
+            release-after-ms = <500>;
+            quick-release;
+        };
+        num_word: behavior_num_word {
+            compatible = "zmk,behavior-caps-word";
+            label = "NUM_WORD";
+            #binding-cells = <0>;
+            layers = <NUM>;// insert location of numbers layer here
+            continue-list = <BACKSPACE DELETE DOT COMMA>;// adjust as desired
+            ignore-numbers;// numbers don't deactivate the layer
+        };
+        bspc_morph: bspc_morph {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BSPC_MORPH";
+            bindings =
+                <&kp BSPC>,
+                <&kp DEL>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RSFT|MOD_LSFT)>;
+        };
+        tap2_num: tap2_num {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP2_NUM";
+            #binding-cells = <0>;
+            bindings =
+                <&sl NUM>,
+                <&num_word>;
+        };
+        tap2_sleep_win: tap2_sleep_win {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP2_SLEEP_WIN";
+            #binding-cells = <0>;
+            bindings =
+                <&none>,
+                <&win_sleep>;
+        };
+        tap2_sleep_mac: tap2_sleep_mac {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP2_SLEEP_MAC";
+            #binding-cells = <0>;
+            bindings =
+                <&none>,
+                <&kp LA(LG(S))>;
+        };
+    };
+
     combos {
         compatible = "zmk,combos";
 
@@ -156,71 +222,6 @@
         };
     };
 
-    behaviors {
-        ht: ht {
-            compatible = "zmk,behavior-hold-tap";
-            label = "(hold, tap)";
-            bindings =
-                <&kp>,
-                <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            quick-tap-ms = <50>;
-            global-quick-tap;
-            flavor = "tap-preferred";
-        };
-        skq: skq {
-            compatible = "zmk,behavior-sticky-key";
-            label = "quick release";
-            bindings = <&kp>;
-            #binding-cells = <1>;
-            release-after-ms = <500>;
-            quick-release;
-        };
-        num_word: behavior_num_word {
-            compatible = "zmk,behavior-caps-word";
-            label = "NUM_WORD";
-            #binding-cells = <0>;
-            layers = <NUM>;// insert location of numbers layer here
-            continue-list = <BACKSPACE DELETE DOT COMMA>;// adjust as desired
-            ignore-numbers;// numbers don't deactivate the layer
-        };
-        bspc_morph: bspc_morph {
-            compatible = "zmk,behavior-mod-morph";
-            label = "BSPC_MORPH";
-            bindings =
-                <&kp BSPC>,
-                <&kp DEL>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_RSFT|MOD_LSFT)>;
-        };
-        tap2_num: tap2_num {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP2_NUM";
-            #binding-cells = <0>;
-            bindings =
-                <&sl NUM>,
-                <&num_word>;
-        };
-        tap2_sleep_win: tap2_sleep_win {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP2_SLEEP_WIN";
-            #binding-cells = <0>;
-            bindings =
-                <&none>,
-                <&win_sleep>;
-        };
-        tap2_sleep_mac: tap2_sleep_mac {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP2_SLEEP_MAC";
-            #binding-cells = <0>;
-            bindings =
-                <&none>,
-                <&kp LA(LG(S))>;
-        };
-    };
 
     keymap {
         compatible = "zmk,keymap";
@@ -251,7 +252,7 @@
           &kp LG(TAB)         &trans           &trans      &trans  &kp LG(GRAVE)      &kp HOME  &kp PG_DN  &kp PG_UP    &kp END  &trans
         &skq LEFT_ALT  &skq LEFT_GUI  &skq LEFT_SHIFT  &skq LCTRL    &kp LG(TAB)      &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT   &none
 &trans         &trans         &trans           &trans      &trans    &kp LA(TAB)        &trans     &trans     &trans     &trans  &trans  &trans
-                                                &none       &mo 3         &trans  &space_shift     &trans
+                                                &none       &mo 3         &trans  &space_shift     &trans     &trans
             >;
         };
 
