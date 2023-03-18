@@ -37,13 +37,27 @@
         combo_bspc {
             bindings = <&bspc_morph>;
             key-positions = <8 7>;
-            global-quick-tap-ms = <80>;
+            global-quick-tap-ms = <30>;
         };
 
         combo_enter {
             bindings = <&kp ENTER>;
             key-positions = <16 17>;
-            global-quick-tap-ms = <COMBO_FAST>;
+            global-quick-tap-ms = <80>;
+        };
+
+        combo_ctrl_enter {
+            bindings = <&kp ENTER>;
+            key-positions = <16 17>;
+            layers = <SHORTCUT>;
+            global-quick-tap-ms = <80>;
+        };
+
+        combo_gui_enter {
+            bindings = <&kp ENTER>;
+            key-positions = <16 17>;
+            layers = <SHORTCUT_MAC>;
+            global-quick-tap-ms = <80>;
         };
 
         combo_lbkt {
