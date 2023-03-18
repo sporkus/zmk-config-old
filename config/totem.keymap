@@ -16,8 +16,8 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define BASE          0
-#define NAV           1
-#define SYM           2
+#define NUM           1
+#define NAV           2
 #define SHORTCUT      3
 #define SHORTCUT_MAC  4
 #define ADJ           5
@@ -150,6 +150,16 @@
             release-after-ms = <500>;
             quick-release;
         };
+
+        num_word: behavior_num_word {
+			compatible = "zmk,behavior-caps-word";
+			label = "NUM_WORD";
+			#binding-cells = <0>;
+            layers = <NUM>;                                // insert location of numbers layer here
+			continue-list = <BACKSPACE DELETE DOT COMMA>;  // adjust as desired
+            ignore-numbers;                                // numbers don't deactivate the layer
+        };
+
         bspc_morph: bspc_morph {
             compatible = "zmk,behavior-mod-morph";
             label = "BSPC_MORPH";
@@ -160,6 +170,14 @@
             #binding-cells = <0>;
             mods = <(MOD_RSFT|MOD_LSFT)>;
         };
+
+        tap2_num: tap2_num {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP2_NUM";
+            #binding-cells = <0>;
+            bindings = <&sl NUM>, <&num_word>;
+        };
+
         tap2_sleep_win: tap2_sleep_win {
             compatible = "zmk,behavior-tap-dance";
             label = "TAP2_SLEEP_WIN";
@@ -168,6 +186,7 @@
                 <&none>,
                 <&win_sleep>;
         };
+
         tap2_sleep_mac: tap2_sleep_mac {
             compatible = "zmk,behavior-tap-dance";
             label = "TAP2_SLEEP_MAC";
@@ -187,22 +206,22 @@
        &ht LS(Q) Q  &ht LS(W) W    &ht LS(E) E  &ht LS(R) R      &ht LS(T) T  &ht LS(Y) Y  &ht LS(U) U     &ht LS(I) I    &ht LS(O) O         &ht LS(P) P
        &ht LS(A) A  &ht LS(S) S    &ht LS(D) D  &ht LS(F) F      &ht LS(G) G  &ht LS(H) H  &ht LS(J) J     &ht LS(K) K    &ht LS(L) L         &ht DQT SQT
 &mo 4  &ht LS(Z) Z  &ht LS(X) X    &ht LS(C) C  &ht LS(V) V      &ht LS(B) B  &ht LS(N) N  &ht LS(M) M  &ht SEMI COMMA  &ht COLON DOT  &ht QUESTION SLASH  &mo 4
-                                 &skq LEFT_GUI        &sl 1  &skq LEFT_SHIFT    &kp SPACE        &sl 1           &mo 2
+                                 &skq LEFT_GUI        &tap2_num  &mo NAV    &kp SPACE        &tap2_num           &mo 2
             >;
         };
 
         num {
-            label = "NAVI";
+            label = "NUM";
             bindings = <
-          &kp ESC  &ht AMPS NUMBER_7    &ht ASTRK NUMBER_8   &ht LPAR NUMBER_9  &kp EQUAL   &kp PLUS  &ht AMPS NUMBER_7    &ht ASTRK NUMBER_8   &ht LPAR NUMBER_9  &kp BACKSLASH
-        &kp LSHFT      &ht DOLLAR N4  &ht PERCENT NUMBER_5  &ht CARET NUMBER_6  &kp UNDER  &kp MINUS      &ht DOLLAR N4  &ht PERCENT NUMBER_5  &ht CARET NUMBER_6   &kp KP_MINUS
-&trans    &kp DEL  &ht EXCL NUMBER_1       &ht AT NUMBER_2   &ht HASH NUMBER_3     &kp LT     &kp GT  &ht EXCL NUMBER_1       &ht AT NUMBER_2   &ht HASH NUMBER_3      &kp SLASH  &trans
+          &kp ESC &ht LPAR NUMBER_9    &ht ASTRK NUMBER_8  &ht AMPS NUMBER_7  &kp EQUAL   &kp PLUS  &ht AMPS NUMBER_7    &ht ASTRK NUMBER_8   &ht LPAR NUMBER_9  &kp BACKSLASH
+        &kp LSHFT ht CARET NUMBER_6  &ht PERCENT NUMBER_5      &ht DOLLAR N4  &kp UNDER  &kp MINUS      &ht DOLLAR N4  &ht PERCENT NUMBER_5  &ht CARET NUMBER_6   &kp KP_MINUS
+&trans    &kp DEL &ht HASH NUMBER_3       &ht AT NUMBER_2  &ht EXCL NUMBER_1     &kp LT     &kp GT  &ht EXCL NUMBER_1       &ht AT NUMBER_2   &ht HASH NUMBER_3      &kp SLASH  &trans
                                                     &trans               &kp 0    &kp DOT  &kp SPACE       &kp NUMBER_0         &ht COMMA DOT
             >;
         };
 
         nav {
-            label = "SYM";
+            label = "NAV";
             bindings = <
           &kp LG(TAB)         &trans           &trans      &trans  &kp LG(GRAVE)  &kp HOME  &kp PG_DN  &kp PG_UP    &kp END  &trans
         &skq LEFT_ALT  &skq LEFT_GUI  &skq LEFT_SHIFT  &skq LCTRL    &kp LG(TAB)  &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT   &none
