@@ -15,18 +15,21 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#define BASE 0
-#define NAV  1
-#define SYM  2
-#define ADJ  3
+#define BASE          0
+#define NAV           1
+#define SYM           2
+#define SHORTCUT      3
+#define SHORTCUT_MAC  4
+#define ADJ           5
 
 &mt {
     quick-tap-ms = <100>;
-    global-quick-tap;
-    flavor = "tap-preferred";
-    tapping-term-ms = <170>;
+    global-quick-tap-ms = <150>;
+    flavor = "balanced";
+    tapping-term-ms = <220>;
 };
 
+#define COMBO_FAST 35
 / {
     combos {
         compatible = "zmk,combos";
@@ -34,14 +37,14 @@
         combo_bspc {
             bindings = <&bspc_morph>;
             key-positions = <8 7>;
-            timeout-ms = <35>;
+            timeout-ms = <COMBO_FAST>;
             global-quick-tap-ms = <80>;
         };
 
         combo_enter {
             bindings = <&kp ENTER>;
             key-positions = <16 17>;
-            global-quick-tap-ms = <80>;
+            global-quick-tap-ms = <COMBO_FAST>;
         };
 
         combo_lpar {
@@ -89,13 +92,13 @@
         combo_esc0 {
             bindings = <&kp ESC>;
             key-positions = <11 12>;
-            global-quick-tap-ms = <80>;
+            global-quick-tap-ms = <COMBO_FAST>;
         };
 
         combo_esc1 {
             bindings = <&kp ESC>;
             key-positions = <18 17>;
-            global-quick-tap-ms = <80>;
+            global-quick-tap-ms = <COMBO_FAST>;
         };
     };
 
@@ -156,7 +159,7 @@
             bindings = <
        &ht LS(Q) Q  &ht LS(W) W    &ht LS(E) E  &ht LS(R) R      &ht LS(T) T  &ht LS(Y) Y  &ht LS(U) U     &ht LS(I) I    &ht LS(O) O         &ht LS(P) P
        &ht LS(A) A  &ht LS(S) S    &ht LS(D) D  &ht LS(F) F      &ht LS(G) G  &ht LS(H) H  &ht LS(J) J     &ht LS(K) K    &ht LS(L) L         &ht DQT SQT
-&mo 2  &ht LS(Z) Z  &ht LS(X) X    &ht LS(C) C  &ht LS(V) V      &ht LS(B) B  &ht LS(N) N  &ht LS(M) M  &ht SEMI COMMA  &ht COLON DOT  &ht QUESTION SLASH  &kp LCTRL
+&mo 4  &ht LS(Z) Z  &ht LS(X) X    &ht LS(C) C  &ht LS(V) V      &ht LS(B) B  &ht LS(N) N  &ht LS(M) M  &ht SEMI COMMA  &ht COLON DOT  &ht QUESTION SLASH  &mo 4
                                  &skq LEFT_GUI        &sl 1  &skq LEFT_SHIFT    &kp SPACE        &sl 1           &mo 2
             >;
         };
@@ -181,6 +184,26 @@
             >;
         };
 
+        shortcut {
+            label = "SHORTCUT";
+            bindings = <
+        &kp LA(F4)      &kp LC(W)      &kp LG(E)       &kp LC(R)     &kp LC(T)           &trans     &trans      &trans      &trans      &trans
+        &trans      &trans      &trans       &trans     &trans       &trans              &trans      &trans      &trans      &trans
+&trans  &kp LC(Z)       &kp LC(X)      &kp LC(INS)     &kp LS(INS)   &kp LS(LC(Z))       &trans     &trans      &trans      &trans      &trans  &trans
+                        &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+
+
+        shortcut_mac {
+            label = "SHORTCUT_MAC";
+            bindings = <
+        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+
+
         adjust_layer {
             label = "ADJ";
             bindings = <
@@ -191,13 +214,6 @@
             >;
         };
 
-        Layer__4 {
-            bindings = <
-        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans  &trans  &trans  &trans
-            >;
         };
     };
 };
