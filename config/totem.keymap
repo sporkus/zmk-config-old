@@ -118,14 +118,16 @@
         ht: ht {
             compatible = "zmk,behavior-hold-tap";
             label = "(hold, tap)";
-            bindings = <&kp>, <&kp>;
+            bindings =
+                <&kp>,
+                <&kp>;
+
             #binding-cells = <2>;
             tapping-term-ms = <150>;
             quick-tap-ms = <50>;
             global-quick-tap;
             flavor = "tap-preferred";
         };
-
         skq: skq {
             compatible = "zmk,behavior-sticky-key";
             label = "quick release";
@@ -134,11 +136,13 @@
             release-after-ms = <500>;
             quick-release;
         };
-
         bspc_morph: bspc_morph {
             compatible = "zmk,behavior-mod-morph";
             label = "BSPC_MORPH";
-            bindings = <&kp BSPC>, <&kp DEL>;
+            bindings =
+                <&kp BSPC>,
+                <&kp DEL>;
+
             #binding-cells = <0>;
             mods = <(MOD_RSFT|MOD_LSFT)>;
         };
@@ -146,16 +150,16 @@
 
     keymap {
         compatible = "zmk,keymap";
+
         base_layer {
             label = "BASE";
             bindings = <
-        &ht LS(Q) Q     &ht LS(W) W     &ht LS(E) E     &ht LS(R) R     &ht LS(T) T       &ht LS(Y) Y     &ht LS(U) U     &ht LS(I) I     &ht LS(O) O     &ht LS(P) P
-        &ht LS(A) A     &ht LS(S) S     &ht LS(D) D     &ht LS(F) F     &ht LS(G) G       &ht LS(H) H     &ht LS(J) J     &ht LS(K) K     &ht LS(L) L     &ht DQT SQT
-&mo 2   &ht LS(Z) Z     &ht LS(X) X     &ht LS(C) C     &ht LS(V) V     &ht LS(B) B       &ht LS(N) N     &ht LS(M) M     &ht SEMI COMMA  &ht COLON DOT   &ht QUESTION SLASH  &kp LCTRL
-                                              &skq LEFT_GUI  &sl 1  &skq LEFT_SHIFT       &kp SPACE  &sl 1           &mo 2
+       &ht LS(Q) Q  &ht LS(W) W    &ht LS(E) E  &ht LS(R) R      &ht LS(T) T  &ht LS(Y) Y  &ht LS(U) U     &ht LS(I) I    &ht LS(O) O         &ht LS(P) P
+       &ht LS(A) A  &ht LS(S) S    &ht LS(D) D  &ht LS(F) F      &ht LS(G) G  &ht LS(H) H  &ht LS(J) J     &ht LS(K) K    &ht LS(L) L         &ht DQT SQT
+&mo 2  &ht LS(Z) Z  &ht LS(X) X    &ht LS(C) C  &ht LS(V) V      &ht LS(B) B  &ht LS(N) N  &ht LS(M) M  &ht SEMI COMMA  &ht COLON DOT  &ht QUESTION SLASH  &kp LCTRL
+                                 &skq LEFT_GUI        &sl 1  &skq LEFT_SHIFT    &kp SPACE        &sl 1           &mo 2
             >;
         };
-
 
         num {
             label = "NAVI";
@@ -184,6 +188,15 @@
         &bootloader  &bt BT_NXT        &trans  &trans  &trans  &trans  &kp F4  &kp F5  &kp F6  &kp F11
 &trans       &trans  &bt BT_PRV        &trans  &trans  &trans  &trans  &kp F1  &kp F2  &kp F3  &kp F10  &trans
                                        &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        Layer__4 {
+            bindings = <
+        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
