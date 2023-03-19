@@ -22,7 +22,6 @@
 #define SHORTCUT      4
 #define SHORTCUT_MAC  5
 #define ADJ           6
-
 #define COMBO_FAST 35
 
 &mt {
@@ -35,6 +34,7 @@
 / {
     conditional_layers {
         compatible = "zmk,conditional-layers";
+
         tri_layer {
             if-layers = <SHORTCUT MAC>;
             then-layer = <SHORTCUT_MAC>;
@@ -88,7 +88,7 @@
             label = "TAP2_NUM";
             #binding-cells = <0>;
             bindings =
-                <&sl NUM>,
+                <&sl 2>,
                 <&num_word>;
         };
         tap2_sleep_win: tap2_sleep_win {
@@ -238,19 +238,19 @@
             compatible = "zmk,behavior-macro";
             label = "bt0_mac";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 0 &to 6>
-        };
+            bindings = <&bt BT_SEL 0 &to 6>;
         bt1_win: bt1_win {
             compatible = "zmk,behavior-macro";
             label = "bt1_win";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 1 &to 0>
-        };
+            bindings = <&bt BT_SEL 1 &to 0>;
     };
 };
 
 / {
-    keymap {
+    
+macros {};
+keymap {
         compatible = "zmk,keymap";
 
         base_layer {
@@ -259,7 +259,7 @@
        &ht LS(Q) Q  &ht LS(W) W  &ht LS(E) E  &ht LS(R) R  &ht LS(T) T  &ht LS(Y) Y  &ht LS(U) U     &ht LS(I) I    &ht LS(O) O         &ht LS(P) P
        &ht LS(A) A  &ht LS(S) S  &ht LS(D) D  &ht LS(F) F  &ht LS(G) G  &ht LS(H) H  &ht LS(J) J     &ht LS(K) K    &ht LS(L) L         &ht DQT SQT
 &mo 3  &ht LS(Z) Z  &ht LS(X) X  &ht LS(C) C  &ht LS(V) V  &ht LS(B) B  &ht LS(N) N  &ht LS(M) M  &ht SEMI COMMA  &ht COLON DOT  &ht QUESTION SLASH  &mo 3
-                                  &skq LCTRL    &tap2_num        &mo 2    &kp SPACE    &tap2_num           &sl 2
+                                  &skq LCTRL    &tap2_num        &mo 3    &kp SPACE    &tap2_num           &sl 3
             >;
         };
 
@@ -288,7 +288,7 @@
           &kp LG(TAB)         &trans           &trans      &trans  &kp LG(GRAVE)      &kp HOME  &kp PG_DN  &kp PG_UP    &kp END  &trans
         &skq LEFT_ALT  &skq LEFT_GUI  &skq LEFT_SHIFT  &skq LCTRL    &kp LG(TAB)      &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT   &none
 &trans         &trans         &trans           &trans      &trans    &kp LA(TAB)        &trans     &trans     &trans     &trans  &trans  &trans
-                                                &none       &mo 3         &trans  &space_shift     &trans     &trans
+                                                &none      &trans         &trans  &space_shift     &trans     &trans
             >;
         };
 
@@ -298,7 +298,7 @@
         &kp LA(F4)            &kp LC(W)  &mac_finder    &kp LC(R)      &kp LC(T)  &trans               &trans  &trans  &kp LC(O)  &ht LS(LC(P)) LC(P)
          &kp LC(A)  &ht LC(LS(S)) LC(S)       &trans  &ht LC(F) F         &trans  &trans               &trans  &trans  &kp LC(L)               &trans
 &trans   &kp LC(Z)            &kp LC(X)  &kp LC(INS)  &kp LS(INS)  &kp LS(LC(Z))  &trans  &ht LC(LS(N)) LC(N)  &trans     &trans      &tap2_sleep_win  &trans
-                                               &mo 5       &trans         &trans  &trans               &trans   &mo 5
+                                               &mo 6       &trans         &trans  &trans               &trans   &mo 6
             >;
         };
 
@@ -315,10 +315,10 @@
         adjust_layer {
             label = "ADJ";
             bindings = <
-        &none  &bt BT_CLR  &out OUT_TOG  &trans  &trans        &trans  &kp F7  &kp F8  &kp F9  &kp F12
-        &none  &bt BT_NXT        &trans  &trans  &trans        &trans  &kp F4  &kp F5  &kp F6  &kp F11
-&trans       &trans  &bt BT_PRV        &bt1_win  &bt0_mac  &trans        &trans  &kp F1  &kp F2  &kp F3  &kp F10  &trans
-                                       &trans  &trans  &trans        &trans  &trans  &trans
+         &none  &bt BT_CLR  &out OUT_TOG    &trans  &trans  &trans  &kp F7  &kp F8  &kp F9  &kp F12
+         &none  &bt BT_NXT        &trans    &trans  &trans  &trans  &kp F4  &kp F5  &kp F6  &kp F11
+&trans  &trans  &bt BT_PRV      &bt1_win  &bt0_mac  &trans  &trans  &kp F1  &kp F2  &kp F3  &kp F10  &trans
+                                  &trans    &trans  &trans  &trans  &trans  &trans
             >;
         };
 
