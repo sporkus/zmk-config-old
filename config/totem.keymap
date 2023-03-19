@@ -52,10 +52,10 @@
                 <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <150>;
-            quick-tap-ms = <50>;
+            tapping-term-ms = <180>;
+            quick-tap-ms = <250>;
             flavor = "tap-preferred";
-            global-quick-tap;
+            global-quick-tap-ms = <80>;
         };
         skq: skq {
             compatible = "zmk,behavior-sticky-key";
@@ -124,13 +124,13 @@
             bindings = <&kp ENTER>;
             key-positions = <16 17>;
             global-quick-tap-ms = <80>;
-            layers = <0 1 2>;
+            layers = <BASE MAC NUM>;
         };
 
         combo_enter_num {
             bindings = <&kp ENTER>;
             key-positions = <12 13>;
-            layers = <1>;
+            layers = <NUM>;
         };
 
         combo_ctrl_enter {
@@ -199,7 +199,7 @@
             bindings = <&kp TAB>;
             key-positions = <12 13>;
             global-quick-tap-ms = <80>;
-            layers = <0 2>;
+            layers = <BASE MAC>;
         };
 
         combo_esc0 {
@@ -259,7 +259,7 @@
        &ht LS(Q) Q  &ht LS(W) W  &ht LS(E) E  &ht LS(R) R  &ht LS(T) T  &ht LS(Y) Y  &ht LS(U) U     &ht LS(I) I    &ht LS(O) O         &ht LS(P) P
        &ht LS(A) A  &ht LS(S) S  &ht LS(D) D  &ht LS(F) F  &ht LS(G) G  &ht LS(H) H  &ht LS(J) J     &ht LS(K) K    &ht LS(L) L         &ht DQT SQT
 &mo 4  &ht LS(Z) Z  &ht LS(X) X  &ht LS(C) C  &ht LS(V) V  &ht LS(B) B  &ht LS(N) N  &ht LS(M) M  &ht SEMI COMMA  &ht COLON DOT  &ht QUESTION SLASH  &mo 4
-                                  &skq LCTRL    &tap2_num        &mo 3    &kp SPACE    &tap2_num           &sl 3
+                                  &skq LCTRL    &tap2_num        &sl 3    &kp SPACE    &tap2_num           &sl 3
             >;
         };
 
