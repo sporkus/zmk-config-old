@@ -288,7 +288,7 @@
             label = "NUM";
             bindings = <
         &kp GRAVE     &none          &none         &none  &ht TILDE GRAVE  &kp EQUAL    &ht AMPS N7    &ht ASTRK N8   &ht LPAR N9  &kp NUMBER_0
-       &sk LSHIFT  &sk LALT       &sk LGUI     &sk LCTRL        &kp MINUS  &kp MINUS  &ht DOLLAR N4  &ht PERCENT N5  &ht CARET N6      &kp BSLH
+       &sk LSHIFT  &sk LALT       &sk LGUI     &sk LCTRL        &kp MINUS  &kp MINUS    &ht DOLLAR N4  &ht PERCENT N5  &ht CARET N6      &kp BSLH
 &none       &none     &none          &none         &none           &kp LT     &kp GT    &ht EXCL N1       &ht AT N2   &ht HASH N3     &kp SLASH  &trans
                              &ht COMMA DOT  &kp NUMBER_0  &skq LEFT_SHIFT  &kp SPACE   &kp NUMBER_0   &ht COMMA DOT
             >;
@@ -328,7 +328,7 @@
             label = "SHORTCUT_MAC";
             bindings = <
         &kp LG(Q)  &kp LG(W)  &mac_finder &kp LG(R)      &kp LG(T)         &trans  &trans  &trans  &trans  &ht LG(LS(P)) LG(P)
-        &trans     &trans     &trans      &trans         &trans         &trans  &trans  &trans  &trans               &trans
+        &kp LG(A)  &ht LG(LS(S)) LG(S)  &trans &ht LG(F) F  &none     &trans  &trans  &trans  &trans               &trans
 &trans  &kp LG(Z)  &kp LG(X)  &kp LG(C)   &kp LG(V)  &kp LS(LG(Z))         &trans  &trans  &trans  &trans      &tap2_sleep_mac  &trans
                                  &trans     &trans         &trans  &kp LG(SPACE)  &trans  &trans
             >;
