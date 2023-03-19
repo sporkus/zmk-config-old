@@ -317,9 +317,9 @@
         shortcut {
             label = "SHORTCUT";
             bindings = <
-        &kp LA(F4)  &kp LC(W)            &mac_finder  &kp LC(R)         &kp LC(T)            &trans    &trans  &kp LC(O) &ht LS(LC(P)) LC(P)
-        &kp LC(A)  &ht LC(LS(S)) LC(S)  &trans       &ht LC(F) F       &none                &trans    &trans  &trans  &trans    &trans
-&none   &kp LC(Z)            &kp LC(X)  &kp LS(INS)  &kp LS(LC(Z))     &trans               &ht LC(LS(N)) LC(N)    &trans  &trans  &none     &tap2_sleep_win  &none
+        &kp LA(F4) &kp LC(W)            &kp LG(E)    &kp LC(R)         &kp LC(T)            &trans     &trans      &trans  &kp LC(O)        &ht LS(LC(P)) LC(P)
+        &kp LC(A)  &ht LC(LS(S)) LC(S)  &trans       &ht LC(F) F       &none                &kp LEFT   &kp DOWN    &kp UP  &kp RIGHT        &trans
+&none   &kp LC(Z)            &kp LC(X)  &kp LS(INS)  &kp LS(LC(Z))     &trans               &ht LC(LS(N)) LC(N)    &trans  &trans  &none    &tap2_sleep_win  &none
                                               &mo 7         &trans     &trans               &trans     &mo 7
             >;
         };
@@ -327,9 +327,9 @@
         shortcut_mac {
             label = "SHORTCUT_MAC";
             bindings = <
-        &kp LG(Q)  &kp LG(W)  &kp LG(E)  &kp LG(R)      &kp LG(T)         &trans  &trans  &trans  &trans  &ht LG(LS(P)) LG(P)
-           &trans     &trans     &trans     &trans         &trans         &trans  &trans  &trans  &trans               &trans
-&trans  &kp LG(Z)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &kp LS(LG(Z))         &trans  &trans  &trans  &trans      &tap2_sleep_mac  &trans
+        &kp LG(Q)  &kp LG(W)  &mac_finder &kp LG(R)      &kp LG(T)         &trans  &trans  &trans  &trans  &ht LG(LS(P)) LG(P)
+        &trans     &trans     &trans      &trans         &trans         &trans  &trans  &trans  &trans               &trans
+&trans  &kp LG(Z)  &kp LG(X)  &kp LG(C)   &kp LG(V)  &kp LS(LG(Z))         &trans  &trans  &trans  &trans      &tap2_sleep_mac  &trans
                                  &trans     &trans         &trans  &kp LG(SPACE)  &trans  &trans
             >;
         };
