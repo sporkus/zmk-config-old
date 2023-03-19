@@ -320,7 +320,7 @@
         &kp LA(F4) &kp LC(W)            &kp LG(E)    &kp LC(R)         &kp LC(T)            &trans     &trans      &trans  &kp LC(O)        &ht LS(LC(P)) LC(P)
         &kp LC(A)  &ht LC(LS(S)) LC(S)  &trans       &ht LC(F) F       &none                &kp LEFT   &kp DOWN    &kp UP  &kp RIGHT        &trans
 &none   &kp LC(Z)            &kp LC(X)  &kp LS(INS)  &kp LS(LC(Z))     &trans               &ht LC(LS(N)) LC(N)    &trans  &trans  &none    &tap2_sleep_win  &none
-                                              &mo 7         &trans     &trans               &trans     &mo 7
+                                              &mo 7         &trans     &trans               &trans     &trans     &mo 7
             >;
         };
 
