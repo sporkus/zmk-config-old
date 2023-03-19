@@ -58,6 +58,7 @@
             flavor = "tap-preferred";
             global-quick-tap-ms = <80>;
         };
+
         skq: skq {
             compatible = "zmk,behavior-sticky-key";
             label = "quick release";
@@ -65,9 +66,9 @@
             #binding-cells = <1>;
             release-after-ms = <500>;
             ignore-modifiers;
-
-            //quick-release;
+            quick-release;
         };
+
         num_word: behavior_num_word {
             compatible = "zmk,behavior-caps-word";
             label = "NUM_WORD";
@@ -316,9 +317,9 @@
         shortcut {
             label = "SHORTCUT";
             bindings = <
-       &kp LA(F4)            &kp LC(W)  &mac_finder      &kp LC(R)  &kp LC(T)               &trans    &trans  &trans  &kp LC(O)  &ht LS(LC(P)) LC(P)
-        &kp LC(A)  &ht LC(LS(S)) LC(S)       &trans    &ht LC(F) F      &none             &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT               &trans
-&none   &kp LC(Z)            &kp LC(X)  &kp LS(INS)  &kp LS(LC(Z))     &trans  &ht LC(LS(N)) LC(N)    &trans  &trans      &none      &tap2_sleep_win  &none
+        &kp LA(F4)  &kp LC(W)            &mac_finder  &kp LC(R)         &kp LC(T)            &trans    &trans  &kp LC(O) &ht LS(LC(P)) LC(P)
+        &kp LC(A)  &ht LC(LS(S)) LC(S)  &trans       &ht LC(F) F       &none                &trans    &trans  &trans  &trans    &trans
+&none   &kp LC(Z)            &kp LC(X)  &kp LS(INS)  &kp LS(LC(Z))     &trans               &ht LC(LS(N)) LC(N)    &trans  &trans  &none     &tap2_sleep_win  &none
                                               &mo 7         &trans     &trans               &trans     &mo 7
             >;
         };
