@@ -303,7 +303,7 @@
             label = "NUM";
             bindings = <
                  &kp GRAVE     &none          &none         &none            &none  &kp EQUAL    &ht AMPS N7    &ht ASTRK N8   &ht LPAR N9  &kp NUMBER_0
-                &sk LSHIFT  &sk LALT       &sk LGUI     &sk LCTRL            &none  &kp MINUS  &ht DOLLAR N4  &ht PERCENT N5  &ht CARET N6      &kp BSLH
+                &kp LSHIFT  &kp LALT       &kp LGUI     &kp LCTRL            &none  &kp MINUS  &ht DOLLAR N4  &ht PERCENT N5  &ht CARET N6      &kp BSLH
 &kp LEFT_SHIFT       &none     &none          &none         &none           &kp LT     &kp GT    &ht EXCL N1       &ht AT N2   &ht HASH N3     &kp SLASH  &trans
                                       &ht COMMA DOT  &kp NUMBER_0  &skq LEFT_SHIFT  &kp SPACE   &kp NUMBER_0   &ht COMMA DOT
             >;
@@ -323,7 +323,7 @@
             label = "NAV";
             bindings = <
         &kp LG(TAB)    &trans    &kp UP     &trans  &kp LG(GRAVE)   &kp HOME  &kp PG_DN     &kp PG_UP   &kp END     &trans
-         &sk LSHIFT  &kp LEFT  &kp DOWN  &kp RIGHT    &kp LG(TAB)      &none  &sk LCTRL  &sk LEFT_GUI  &sk LALT  &sk LSHFT
+         &sk LSHIFT  &kp LEFT  &kp DOWN  &kp RIGHT    &kp LG(TAB)      &none  &kp LCTRL  &kp LEFT_GUI  &kp LALT  &kp LSHFT
 &trans       &trans    &trans    &trans     &trans    &kp LA(TAB)     &trans     &trans        &trans    &trans     &trans  &trans
                                   &none      &none         &trans  &kp SPACE     &trans        &trans
             >;
