@@ -39,6 +39,11 @@
     tapping-term-ms = <220>;
 };
 
+&sl {
+    quick-release;
+};
+
+
 / {
     conditional_layers {
         compatible = "zmk,conditional-layers";
