@@ -84,7 +84,7 @@
             tapping-term-ms = <180>;
             retro-tap;
             quick-tap-ms = <220>;
-            global-quick-tap-ms = <80>;
+            global-quick-tap-ms = <120>;
         };
         skq: skq {
             compatible = "zmk,behavior-sticky-key";
