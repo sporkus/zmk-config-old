@@ -84,6 +84,7 @@
             tapping-term-ms = <180>;
             quick-tap-ms = <220>;
             global-quick-tap-ms = <120>;
+            retro-tap;
         };
         skq: skq {
             compatible = "zmk,behavior-sticky-key";
@@ -267,7 +268,7 @@
             label = "giphy";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_GUI &kp X &kp U &kp S>;
+            bindings = <&kp LG(X) &kp U &kp S>;
         };
         mac_finder: mac_finder {
             compatible = "zmk,behavior-macro";
