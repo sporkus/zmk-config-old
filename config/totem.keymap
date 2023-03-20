@@ -343,10 +343,10 @@
         nav {
             label = "NAV";
             bindings = <
-        &kp LG(TAB)    &trans    &kp UP     &trans  &kp LG(GRAVE)   &kp HOME  &kp PG_DN  &kp PG_UP    &kp END     &trans
-         &sk LSHIFT  &kp LEFT  &kp DOWN  &kp RIGHT    &kp LG(TAB)   &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT  &kp LSHFT
-&trans       &trans    &trans    &trans     &trans    &kp LA(TAB)     &trans     &trans     &trans     &trans     &trans  &trans
-                                  &none      &none         &trans  &kp SPACE     &trans     &trans
+        &trans                &trans                &trans                &trans  &kp LG(GRAVE)   &kp HOME  &kp PG_DN  &kp PG_UP    &kp END     &trans
+         &none                &trans                &trans                &trans    &kp LG(TAB)   &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT  &kp LSHFT
+&trans  &trans  &kp LC(LG(NUMBER_3))  &kp LG(LC(NUMBER_2))  &kp LC(LG(NUMBER_1))    &kp LA(TAB)     &trans     &trans     &trans     &trans     &trans  &trans
+                                                     &none                 &none         &trans  &kp SPACE     &trans     &trans
             >;
         };
 
