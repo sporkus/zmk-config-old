@@ -76,7 +76,7 @@
             label = "quick release";
             bindings = <&kp>;
             #binding-cells = <1>;
-            release-after-ms = <STICKY_RELEASE_MS>;
+            release-after-ms = <500>;
             ignore-modifiers;
             quick-release;
         };
@@ -289,10 +289,10 @@
         base_layer {
             label = "BASE";
             bindings = <
-       &kp Q  &kp W      &kp E      &kp R        &kp T        &kp Y  &kp U           &kp I          &kp O               &kp P
-       &kp A  &kp S      &kp D      &kp F        &kp G        &kp H  &kp J           &kp K          &kp L         &ht DQT SQT
-&mo 5  &kp Z  &kp X      &kp C      &kp V        &kp B        &kp N  &kp M  &ht SEMI COMMA  &ht COLON DOT  &ht QUESTION SLASH  &mo 5
-                     &kp LCTRL  &tap2_num  &tap2_shift  &lt 4 SPACE  &sl 3     &key_repeat
+       &kp Q  &kp W      &kp E      &kp R        &kp T      &kp Y  &kp U           &kp I          &kp O               &kp P
+       &kp A  &kp S      &kp D      &kp F        &kp G      &kp H  &kp J           &kp K          &kp L         &ht DQT SQT
+&mo 5  &kp Z  &kp X      &kp C      &kp V        &kp B      &kp N  &kp M  &ht SEMI COMMA  &ht COLON DOT  &ht QUESTION SLASH  &mo 5
+                     &kp LCTRL  &tap2_num  &tap2_shift  &kp SPACE  &sl 5     &key_repeat
             >;
         };
 
@@ -308,10 +308,10 @@
         num {
             label = "NUM";
             bindings = <
-                 &kp GRAVE     &none          &none         &none            &none  &kp EQUAL    &ht AMPS N7    &ht ASTRK N8   &ht LPAR N9  &kp NUMBER_0
-                &kp LSHIFT  &kp LALT       &kp LGUI     &kp LCTRL            &none  &kp MINUS  &ht DOLLAR N4  &ht PERCENT N5  &ht CARET N6      &kp BSLH
-&kp LEFT_SHIFT       &none     &none          &none         &none           &kp LT     &kp GT    &ht EXCL N1       &ht AT N2   &ht HASH N3     &kp SLASH  &trans
-                                      &ht COMMA DOT  &kp NUMBER_0  &skq LEFT_SHIFT  &kp SPACE   &kp NUMBER_0   &ht COMMA DOT
+                &ht TILDE GRAVE     &none          &none         &none            &none  &ht LS(EQUAL) EQUAL    &ht AMPS N7    &ht ASTRK N8   &ht LPAR N9  &kp NUMBER_0
+                     &kp LSHIFT  &kp LALT       &kp LGUI     &kp LCTRL            &none  &ht LS(MINUS) MINUS  &ht DOLLAR N4  &ht PERCENT N5  &ht CARET N6   &ht DQT SQT
+&kp LEFT_SHIFT            &none     &none          &none         &none            &none            &ht LT GT    &ht EXCL N1       &ht AT N2   &ht HASH N3     &kp SLASH  &trans
+                                           &ht COMMA DOT  &kp NUMBER_0  &skq LEFT_SHIFT            &kp SPACE   &kp NUMBER_0   &ht COMMA DOT
             >;
         };
 
