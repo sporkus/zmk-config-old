@@ -26,7 +26,14 @@
 #define COMBO_FAST 35
 
 &mt {
-    quick-tap-ms = <100>;
+    quick-tap-ms = <220>;
+    global-quick-tap-ms = <150>;
+    flavor = "balanced";
+    tapping-term-ms = <220>;
+};
+
+&lt {
+    quick-tap-ms = <220>;
     global-quick-tap-ms = <150>;
     flavor = "balanced";
     tapping-term-ms = <220>;
@@ -279,7 +286,7 @@
        &kp Q  &kp W      &kp E      &kp R        &kp T      &kp Y  &kp U           &kp I          &kp O               &kp P
        &kp A  &kp S      &kp D      &kp F        &kp G      &kp H  &kp J           &kp K          &kp L         &ht DQT SQT
 &mo 5  &kp Z  &kp X      &kp C      &kp V        &kp B      &kp N  &kp M  &ht SEMI COMMA  &ht COLON DOT  &ht QUESTION SLASH  &mo 5
-                     &kp LCTRL  &tap2_num  &tap2_shift  &kp SPACE  &sl 4     &key_repeat
+                     &kp LCTRL  &tap2_num  &tap2_shift  &lt NAV SPACE  &sl 4     &key_repeat
             >;
         };
 
