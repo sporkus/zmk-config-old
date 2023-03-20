@@ -24,6 +24,7 @@
 #define SHORTCUT_MAC  6
 #define ADJ           7
 #define COMBO_FAST 35
+#define STICKY_RELEASE_MS 330
 
 &mt {
     quick-tap-ms = <220>;
@@ -41,6 +42,7 @@
 
 &sl {
     quick-release;
+    release-after-ms = <STICKY_RELEASE_MS>;
 };
 
 / {
@@ -74,7 +76,7 @@
             label = "quick release";
             bindings = <&kp>;
             #binding-cells = <1>;
-            release-after-ms = <500>;
+            release-after-ms = <STICKY_RELEASE_MS>;
             ignore-modifiers;
             quick-release;
         };
