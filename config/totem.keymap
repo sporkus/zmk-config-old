@@ -283,10 +283,10 @@
         base_layer {
             label = "BASE";
             bindings = <
-       &kp Q  &kp W      &kp E      &kp R        &kp T      &kp Y  &kp U           &kp I          &kp O               &kp P
-       &kp A  &kp S      &kp D      &kp F        &kp G      &kp H  &kp J           &kp K          &kp L         &ht DQT SQT
-&mo 5  &kp Z  &kp X      &kp C      &kp V        &kp B      &kp N  &kp M  &ht SEMI COMMA  &ht COLON DOT  &ht QUESTION SLASH  &mo 5
-                     &kp LCTRL  &tap2_num  &tap2_shift  &lt NAV SPACE  &sl 4     &key_repeat
+       &kp Q  &kp W      &kp E      &kp R        &kp T        &kp Y  &kp U           &kp I          &kp O               &kp P
+       &kp A  &kp S      &kp D      &kp F        &kp G        &kp H  &kp J           &kp K          &kp L         &ht DQT SQT
+&mo 5  &kp Z  &kp X      &kp C      &kp V        &kp B        &kp N  &kp M  &ht SEMI COMMA  &ht COLON DOT  &ht QUESTION SLASH  &mo 5
+                     &kp LCTRL  &tap2_num  &tap2_shift  &lt 4 SPACE  &sl 4     &key_repeat
             >;
         };
 
@@ -302,8 +302,8 @@
         num {
             label = "NUM";
             bindings = <
-                 &kp GRAVE     &none          &none         &none  &ht TILDE GRAVE  &kp EQUAL    &ht AMPS N7    &ht ASTRK N8   &ht LPAR N9  &kp NUMBER_0
-                &sk LSHIFT  &sk LALT       &sk LGUI     &sk LCTRL        &kp MINUS  &kp MINUS  &ht DOLLAR N4  &ht PERCENT N5  &ht CARET N6      &kp BSLH
+                 &kp GRAVE     &none          &none         &none            &none  &kp EQUAL    &ht AMPS N7    &ht ASTRK N8   &ht LPAR N9  &kp NUMBER_0
+                &sk LSHIFT  &sk LALT       &sk LGUI     &sk LCTRL            &none  &kp MINUS  &ht DOLLAR N4  &ht PERCENT N5  &ht CARET N6      &kp BSLH
 &kp LEFT_SHIFT       &none     &none          &none         &none           &kp LT     &kp GT    &ht EXCL N1       &ht AT N2   &ht HASH N3     &kp SLASH  &trans
                                       &ht COMMA DOT  &kp NUMBER_0  &skq LEFT_SHIFT  &kp SPACE   &kp NUMBER_0   &ht COMMA DOT
             >;
@@ -322,10 +322,10 @@
         nav {
             label = "NAV";
             bindings = <
-        &kp LG(TAB)    &trans    &trans     &trans  &kp LG(GRAVE)      &kp HOME  &kp PG_DN  &kp PG_UP    &kp END  &trans
-         &sk LSHIFT  &sk LALT  &sk LGUI  &sk LCTRL    &kp LG(TAB)      &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT   &none
-&trans       &trans    &trans    &trans     &trans    &kp LA(TAB)        &trans     &trans     &trans     &trans  &trans  &trans
-                                  &none      &none         &trans  &space_shift     &trans     &trans
+        &kp LG(TAB)    &trans    &kp UP     &trans  &kp LG(GRAVE)   &kp HOME  &kp PG_DN     &kp PG_UP   &kp END     &trans
+         &sk LSHIFT  &kp LEFT  &kp DOWN  &kp RIGHT    &kp LG(TAB)      &none  &sk LCTRL  &sk LEFT_GUI  &sk LALT  &sk LSHFT
+&trans       &trans    &trans    &trans     &trans    &kp LA(TAB)     &trans     &trans        &trans    &trans     &trans  &trans
+                                  &none      &none         &trans  &kp SPACE     &trans        &trans
             >;
         };
 
