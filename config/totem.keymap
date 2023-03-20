@@ -353,10 +353,10 @@
         shortcut {
             label = "SHORTCUT";
             bindings = <
-       &kp LA(F4)            &kp LC(W)    &kp LG(E)            &kp LC(R)  &kp LC(T)               &trans    &trans  &trans  &kp LC(O)  &ht LS(LC(P)) LC(P)
-        &kp LC(A)  &ht LC(LS(S)) LC(S)       &trans  &ht LC(LS(F)) LC(F)      &none             &kp none    &kp LCTRL  &kp LGUI  &kp LALT  &kp LSHFT
-&none   &kp LC(Z)            &kp LC(X)  &kp LC(INS)          &kp LS(INS)      &none  &ht LC(LS(N)) LC(N)    &trans  &trans      &none      &tap2_sleep_win  &none
-                                              &mo 7               &trans     &trans               &trans    &trans   &mo 7
+       &kp LA(F4)            &kp LC(W)    &kp LG(E)            &kp LC(R)  &kp LC(T)               &trans     &trans    &trans  &kp LC(O)  &ht LS(LC(P)) LC(P)
+        &kp LC(A)  &ht LC(LS(S)) LC(S)       &trans  &ht LC(LS(F)) LC(F)      &none                &none  &kp LCTRL  &kp LGUI   &kp LALT            &kp LSHFT
+&none   &kp LC(Z)            &kp LC(X)  &kp LC(INS)          &kp LS(INS)      &none  &ht LC(LS(N)) LC(N)     &trans    &trans      &none      &tap2_sleep_win  &none
+                                              &mo 7               &trans     &trans               &trans     &trans     &mo 7
             >;
         };
 
