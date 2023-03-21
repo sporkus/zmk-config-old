@@ -27,10 +27,11 @@
 #define STICKY_RELEASE_MS 330
 
 &mt {
-    quick-tap-ms = <220>;
-    global-quick-tap-ms = <150>;
+    quick-tap-ms = <250>;
+    global-quick-tap-ms = <250>;
     flavor = "balanced";
-    tapping-term-ms = <220>;
+    tapping-term-ms = <250>;
+    hold-trigger-on-release;
 };
 
 &lt {
@@ -298,6 +299,7 @@
     };
 };
 
+
 / {
     keymap {
         compatible = "zmk,keymap";
@@ -306,8 +308,9 @@
             label = "BASE";
             bindings = <
        &kp Q  &kp W      &kp E      &kp R        &kp T             &kp Y  &kp U           &kp I          &kp O               &kp P
-       &kp A  &kp S      &kp D      &kp F        &kp G             &kp H  &kp J           &kp K          &kp L         &ht DQT SQT
-&mo 5  &kp Z  &kp X      &kp C      &kp V        &kp B             &kp N  &kp M  &ht SEMI COMMA  &ht COLON DOT  &ht QUESTION SLASH  &mo 5
+       //&kp A  &kp S      &kp D      &kp F        &kp G             &kp H  &kp J           &kp K          &kp L         &ht DQT SQT
+       &mt LSFT A &mt LALT S  &mt LGUI D  &mt LCTL F &kp G         &kp H  &mt LCTL J      &mt LGUI K     &mt LALT L      &mt LSFT SQT
+       &mo 5  &kp Z  &kp X      &kp C      &kp V        &kp B             &kp N  &kp M  &ht SEMI COMMA  &ht COLON DOT  &ht QUESTION SLASH  &mo 5
                      &kp LCTRL  &tap2_num  &tap2_shift  &lt_left 4 SPACE  &sl 5     &key_repeat
             >;
         };
