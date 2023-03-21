@@ -74,14 +74,11 @@
         lt_left: lt_left {
             compatible = "zmk,behavior-hold-tap";
             label = "LT_LEFT";
-            bindings =
-                <&mo>,
-                <&kp>;
-
+            bindings = <&mo>, <&kp>;
             #binding-cells = <2>;
             hold-trigger-key-positions = <15 16 17 18 6 6 15 16 17 18 7 30 29 5 6 7 8 9 15 16 17 18 19 26 27 28 29 30 31 37 36 35>;
             flavor = "balanced";
-            tapping-term-ms = <180>;
+            tapping-term-ms = <150>;
             quick-tap-ms = <220>;
             global-quick-tap-ms = <120>;
             retro-tap;
@@ -274,7 +271,11 @@
             compatible = "zmk,behavior-macro";
             label = "mac_finder";
             #binding-cells = <0>;
-            bindings = <&kp LG(SPACE) &kp F &kp I &kp N &kp D &kp E &kp R &kp DOT &kp A &kp P &kp P &kp RET>;
+            bindings =
+                <&kp LG(SPACE)>
+                , <&macro_tap_time 1>
+                , <&macro_wait_time 1>
+                , <&kp F &kp I &kp N &kp D &kp E &kp R &kp DOT &kp A &kp P &kp P &kp RET>;
         };
         space_shift: space_shift {
             compatible = "zmk,behavior-macro";
