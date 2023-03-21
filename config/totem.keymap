@@ -62,15 +62,23 @@
         ht: ht {
             compatible = "zmk,behavior-hold-tap";
             label = "(hold, tap)";
-            bindings =
-                <&kp>,
-                <&kp>;
-
+            bindings = <&kp>, <&kp>;
             #binding-cells = <2>;
             tapping-term-ms = <180>;
             quick-tap-ms = <250>;
             flavor = "tap-preferred";
             global-quick-tap-ms = <80>;
+        };
+        emt: emt {
+            compatible = "zmk,behavior-hold-tap";
+            label = "eager mod tap";
+            bindings = <&kp>, <&kp>;
+            #binding-cells = <2>;
+            tapping-term-ms = <180>;
+            quick-tap-ms = <250>;
+            flavor = "balanced";
+            global-quick-tap-ms = <250>;
+            hold-while-undecided;
         };
         lt_left: lt_left {
             compatible = "zmk,behavior-hold-tap";
@@ -81,7 +89,7 @@
             flavor = "balanced";
             tapping-term-ms = <250>;
             quick-tap-ms = <250>;
-            global-quick-tap-ms = <250>;
+            global-quick-tap-ms = <100>;
         };
         skq: skq {
             compatible = "zmk,behavior-sticky-key";
@@ -306,7 +314,7 @@
             label = "BASE";
             bindings = <
              &kp Q       &kp W       &kp E       &kp R        &kp T             &kp Y       &kp U           &kp I          &kp O               &kp P
-       &mt LSHFT A  &mt LALT S  &mt LGUI D  &mt LCTL F        &kp G             &kp H  &mt LCTL J      &mt LGUI K     &mt LALT L       &mt LSHFT SQT
+       &emt LSHFT A  &mt LALT S  &mt LGUI D  &mt LCTL F        &kp G             &kp H  &mt LCTL J      &mt LGUI K     &mt LALT L       &emt LSHFT SQT
 &mo 5        &kp Z       &kp X       &kp C       &kp V        &kp B             &kp N       &kp M  &ht SEMI COMMA  &ht COLON DOT  &ht QUESTION SLASH  &mo 5
                                  &kp LCTRL   &tap2_num  &tap2_shift  &lt_left 4 SPACE       &sl 5     &key_repeat
             >;
@@ -315,7 +323,7 @@
         MAC {
             bindings = <
         &trans  &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans        &emt LGUI D  &trans  &trans  &trans  &trans  &emt LGUI K  &trans  &trans
 &trans  &trans  &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
                         &kp LEFT_GUI  &trans  &trans  &trans  &trans  &trans
             >;
@@ -355,7 +363,7 @@
             label = "SHORTCUT";
             bindings = <
        &kp LA(F4)            &kp LC(W)    &kp LG(E)            &kp LC(R)  &kp LC(T)               &trans     &trans    &trans  &kp LC(O)  &ht LS(LC(P)) LC(P)
-        &kp LC(A)  &ht LC(LS(S)) LC(S)       &trans  &ht LC(LS(F)) LC(F)      &none                &none  &kp LCTRL  &kp LGUI   &kp LALT            &kp LSHFT
+        &kp LC(A)  &ht LC(LS(S)) LC(S)       &trans  &ht LC(LS(F)) LC(F)      &none               &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT            &kp LSHFT
 &none   &kp LC(Z)            &kp LC(X)  &kp LC(INS)          &kp LS(INS)      &none  &ht LC(LS(N)) LC(N)     &trans    &trans      &none      &tap2_sleep_win  &none
                                               &mo 7               &trans     &trans               &trans     &trans     &mo 7
             >;
