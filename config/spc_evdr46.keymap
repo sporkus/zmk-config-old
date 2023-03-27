@@ -20,110 +20,6 @@
 };
 
 / {
-    combos {
-        compatible = "zmk,combos";
-
-        combo_slash {
-            timeout-ms = <50>;
-            key-positions = <1 11>;
-            layers = <BAS_L>;
-            bindings = <&kp SLASH>;
-        };
-
-        combo_lBracket {
-            timeout-ms = <50>;
-            key-positions = <2 12>;
-            layers = <BAS_L>;
-            bindings = <&kp LEFT_BRACKET>;
-        };
-
-        combo_lBrace {
-            timeout-ms = <50>;
-            key-positions = <3 13>;
-            layers = <BAS_L>;
-            bindings = <&kp LEFT_BRACE>;
-        };
-
-        combo_lParanthesis {
-            timeout-ms = <50>;
-            key-positions = <4 14>;
-            layers = <BAS_L>;
-            bindings = <&kp LEFT_PARENTHESIS>;
-        };
-
-        combo_equal {
-            timeout-ms = <50>;
-            key-positions = <5 15>;
-            layers = <BAS_L>;
-            bindings = <&kp EQUAL>;
-        };
-
-        combo_asterix {
-            timeout-ms = <50>;
-            key-positions = <6 16>;
-            layers = <BAS_L>;
-            bindings = <&kp ASTERISK>;
-        };
-
-        combo_rParanthesis {
-            timeout-ms = <50>;
-            key-positions = <7 17>;
-            layers = <BAS_L>;
-            bindings = <&kp RIGHT_PARENTHESIS>;
-        };
-
-        combo_rBrace {
-            timeout-ms = <50>;
-            key-positions = <8 18>;
-            layers = <BAS_L>;
-            bindings = <&kp RIGHT_BRACE>;
-        };
-
-        combo_rBracket {
-            timeout-ms = <50>;
-            key-positions = <9 19>;
-            layers = <BAS_L>;
-            bindings = <&kp RIGHT_BRACKET>;
-        };
-
-        combo_bSlash {
-            timeout-ms = <50>;
-            key-positions = <10 20>;
-            layers = <BAS_L>;
-            bindings = <&kp BACKSLASH>;
-        };
-
-        combo_tab {
-            timeout-ms = <50>;
-            key-positions = <2 3>;
-            bindings = <&kp TAB>;
-        };
-
-        combo_backspace {
-            timeout-ms = <50>;
-            key-positions = <8 9>;
-            bindings = <&kp BACKSPACE>;
-        };
-
-        combo_esc {
-            timeout-ms = <50>;
-            key-positions = <1 2>;
-            bindings = <&kp ESCAPE>;
-        };
-
-        combo_cfgLayer {
-            timeout-ms = <50>;
-            key-positions = <31 32>;
-            bindings = <&mo 5>;
-        };
-
-        combo_capsWord {
-            timeout-ms = <50>;
-            key-positions = <23 29>;
-            bindings = <&caps_word>;
-        };
-    };
-
     behaviors {
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
@@ -131,9 +27,7 @@
             #binding-cells = <2>;
             tapping_term_ms = <180>;
             flavor = "tap-preferred";
-            bindings =
-                <&kp>,
-                <&kp>;
+            bindings = <&kp>, <&kp>;
         };
     };
 
