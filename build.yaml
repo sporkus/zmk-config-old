@@ -6,6 +6,6 @@
 #
 include:
    - board: seeeduino_xiao_ble
-     shield: spc_evdr
+     shield: spc_evdr46
    # - board: seeeduino_xiao_ble
    #   shield: xiao_settings_reset

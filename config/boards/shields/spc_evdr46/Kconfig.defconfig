@@ -1,21 +1,21 @@
 # Copyright (c) 2022 @weteor
 # SPDX-License-Identifier: MIT
 
-if SHIELD_SPC_EVDR
+if SHIELD_SPC_EVDR46
 
 config ZMK_KEYBOARD_NAME
-    default "SPC EVDR"
+    default "SPC EVDR46"
 
 config I2C
     default y
-    
+
 config GPIO_PCA95XX
     default y
-    
+
 config ZMK_DISPLAY
   select LVGL_USE_IMG
   # default y
-  
+
 choice ZMK_DISPLAY_STATUS_SCREEN
         default ZMK_DISPLAY_STATUS_SCREEN_CUSTOM
 endchoice
