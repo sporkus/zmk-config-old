@@ -62,7 +62,10 @@
         ht: ht {
             compatible = "zmk,behavior-hold-tap";
             label = "(hold, tap)";
-            bindings = <&kp>, <&kp>;
+            bindings =
+                <&kp>,
+                <&kp>;
+
             #binding-cells = <2>;
             tapping-term-ms = <180>;
             quick-tap-ms = <250>;
@@ -72,7 +75,10 @@
         emt: emt {
             compatible = "zmk,behavior-hold-tap";
             label = "eager mod tap";
-            bindings = <&kp>, <&kp>;
+            bindings =
+                <&kp>,
+                <&kp>;
+
             #binding-cells = <2>;
             tapping-term-ms = <180>;
             quick-tap-ms = <250>;
@@ -83,9 +89,14 @@
         lt_left: lt_left {
             compatible = "zmk,behavior-hold-tap";
             label = "LT_LEFT";
-            bindings = <&mo>, <&kp>;
+            bindings =
+                <&mo>,
+                <&kp>;
+
             #binding-cells = <2>;
-         //   hold-trigger-key-positions = <15 16 17 18 6 6 15 16 17 18 7 30 29 5 6 7 8 9 15 16 17 18 19 26 27 28 29 30 31 37 36 35>;
+
+            //   hold-trigger-key-positions = <15 16 17 18 6 6 15 16 17 18 7 30 29 5 6 7 8 9 15 16 17 18 19 26 27 28 29 30 31 37 36 35>;
+
             flavor = "balanced";
             tapping-term-ms = <250>;
             quick-tap-ms = <250>;
@@ -225,14 +236,14 @@
             global-quick-tap-ms = <80>;
         };
 
-        combo_mins {
-            bindings = <&ht UNDER MINUS>;
+        combo_lt {
+            bindings = <&kp LT>;
             key-positions = <4 14>;
             global-quick-tap-ms = <80>;
         };
 
-        combo_eql {
-            bindings = <&ht PLUS EQL>;
+        combo_gt {
+            bindings = <&kp GT>;
             key-positions = <5 15>;
             global-quick-tap-ms = <80>;
         };
@@ -313,26 +324,26 @@
         base_layer {
             label = "BASE";
             bindings = <
-             &kp Q       &kp W       &kp E       &kp R        &kp T             &kp Y       &kp U           &kp I          &kp O               &kp P
-       &emt LSHFT A  &mt LALT S  &mt LGUI D  &mt LCTL F        &kp G             &kp H  &mt LCTL J      &mt LGUI K     &mt LALT L       &emt LSHFT SQT
-&mo 5        &kp Z       &kp X       &kp C       &kp V        &kp B             &kp N       &kp M  &ht SEMI COMMA  &ht COLON DOT  &ht QUESTION SLASH  &mo 5
-                                 &kp LCTRL   &tap2_num  &tap2_shift  &lt_left 4 SPACE       &sl 5     &key_repeat
+                   &kp Q            &kp W           &kp E               &kp R        &kp T             &kp Y               &kp U               &kp I             &kp O                  &kp P
+                   &kp A            &kp S           &kp D               &kp F        &kp G             &kp H               &kp J               &kp K             &kp L                &kp SQT
+&mo 5  &emt LEFT_SHIFT Z  &emt LEFT_ALT X  &mt LEFT_GUI C  &mt LEFT_CONTROL V        &kp B             &kp N  &mt LEFT_CONTROL M  &mt LEFT_GUI COMMA  &mt LEFT_ALT DOT  &emt LEFT_SHIFT SLASH  &mo 5
+                                           &emt LCTRL TAB           &tap2_num  &tap2_shift  &lt_left 4 SPACE         &lt 5 ENTER         &bspc_morph
             >;
         };
 
         MAC {
             bindings = <
-        &trans  &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans        &emt LGUI D  &trans  &trans  &trans  &trans  &emt LGUI K  &trans  &trans
-&trans  &trans  &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                        &kp LEFT_GUI  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans           &trans  &trans  &trans  &trans  &trans               &trans  &trans  &trans
+        &trans  &trans           &trans  &trans  &trans  &trans  &trans               &trans  &trans  &trans
+&trans  &trans  &trans  &emt LEFT_GUI C  &trans  &trans  &trans  &trans  &emt LEFT_GUI COMMA  &trans  &trans  &trans
+                           &kp LEFT_GUI  &trans  &trans  &trans  &trans               &trans
             >;
         };
 
         num {
             label = "NUM";
             bindings = <
-                &ht TILDE GRAVE     &none          &none         &none            &none  &ht LS(EQUAL) EQUAL    &ht AMPS N7    &ht ASTRK N8   &ht LPAR N9  &kp NUMBER_0
+                &ht TILDE GRAVE     &none          &none         &none  &ht TILDE GRAVE  &ht LS(EQUAL) EQUAL    &ht AMPS N7    &ht ASTRK N8   &ht LPAR N9  &kp NUMBER_0
                      &kp LSHIFT  &kp LALT       &kp LGUI     &kp LCTRL            &none  &ht LS(MINUS) MINUS  &ht DOLLAR N4  &ht PERCENT N5  &ht CARET N6   &ht DQT SQT
 &kp LEFT_SHIFT            &none     &none          &none         &none            &none            &ht LT GT    &ht EXCL N1       &ht AT N2   &ht HASH N3     &kp SLASH  &trans
                                            &ht COMMA DOT  &kp NUMBER_0  &skq LEFT_SHIFT            &kp SPACE   &kp NUMBER_0   &ht COMMA DOT
@@ -362,10 +373,10 @@
         shortcut {
             label = "SHORTCUT";
             bindings = <
-       &kp LA(F4)            &kp LC(W)    &kp LG(E)            &kp LC(R)  &kp LC(T)               &trans     &trans    &trans  &kp LC(O)  &ht LS(LC(P)) LC(P)
-        &kp LC(A)  &ht LC(LS(S)) LC(S)       &trans  &ht LC(LS(F)) LC(F)      &none               &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT            &kp LSHFT
-&none   &kp LC(Z)            &kp LC(X)  &kp LC(INS)          &kp LS(INS)      &none  &ht LC(LS(N)) LC(N)     &trans    &trans      &none      &tap2_sleep_win  &none
-                                              &mo 7               &trans     &trans               &trans     &trans     &mo 7
+       &kp LA(F4)            &kp LC(W)    &kp LG(E)            &kp LC(R)  &kp LC(T)               &trans    &trans  &trans  &kp LC(O)  &ht LS(LC(P)) LC(P)
+        &kp LC(A)  &ht LC(LS(S)) LC(S)       &trans  &ht LC(LS(F)) LC(F)      &none             &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT            &kp LSHFT
+&none   &kp LC(Z)            &kp LC(X)  &kp LC(INS)          &kp LS(INS)      &none  &ht LC(LS(N)) LC(N)    &trans  &trans      &none      &tap2_sleep_win  &none
+                                              &mo 7               &trans     &trans               &trans    &trans   &mo 7
             >;
         };
 
