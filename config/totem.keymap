@@ -85,6 +85,7 @@
             flavor = "balanced";
             global-quick-tap-ms = <250>;
             hold-while-undecided;
+            hold-trigger-on-release;
         };
         skq: skq {
             compatible = "zmk,behavior-sticky-key";
@@ -164,6 +165,18 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
+        };
+        sft_t: sft_t {
+            compatible = "zmk,behavior-hold-tap";
+            label = "holdtap-hold-pref";
+            bindings =
+                <&kp>,
+                <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <250>;
+            hold-trigger-on-release;
         };
     };
 };
@@ -292,10 +305,10 @@
         base_layer {
             label = "BASE";
             bindings = <
-                             &kp Q            &kp W           &kp E               &kp R        &kp T      &kp Y               &kp U               &kp I             &kp O                  &kp P
-                             &kp A            &kp S           &kp D               &kp F        &kp G      &kp H               &kp J               &kp K             &kp L                &kp SQT
-&skq LEFT_SHIFT  &emt LEFT_SHIFT Z  &emt LEFT_ALT X  &mt LEFT_GUI C  &mt LEFT_CONTROL V        &kp B      &kp N  &mt LEFT_CONTROL M  &mt LEFT_GUI COMMA  &mt LEFT_ALT DOT  &emt LEFT_SHIFT SLASH  &skq LEFT_SHIFT
-                                                         &lth 4 TAB           &tap2_num  &tap2_shift  &kp SPACE          &lth 4 ESC         &bspc_morph
+                               &kp Q            &kp W           &kp E               &kp R        &kp T      &kp Y               &kp U               &kp I             &kp O                    &kp P
+                               &kp A            &kp S           &kp D               &kp F        &kp G      &kp H               &kp J               &kp K             &kp L                  &kp SQT
+&skq LEFT_SHIFT  &sft_t LEFT_SHIFT Z  &emt LEFT_ALT X  &mt LEFT_GUI C  &mt LEFT_CONTROL V        &kp B      &kp N  &mt LEFT_CONTROL M  &mt LEFT_GUI COMMA  &mt LEFT_ALT DOT  &sft_t LEFT_SHIFT SLASH  &skq LEFT_SHIFT
+                                                           &lth 4 TAB           &tap2_num  &tap2_shift  &kp SPACE          &lth 4 ESC         &bspc_morph
             >;
         };
 
