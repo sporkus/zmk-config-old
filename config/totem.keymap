@@ -36,7 +36,7 @@
 
 &lt {
     quick-tap-ms = <220>;
-    global-quick-tap-ms = <150>;
+    global-quick-tap-ms = <50>;
     flavor = "balanced";
     tapping-term-ms = <220>;
 };
@@ -197,18 +197,6 @@
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        lt: lt {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LT";
-            bindings =
-                <&mo>,
-                <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <200>;
-            flavor = "balanced";
         };
     };
 };
