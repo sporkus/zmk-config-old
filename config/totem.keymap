@@ -198,6 +198,32 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+        comma_morph_t: comma_morph_t {
+            compatible = "zmk,behavior-hold-tap";
+            label = "COMMA_MORPH_T";
+            bindings =
+                <&kp>,
+                <&comma_morph>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            flavor = "balanced";
+            hold-trigger-on-release;
+        };
+        dot_morph_t: dot_morph_t {
+            compatible = "zmk,behavior-hold-tap";
+            label = "DOT_MORPH_T";
+            bindings =
+                <&kp>,
+                <&dot_morph>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            flavor = "balanced";
+            hold-trigger-on-release;
+        };
     };
 };
 
@@ -325,10 +351,10 @@
         base_layer {
             label = "BASE";
             bindings = <
-                     &kp Q            &kp W           &kp E               &kp R        &kp T        &kp Y               &kp U               &kp I             &kp O                    &kp P
-                     &kp A            &kp S           &kp D               &kp F        &kp G        &kp H               &kp J               &kp K             &kp L              &ht DQT SQT
-&mo 4  &sft_t LEFT_SHIFT Z  &emt LEFT_ALT X  &mt LEFT_GUI C  &mt LEFT_CONTROL V        &kp B        &kp N  &mt LEFT_CONTROL M  &mt LEFT_GUI COMMA  &mt LEFT_ALT DOT  &sft_t LEFT_SHIFT SLASH  &mo 4
-                                                      &none           &tap2_num  &tap2_shift  &tap2_shift         &lt 3 SPACE               &none
+                     &kp Q            &kp W           &kp E               &kp R        &kp T        &kp Y               &kp U                      &kp I                    &kp O                    &kp P
+                     &kp A            &kp S           &kp D               &kp F        &kp G        &kp H               &kp J                      &kp K                    &kp L              &ht DQT SQT
+&mo 4  &sft_t LEFT_SHIFT Z  &emt LEFT_ALT X  &mt LEFT_GUI C  &mt LEFT_CONTROL V        &kp B        &kp N  &mt LEFT_CONTROL M  &comma_morph_t LEFT_GUI 0  &dot_morph_t LEFT_ALT 0  &sft_t LEFT_SHIFT SLASH  &mo 4
+                                                      &none           &tap2_num  &tap2_shift  &lt 3 SPACE         &lt 3 SPACE                      &none
             >;
         };
 
