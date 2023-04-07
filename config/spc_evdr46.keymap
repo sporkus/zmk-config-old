@@ -23,7 +23,6 @@
             bindings =
                 <&kp>,
                 <&kp>;
-
             tapping-term-ms = <200>;
             hold-trigger-on-release;
         };
@@ -33,7 +32,6 @@
             bindings =
                 <&kp>,
                 <&kp>;
-
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             quick-tap-ms = <200>;
@@ -47,15 +45,6 @@
             quick-release;
             release-after-ms = <300>;
             ignore-modifiers;
-        };
-        new_behavior: new_behavior {
-            compatible = "zmk,behavior-hold-tap";
-            label = "NEW_BEHAVIOR";
-            bindings =
-                <&none>,
-                <&none>;
-
-            #binding-cells = <2>;
         };
     };
 
@@ -94,6 +83,8 @@
          &trans           &trans            &trans                            &trans     &trans     &trans  &kp N0          &trans  &trans  &trans
                                                                                                             &trans  &trans  &trans  &trans  &trans
             >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         NAV {
@@ -105,6 +96,8 @@
      &trans  &trans  &trans          &trans  &trans    &trans    &trans               &trans  &trans  &trans
                                                                  &trans    &trans     &trans  &trans  &trans
             >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
 };
