@@ -14,7 +14,7 @@ config GPIO_PCA95XX
 
 config ZMK_DISPLAY
   select LVGL_USE_IMG
-  # default y
+  default y
 
 choice ZMK_DISPLAY_STATUS_SCREEN
         default ZMK_DISPLAY_STATUS_SCREEN_CUSTOM
@@ -35,7 +35,7 @@ config LVGL_HOR_RES_MAX
 	default 128
 
 config LVGL_VER_RES_MAX
-	default 32
+	default 64
 
 config LVGL_VDB_SIZE
 	default 64
