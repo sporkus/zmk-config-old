@@ -5,7 +5,7 @@
 # the `include` property, e.g:
 #
 include:
-   - board: xiao_ble_sense
+   - board: seeeduino_xiao_ble
      shield: spc_evdr46
    # - board: seeeduino_xiao_ble
    #   shield: xiao_settings_reset
