@@ -50,21 +50,32 @@
             release-after-ms = <300>;
             ignore-modifiers;
         };
-      
-       // Alt+Tab swapper, requires PR #1366
-       alt_tab: alt_tab {
+
+        // Alt+Tab swapper, requires PR #1366
+
+        alt_tab: alt_tab {
             compatible = "zmk,behavior-tri-state";
             label = "ALT_TAB";
-            bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
+            bindings =
+                <&kt LALT>,
+                <&kp TAB>,
+                <&kt LALT>;
+
             #binding-cells = <0>;
-       };
-       // Gui+Tab swapper, requires PR #1366
-       gui_tab: gui_tab {
+        };
+
+        // Gui+Tab swapper, requires PR #1366
+
+        gui_tab: gui_tab {
             compatible = "zmk,behavior-tri-state";
             label = "GUI_TAB";
-            bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
+            bindings =
+                <&kt LGUI>,
+                <&kp TAB>,
+                <&kt LGUI>;
+
             #binding-cells = <0>;
-       };
+        };
     };
 
     combos {
@@ -75,7 +86,7 @@
             key-positions = <20 21>;
             global-quick-tap-ms = <80>;
         };
-        
+
         combo_bspc {
             bindings = <&kp BSPC>;
             key-positions = <9 10>;
@@ -100,6 +111,11 @@
         combo_gt {
             bindings = <&kp GT>;
             key-positions = <7 19>;
+        };
+
+        combo_esc {
+            bindings = <&kp ESC>;
+            key-positions = <15 16>;
         };
     };
 
