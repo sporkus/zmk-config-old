@@ -61,8 +61,8 @@
 	encoder: encoder {
 		compatible = "alps,ec11";
 		label = "ENCODER";
-		a-gpios = <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-		b-gpios = <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+		a-gpios = <&xiao_d 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+		b-gpios = <&xiao_d 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
 		resolution = <2>;
 		status = "okay";
 	};
