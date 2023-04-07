@@ -9,6 +9,7 @@
 
 &lt {
     quick_tap_ms = <200>;
+    flavor = "balanced";
 };
 
 / {
@@ -17,7 +18,7 @@
             compatible = "zmk,behavior-hold-tap";
             label = "homerow mods";
             #binding-cells = <2>;
-            global-quick-tap-ms = <180>;
+            global-quick-tap-ms = <80>;
             quick-tap-ms = <250>;
             flavor = "balanced";
             bindings =
@@ -49,6 +50,19 @@
             release-after-ms = <300>;
             ignore-modifiers;
         };
+      
+       // Alt+Tab swapper, requires PR #1366
+       alt_tab: alt_tab {
+            compatible = "zmk,behavior-tri-state";
+            bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
+            #binding-cells = <0>;
+       };
+       // Gui+Tab swapper, requires PR #1366
+       gui_tab: gui_tab {
+            compatible = "zmk,behavior-tri-state";
+            bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
+            #binding-cells = <0>;
+       };
     };
 
     combos {
@@ -57,6 +71,13 @@
         combo_enter {
             bindings = <&kp ENTER>;
             key-positions = <20 21>;
+            global-quick-tap-ms = <80>;
+        };
+        
+        combo_bspc {
+            bindings = <&kp BSPC>;
+            key-positions = <9 10>;
+            global-quick-tap-ms = <80>;
         };
 
         combo_lpar {
@@ -77,11 +98,6 @@
         combo_gt {
             bindings = <&kp GT>;
             key-positions = <7 19>;
-        };
-
-        combo_bspc {
-            bindings = <&kp BSPC>;
-            key-positions = <9 10>;
         };
     };
 
