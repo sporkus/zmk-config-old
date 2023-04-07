@@ -118,14 +118,25 @@
         NAV {
             bindings = <
 &bootloader
-     &trans  &trans  &trans  &trans  &trans      &trans    &trans   &kp TAB  &kp BSPC     &trans  &trans  &trans
-     &trans  &trans  &trans  &trans  &trans      &trans  &kp LEFT  &kp DOWN    &kp UP  &kp RIGHT  &trans  &trans
-     &trans  &trans  &trans  &trans  &trans      &trans    &trans    &trans    &trans     &trans  &trans  &trans
-     &trans  &trans  &trans          &trans  &caps_word    &trans    &trans               &trans  &trans  &trans
-                                                                     &trans    &trans     &trans  &trans  &trans
+&kp LG(TAB)  &kp LG(TAB)  &trans  &trans  &trans  &kp LG(GRAVE)    &trans    &kp TAB   &kp BSPC     &trans  &trans  &trans
+&kp LA(TAB)  &kp LA(TAB)  &trans  &trans  &trans         &trans  &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT  &trans  &trans
+     &trans       &trans  &trans  &trans  &trans         &trans  &kp HOME  &kp PG_DN  &kp PG_UP    &kp END  &trans  &trans
+     &trans       &trans  &trans          &trans     &caps_word    &trans     &trans                &trans  &trans  &trans
+                                                                              &trans     &trans     &trans  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        adjust {
+            bindings = <
+&trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans          &trans  &trans  &trans  &trans          &trans  &trans  &trans
+                                                        &trans  &trans  &trans  &trans  &trans
+            >;
         };
     };
 };
