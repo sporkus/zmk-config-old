@@ -54,12 +54,14 @@
        // Alt+Tab swapper, requires PR #1366
        alt_tab: alt_tab {
             compatible = "zmk,behavior-tri-state";
+            label = "ALT_TAB";
             bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
             #binding-cells = <0>;
        };
        // Gui+Tab swapper, requires PR #1366
        gui_tab: gui_tab {
             compatible = "zmk,behavior-tri-state";
+            label = "GUI_TAB";
             bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
             #binding-cells = <0>;
        };
