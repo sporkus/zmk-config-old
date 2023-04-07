@@ -142,7 +142,7 @@
          &trans        &kp TILDE  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp SEMICOLON   &kp PLUS  &kp EQUAL   &kp N7  &kp N8  &kp N9  &kp N0  &trans
          &trans        &kp GRAVE    &kp LEFT_BRACE    &kp RIGHT_BRACE      &kp COLON  &kp UNDER  &kp MINUS   &kp N4  &kp N5  &kp N6  &trans  &trans
 &skq LEFT_SHIFT  &skq LEFT_SHIFT             &none              &none      &kp TILDE   &kp PIPE   &kp BSLH   &kp N1  &kp N2  &kp N3  &trans  &trans
-         &trans           &trans            &trans                            &trans     &trans     &kp N0  &kp DOT          &trans  &trans  &trans
+         &trans           &trans            &trans                            &trans     &trans   &lt 2 N0  &kp DOT          &trans  &trans  &trans
                                                                                                              &trans  &trans  &trans  &trans  &trans
             >;
 
