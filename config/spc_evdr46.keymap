@@ -152,11 +152,11 @@
         NAV {
             bindings = <
 &bootloader
-   &gui_tab  &gui_tab  &trans  &trans  &trans  &kp LG(GRAVE)    &trans    &kp TAB   &kp BSPC     &trans  &trans  &trans
-   &alt_tab  &alt_tab  &trans  &trans  &trans         &trans  &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT  &trans  &trans
-     &trans    &trans  &trans  &trans  &trans         &trans  &kp HOME  &kp PG_DN  &kp PG_UP    &kp END  &trans  &trans
-     &trans    &trans  &trans          &trans     &caps_word    &trans     &trans                &trans  &trans  &trans
-                                                                           &trans     &trans     &trans  &trans  &trans
+   &gui_tab    &gui_tab  &trans  &trans  &trans  &kp LG(GRAVE)     &none    &kp TAB   &kp BSPC     &trans  &trans  &trans
+   &alt_tab    &alt_tab  &trans  &trans  &trans         &trans  &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT  &trans  &trans
+ &caps_word  &caps_word  &trans  &trans  &trans         &trans  &kp HOME  &kp PG_DN  &kp PG_UP    &kp END  &trans  &trans
+     &trans      &trans  &trans          &trans    &key_repeat    &trans     &trans                &trans  &trans  &trans
+                                                                             &trans     &trans     &trans  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
