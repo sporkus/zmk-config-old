@@ -1,0 +1,182 @@
+/*
+ * Copyright (c) 2023 sporkus
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+&lt {
+    quick_tap_ms = <200>;
+    flavor = "balanced";
+};
+
+/ {
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "homerow mods";
+            #binding-cells = <2>;
+            global-quick-tap-ms = <80>;
+            quick-tap-ms = <250>;
+            flavor = "balanced";
+            bindings =
+                <&kp>,
+                <&kp>;
+
+            tapping-term-ms = <200>;
+            hold-trigger-on-release;
+        };
+        sft_t: sft_t {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SFT_T";
+            bindings =
+                <&kp>,
+                <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <300>;
+            quick-tap-ms = <200>;
+            hold-trigger-on-release;
+            flavor = "tap-unless-interrupted";
+        };
+        skq: skq {
+            compatible = "zmk,behavior-sticky-key";
+            label = "SKQ";
+            bindings = <&kp>;
+            #binding-cells = <1>;
+            quick-release;
+            release-after-ms = <300>;
+            ignore-modifiers;
+        };
+
+        // Alt+Tab swapper, requires PR #1366
+
+        alt_tab: alt_tab {
+            compatible = "zmk,behavior-tri-state";
+            label = "ALT_TAB";
+            bindings =
+                <&kt LALT>,
+                <&kp TAB>,
+                <&kt LALT>;
+
+            #binding-cells = <0>;
+        };
+
+        // Gui+Tab swapper, requires PR #1366
+
+        gui_tab: gui_tab {
+            compatible = "zmk,behavior-tri-state";
+            label = "GUI_TAB";
+            bindings =
+                <&kt LGUI>,
+                <&kp TAB>,
+                <&kt LGUI>;
+
+            #binding-cells = <0>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        combo_enter {
+            bindings = <&kp ENTER>;
+            key-positions = <20 19>;
+            global-quick-tap-ms = <80>;
+        };
+
+        combo_bspc {
+            bindings = <&kp BSPC>;
+            key-positions = <9 8>;
+            global-quick-tap-ms = <80>;
+        };
+
+        combo_lpar {
+            bindings = <&kp LPAR>;
+            key-positions = <4 16>;
+        };
+
+        combo_rpar {
+            bindings = <&kp RPAR>;
+            key-positions = <7 19>;
+        };
+
+        combo_lt {
+            bindings = <&kp LT>;
+            key-positions = <5 17>;
+        };
+
+        combo_gt {
+            bindings = <&kp GT>;
+            key-positions = <6 18>;
+        };
+
+        combo_esc {
+            bindings = <&kp ESC>;
+            key-positions = <14 15>;
+        };
+
+        combo_lbrc {
+            bindings = <&kp LBRC>;
+            key-positions = <3 15>;
+        };
+
+        combo_rbrc {
+            bindings = <&kp RIGHT_BRACE>;
+            key-positions = <9 21>;
+        };
+
+        combo_lbkt {
+            bindings = <&kp LBKT>;
+            key-positions = <2 14>;
+        };
+
+        combo_rbkt {
+            bindings = <&kp RBKT>;
+            key-positions = <10 22>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            label = " Base";
+            bindings = <
+&none           &kp Q           &kp W           &kp E        &kp R  &kp T    &kp Y        &kp U           &kp I         &kp O               &kp P  &none
+&none           &kp A           &kp S           &kp D        &kp F  &kp G    &kp H        &kp J           &kp K         &kp L    &kp SINGLE_QUOTE  &none
+&none  &sft_t LSHFT Z  &hm LEFT_ALT X  &hm LEFT_GUI C  &hm LCTRL V  &kp B    &kp N  &hm RCTRL M  &hm RGUI COMMA  &hm LALT DOT  &sft_t RSHFT SLASH  &none
+                                                &none        &mo 1  &none    &none  &lt 2 SPACE           &none
+            >;
+        };
+
+        NUM {
+            bindings = <
+&trans        &kp TILDE  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp SEMICOLON   &kp PLUS    &kp EQUAL  &kp N7  &kp N8  &kp N9  &kp N0  &trans
+&trans        &kp GRAVE    &kp LEFT_BRACE    &kp RIGHT_BRACE      &kp COLON  &kp UNDER    &kp MINUS  &kp N4  &kp N5  &kp N6  &trans  &trans
+&trans  &skq LEFT_SHIFT             &none              &none      &kp TILDE   &kp PIPE     &kp BSLH  &kp N1  &kp N2  &kp N3  &trans  &trans
+                                                      &trans         &trans   &lt 2 N0      &kp DOT  &trans
+            >;
+        };
+
+        NAV {
+            bindings = <
+&trans    &gui_tab  &trans  &trans  &trans  &kp LG(GRAVE)       &none    &kp TAB   &kp BSPC     &trans  &trans  &trans
+&trans    &alt_tab  &trans  &trans  &trans         &trans    &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT  &trans  &trans
+&trans  &caps_word  &trans  &trans  &trans         &trans    &kp HOME  &kp PG_DN  &kp PG_UP    &kp END  &trans  &trans
+                            &trans  &trans    &key_repeat      &trans     &trans     &trans
+            >;
+        };
+
+        adjust {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
+            >;
+        };
+    };
+};
