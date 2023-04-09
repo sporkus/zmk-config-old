@@ -164,7 +164,7 @@
 
         combo_rbrc {
             bindings = <&kp RIGHT_BRACE>;
-            key-positions = <9 21>;
+            key-positions = <8 20>;
         };
 
         combo_lbkt {
@@ -174,7 +174,18 @@
 
         combo_rbkt {
             bindings = <&kp RBKT>;
-            key-positions = <10 22>;
+            key-positions = <9 21>;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        // MAC + NAV = MAC_NAV
+
+        tri_layer {
+            if-layers = <1 3>;
+            then-layer = <4>;
         };
     };
 
@@ -216,16 +227,27 @@
 &trans        &kp TILDE  &kp LBKT  &kp RBKT   &kp SEMI   &kp PLUS         &kp EQUAL  &kp N7  &kp N8  &kp N9  &kp N0  &trans
 &trans        &kp GRAVE  &kp LBRC  &kp RBRC  &kp COLON  &kp UNDER         &kp MINUS  &kp N4  &kp N5  &kp N6  &trans  &trans
 &trans  &skp LEFT_SHIFT     &none     &none  &kp TILDE   &kp PIPE          &kp BSLH  &kp N1  &kp N2  &kp N3  &trans  &trans
+<<<<<<< HEAD
                                      &trans     &trans      &none  &none     &kp N0  &trans
+=======
+                                     &trans     &trans      &none  &none   &lt 3 N0  &trans
+>>>>>>> ffkb-lite
             >;
         };
 
         NAV {
             bindings = <
+<<<<<<< HEAD
 &trans    &gui_tab  &trans  &trans  &trans  &kp LG(GRAVE)                 &none    &kp TAB   &kp BSPC     &trans  &trans  &trans
 &trans    &alt_tab  &trans  &trans  &trans  &trans                        &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT  &trans  &trans
 &trans  &caps_word  &trans  &trans  &trans  &trans                        &kp HOME  &kp PG_DN  &kp PG_UP    &kp END  &trans  &trans
                                     &trans  &key_repeat  &trans  &trans   &trans     &trans
+=======
+&trans    &gui_tab  &trans  &trans       &trans  &kp LG(GRAVE)             &none    &kp TAB   &kp BSPC     &trans  &trans  &trans
+&trans    &alt_tab  &trans  &trans       &trans         &trans          &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT  &trans  &trans
+&trans  &caps_word  &trans  &trans       &trans         &trans          &kp HOME  &kp PG_DN  &kp PG_UP    &kp END  &trans  &trans
+                            &trans  &key_repeat         &trans  &trans    &trans     &trans
+>>>>>>> ffkb-lite
             >;
         };
 
