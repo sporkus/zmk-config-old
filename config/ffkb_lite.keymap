@@ -201,6 +201,17 @@
             layers = <1>;
         };
 
+        combo_copypaste {
+            bindings = <&lp LS(INS) LC(INS)>;
+            key-positions = <28 27>;
+        };
+
+        combo_copypaste_mac {
+            bindings = <&lp LG(V) LG(C)>;
+            key-positions = <27 28>;
+            layers = <1>;
+        };
+
         combo_lpar {
             bindings = <&kp LPAR>;
             key-positions = <4 16>;
@@ -261,6 +272,17 @@
             bindings = <&none>;
             key-positions = <6 18 30 31 32 33 34 35 23 19 20 21 7 8 9 10 22 11>;
             timeout-ms = <0>;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        // MAC + NAV = MAC_NAV
+
+        tri_layer {
+            if-layers = <1 3>;
+            then-layer = <4>;
         };
     };
 
