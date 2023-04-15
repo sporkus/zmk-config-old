@@ -14,4 +14,7 @@ config ZMK_USB
 config ZMK_KSCAN_MATRIX_POLLING
     default y
 
+config RP2_FLASH_W25Q080
+	default y
+
 endif # BOARD_KONG_MX
