@@ -12,6 +12,7 @@
 
 / {
 	model = "Kong MX";
+	compatible = "orthocade,kong_mx";
 
 	chosen {
 		zmk,kscan = &kscan0;
