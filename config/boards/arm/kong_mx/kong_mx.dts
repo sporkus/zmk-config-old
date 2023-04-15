@@ -102,39 +102,12 @@
 	};
 };
 
-&uart0 {
-	current-speed = <115200>;
-	status = "okay";
-	pinctrl-0 = <&uart0_default>;
-	pinctrl-names = "default";
-};
-
-&spi0 {
-	status = "okay";
-	pinctrl-0 = <&spi0_default>;
-	pinctrl-names = "default";
-	clock-frequency = <DT_FREQ_M(8)>;
-};
-
-&i2c1 {
-	status = "okay";
-	pinctrl-0 = <&i2c1_default>;
-	pinctrl-names = "default";
-	clock-frequency = <I2C_BITRATE_FAST>;
-};
-
 &gpio0 {
 	status = "okay";
 };
 
 &wdt0 {
 	status = "okay";
-};
-
-&adc {
-	status = "okay";
-	pinctrl-0 = <&adc_default>;
-	pinctrl-names = "default";
 };
 
 zephyr_udc0: &usbd {
