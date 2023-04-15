@@ -6,7 +6,7 @@ manifest:
       url-base: https://github.com/sporkus
   projects:
     - name: zmk
-      remote: sporkus
+      remote: zmkfirmware
       revision: main
       import: app/west.yml
   self:
