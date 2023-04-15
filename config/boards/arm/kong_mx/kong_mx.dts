@@ -6,13 +6,10 @@
 
 /dts-v1/;
 #include <arm/armv6-m.dtsi>
-// #include <rpi_pico/rp2040.dtsi>
+#include <rpi_pico/rp2040.dtsi>
 #include <zephyr/dt-bindings/gpio/gpio.h>
 #include <zephyr/dt-bindings/i2c/i2c.h>
-#include <zephyr/dt-bindings/regulator/rpi_pico.h>
-
 #include "kong_mx-pinctrl.dtsi"
-#include "rpi_pico_common.dtsi"
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <mem.h>
 
@@ -249,24 +246,6 @@
 			status = "disabled";
 			#dma-cells = <3>;
 		};
-
-		vreg: vreg@40064000 {
-			compatible = "raspberrypi,core-supply-regulator";
-			reg = <0x40064000 1>;
-			status = "okay";
-			raspberrypi,brown-out-detection;
-			raspberrypi,brown-out-threshold = <860000>;
-		};
-	};
-
-	pinctrl: pin-controller {
-		compatible = "raspberrypi,pico-pinctrl";
-	};
-
-	die_temp: dietemp {
-		compatible = "raspberrypi,pico-temp";
-		io-channels = <&adc 4>;
-		status = "disabled";
 	};
 };
 
