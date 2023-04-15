@@ -143,8 +143,3 @@
 zephyr_udc0: &usbd {
 	status = "okay";
 };
-
-&vreg {
-	regulator-always-on;
-	regulator-allowed-modes = <REGULATOR_RPI_PICO_MODE_NORMAL>;
-};
