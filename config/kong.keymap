@@ -1,0 +1,306 @@
+/*
+ * Copyright (c) 2023 sporkus
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+&lt {
+    quick_tap_ms = <200>;
+    flavor = "balanced";
+};
+
+/ {
+    behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "homerow mods";
+            #binding-cells = <2>;
+            global-quick-tap-ms = <80>;
+            quick-tap-ms = <250>;
+            flavor = "balanced";
+            bindings =
+                <&kp>,
+                <&kp>;
+
+            tapping-term-ms = <200>;
+            hold-trigger-on-release;
+        };
+        sft_t: sft_t {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SFT_T";
+            bindings =
+                <&skp>,
+                <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            hold-trigger-on-release;
+            flavor = "hold-preferred";
+        };
+        skp: skp {
+            compatible = "zmk,behavior-sticky-key";
+            label = "SKP";
+            bindings = <&kp>;
+            #binding-cells = <1>;
+            quick-release;
+            release-after-ms = <300>;
+            ignore-modifiers;
+        };
+        smo: smo {
+            compatible = "zmk,behavior-sticky-key";
+            label = "Sticky layer";
+            bindings = <&mo>;
+            #binding-cells = <1>;
+            quick-release;
+            release-after-ms = <300>;
+            ignore-modifiers;
+        };
+        lp: lp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "(hold, tap)";
+            bindings =
+                <&kp>,
+                <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <180>;
+            quick-tap-ms = <250>;
+            flavor = "tap-preferred";
+        };
+
+        // Alt+Tab swapper, requires PR #1366
+
+        alt_tab: alt_tab {
+            compatible = "zmk,behavior-tri-state";
+            label = "ALT_TAB";
+            bindings =
+                <&kt LALT>,
+                <&kp TAB>,
+                <&kt LALT>;
+
+            #binding-cells = <0>;
+        };
+
+        // Gui+Tab swapper, requires PR #1366
+
+        gui_tab: gui_tab {
+            compatible = "zmk,behavior-tri-state";
+            label = "GUI_TAB";
+            bindings =
+                <&kt LGUI>,
+                <&kp TAB>,
+                <&kt LGUI>;
+
+            #binding-cells = <0>;
+        };
+        nav_spc: nav_spc {
+            compatible = "zmk,behavior-hold-tap";
+            label = "NAV_SPC";
+            bindings =
+                <&mo>,
+                <&spc_morph>;
+
+            global-quick-tap-ms = <50>;
+            #binding-cells = <2>;
+            quick-tap-ms = <220>;
+            tapping-term-ms = <150>;
+            hold-trigger-key-positions = <19 20 21 22 8 9 13 1>;
+        };
+        spc_morph: spc_morph {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SPC_MORPH";
+            bindings =
+                <&kp SPACE>,
+                <&space_sticky_shift>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RSFT|MOD_LSFT)>;
+        };
+        brc_morph: brc_morph {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BRC_MORPH";
+            bindings =
+                <&kp RBRC>,
+                <&kp LBRC>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RSFT|MOD_LSFT)>;
+        };
+        par_morph: par_morph {
+            compatible = "zmk,behavior-mod-morph";
+            label = "par_morph";
+            bindings =
+                <&kp RPAR>,
+                <&kp LPAR>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RSFT|MOD_LSFT)>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        combo_enter {
+            bindings = <&kp ENTER>;
+            key-positions = <20 21>;
+            global-quick-tap-ms = <80>;
+            timeout-ms = <COMBO_FAST>;
+        };
+
+        combo_bspc {
+            bindings = <&kp BSPC>;
+            key-positions = <9 10>;
+            global-quick-tap-ms = <80>;
+        };
+
+        combo_esc {
+            bindings = <&kp ESC>;
+            key-positions = <15 16>;
+            global-quick-tap-ms = <80>;
+        };
+
+        combo_tab {
+            bindings = <&kp TAB>;
+            key-positions = <16 17>;
+            global-quick-tap-ms = <80>;
+        };
+
+        combo_copypaste {
+            bindings = <&lp LS(INS) LC(INS)>;
+            key-positions = <28 29>;
+        };
+
+        combo_copypaste_mac {
+            bindings = <&lp LG(V) LG(C)>;
+            key-positions = <28 29>;
+            layers = <1>;
+        };
+
+        combo_lpar {
+            bindings = <&kp LPAR>;
+            key-positions = <5 17>;
+        };
+
+        combo_rpar {
+            bindings = <&kp RPAR>;
+            key-positions = <8 20>;
+        };
+
+        combo_lt {
+            bindings = <&kp LT>;
+            key-positions = <6 18>;
+        };
+
+        combo_gt {
+            bindings = <&kp GT>;
+            key-positions = <7 19>;
+        };
+
+        combo_adj {
+            bindings = <&trans>;
+            key-positions = <40 43>;
+        };
+    };
+
+    macros {
+        bt0_mac: bt0_mac {
+            compatible = "zmk,behavior-macro";
+            label = "BT0_MAC";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0 &tog 0>;
+        };
+        bt1_win: bt1_win {
+            compatible = "zmk,behavior-macro";
+            label = "BT1_WIN";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 1 &to 0>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        BASE {
+            label = " Base";
+            bindings = <
+&kp C_MUTE
+   &kp TAB           &kp Q       &kp W       &kp E        &kp R   &kp T        &kp Y        &kp U           &kp I         &kp O               &kp P    &kp BSPC
+ &lt 2 ESC           &kp A       &kp S       &kp D        &kp F   &kp G        &kp H        &kp J           &kp K         &kp L    &kp SINGLE_QUOTE       &none
+&skp LSHFT  &sft_t LSHFT Z  &hm LALT X  &hm LGUI C  &hm LCTRL V   &kp B        &kp N  &hm RCTRL M  &hm RGUI COMMA  &hm LALT DOT  &sft_t RSHFT SLASH  &skp RSHFT
+ &kp LCTRL        &kp LALT    &kp LGUI                &lt 2 TAB  &smo 1  &lt 2 SPACE   &lt 1 BSPC                      &kp LGUI            &kp LALT       &none
+                                                                                         &kp LEFT        &kp DOWN        &kp UP           &kp RIGHT       &none
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        NUM {
+            bindings = <
+ &none
+&trans   &kp TILDE  &kp LBKT  &kp RBKT   &kp SEMI   &kp PLUS  &kp EQUAL   &kp N7  &kp N8  &kp N9  &kp N0  &trans
+&trans   &kp GRAVE  &kp LBRC  &kp RBRC  &kp COLON  &kp UNDER  &kp MINUS   &kp N4  &kp N5  &kp N6  &trans  &trans
+&trans  &skp LSHFT     &none     &none  &kp TILDE   &kp PIPE   &kp BSLH   &kp N1  &kp N2  &kp N3  &trans  &trans
+&trans      &trans    &trans               &trans     &trans   &lt 2 N0  &kp DOT          &trans  &trans  &trans
+                                                                          &trans  &trans  &trans  &trans  &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        NAV {
+            bindings = <
+&bootloader
+   &gui_tab    &gui_tab  &trans  &trans  &trans  &kp LG(GRAVE)     &none    &kp TAB   &kp BSPC    &kp DEL  &trans  &trans
+   &alt_tab    &alt_tab  &trans  &trans  &trans         &trans  &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT  &trans  &trans
+ &caps_word  &caps_word  &trans  &trans  &trans         &trans  &kp HOME  &kp PG_DN  &kp PG_UP    &kp END  &trans  &trans
+     &trans      &trans  &trans          &trans    &key_repeat    &trans     &trans                &trans  &trans  &trans
+                                                                             &trans     &trans     &trans  &trans  &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        ADJUST {
+            bindings = <
+&trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans          &trans  &trans  &trans  &trans          &trans  &trans  &trans
+                                                        &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        layer_4 {
+            bindings = <
+&trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans          &trans  &trans  &trans  &trans          &trans  &trans  &trans
+                                                        &trans  &trans  &trans  &trans  &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        ADJUST {
+            bindings = <
+&bootloader
+&bootloader  &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans  &trans  &trans  &trans
+     &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans  &trans  &trans  &trans
+     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &bt0_mac  &bt1_win  &trans  &trans  &trans
+     &trans  &trans  &trans          &trans  &trans  &trans    &trans            &trans  &trans  &trans
+                                                               &trans    &trans  &trans  &trans  &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+    };
+};

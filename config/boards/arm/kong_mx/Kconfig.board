@@ -1,0 +1,8 @@
+# Planck V6 board configuration
+
+# Copyright (c) 2020 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+config BOARD_KONG_MX
+	bool "Kong MX Keyboard"
+	depends on SOC_RP2040
