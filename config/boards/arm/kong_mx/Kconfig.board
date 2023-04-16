@@ -1,6 +1,0 @@
-# Copyright (c) 2023 Foon Wong
-# SPDX-License-Identifier: MIT
-
-config BOARD_KONG_MX
-	bool "Kong MX Keyboard"
-	depends on SOC_RP2040
