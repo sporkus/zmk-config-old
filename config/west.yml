@@ -6,8 +6,8 @@ manifest:
       url-base: https://github.com/sporkus
   projects:
     - name: zmk
-      remote: sporkus
-      revision: create-board-test
+      remote: zmkfirmware
+      revision: main
       import: app/west.yml
   self:
     path: config
