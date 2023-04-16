@@ -5,6 +5,7 @@
  */
 
 /dts-v1/;
+
 #include <rpi_pico/rp2040.dtsi>
 #include "kong_mx-pinctrl.dtsi"
 #include <dt-bindings/zmk/matrix_transform.h>
@@ -71,14 +72,6 @@
 		#clock-cells = <0>;
 	};
 
-};
-
-&ssi {
-	compatible = "raspberrypi,pico-flash-controller";
-	reg = <0x18000000 0xfc>;
-
-	#address-cells = <1>;
-	#size-cells = <1>;
 };
 
 &flash0 {
