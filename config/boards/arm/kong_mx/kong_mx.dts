@@ -73,6 +73,13 @@
 
 };
 
+&ssi {
+	compatible = "raspberrypi,pico-flash-controller";
+	reg = <0x18000000 0xfc>;
+
+	#address-cells = <1>;
+	#size-cells = <1>;
+};
 
 &flash0 {
 	reg = <0x10000000 DT_SIZE_M(16)>;
