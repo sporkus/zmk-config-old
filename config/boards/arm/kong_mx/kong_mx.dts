@@ -18,7 +18,7 @@
 	chosen {
 		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
-		zephyr,console = &uart0;
+		zephyr,console = &cdc_acm_uart;
 		zephyr,code-partition = &code_partition;
 		zmk,kscan = &kscan0;
 		zmk,matrix_transform = &layout_grid_transform;
@@ -29,7 +29,7 @@
 		label = "KSCAN";
                 diode-direction = "col2row";
 
-		row-gpios
+		col-gpios
 			= <&gpio0 8  GPIO_ACTIVE_HIGH>
 			, <&gpio0 9  GPIO_ACTIVE_HIGH>
 			, <&gpio0 10 GPIO_ACTIVE_HIGH>
@@ -43,7 +43,8 @@
 			, <&gpio0 20 GPIO_ACTIVE_HIGH>
 			, <&gpio0 21 GPIO_ACTIVE_HIGH>
 			;
-		col-gpios
+
+		row-gpios
 			= <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 			, <&gpio0 23 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 			, <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
@@ -102,13 +103,6 @@
 	};
 };
 
-&uart0 {
-//	current-speed = <115200>;
-	status = "disabled";
-//	pinctrl-0 = <&uart0_default>;
-//	pinctrl-names = "default";
-};
-
 &i2c1 {
 	status = "okay";
 	pinctrl-0 = <&i2c1_default>;
@@ -128,5 +122,9 @@
 };
 
 zephyr_udc0: &usbd {
-	status = "okay";
+    status = "okay";
+        cdc_acm_uart: cdc_acm_uart {
+        compatible = "zephyr,cdc-acm-uart";
+        label = "CDC_ACM_0";
+    };
 };
