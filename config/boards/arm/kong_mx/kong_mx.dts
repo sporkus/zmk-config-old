@@ -9,22 +9,19 @@
 #include <rpi_pico/rp2040.dtsi>
 #include "kong_mx-pinctrl.dtsi"
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <freq.h>
 
 / {
 	model = "Kong MX";
 	compatible = "orthocade,kong_mx";
 
 	chosen {
-        zephyr,sram = &sram0;
+		zephyr,sram = &sram0;
 		zephyr,flash = &flash0;
-		zephyr,flash-controller = &ssi;
+		zephyr,console = &uart0;
 		zephyr,code-partition = &code_partition;
 		zmk,kscan = &kscan0;
 		zmk,matrix_transform = &layout_grid_transform;
-	};
-
-	aliases {
-		watchdog0 = &wdt0;
 	};
 
 	kscan0: kscan {
@@ -75,6 +72,9 @@
 };
 
 &flash0 {
+	/* 16MB of flash minus the 0x100 used for
+	 * the second stage bootloader
+	 */
 	reg = <0x10000000 DT_SIZE_M(16)>;
 
 	partitions {
@@ -89,23 +89,41 @@
 			read-only;
 		};
 
+
 		/*
 		 * Usable flash. Starts at 0x100, after the bootloader. The partition
 		 * size is 16MB minus the 0x100 bytes taken by the bootloader.
 		 */
 		code_partition: partition@100 {
-			label = "code";
+			label = "code-partition";
 			reg = <0x100 (DT_SIZE_M(16) - 0x100)>;
 			read-only;
 		};
 	};
 };
 
-&gpio0 {
+&uart0 {
+	current-speed = <115200>;
 	status = "okay";
+	pinctrl-0 = <&uart0_default>;
+	pinctrl-names = "default";
 };
 
-&wdt0 {
+&i2c1 {
+	status = "okay";
+	pinctrl-0 = <&i2c1_default>;
+	pinctrl-names = "default";
+	clock-frequency = <I2C_BITRATE_FAST>;
+};
+
+&spi0 {
+	status = "okay";
+	pinctrl-0 = <&spi0_default>;
+	pinctrl-names = "default";
+	clock-frequency = <DT_FREQ_M(2)>;
+};
+
+&gpio0 {
 	status = "okay";
 };
 
