@@ -17,8 +17,8 @@ CONFIG_SERIAL=y
 CONFIG_RESET=y
 
 # enable console
-CONFIG_CONSOLE=y
-CONFIG_UART_CONSOLE=y
+#CONFIG_CONSOLE=y
+#CONFIG_UART_CONSOLE=y
 
 # Code partition needed to target the correct flash range
 CONFIG_USE_DT_CODE_PARTITION=y
