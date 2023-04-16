@@ -8,6 +8,9 @@ if BOARD_KONG_MX
 config ZMK_KEYBOARD_NAME
 	default "Kong MX"
 
+config USB 
+	default y
+
 config ZMK_USB
 	default y
 
