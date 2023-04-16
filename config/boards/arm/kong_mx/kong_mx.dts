@@ -8,8 +8,6 @@
 #include <rpi_pico/rp2040.dtsi>
 #include "kong_mx-pinctrl.dtsi"
 #include <dt-bindings/zmk/matrix_transform.h>
-#include <mem.h>
-#include <freq.h>
 
 / {
 	model = "Kong MX";
