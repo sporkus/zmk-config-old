@@ -8,14 +8,8 @@ if BOARD_KONG_MX
 config ZMK_KEYBOARD_NAME
 	default "Kong MX"
 
-config USB 
-	default y
-
 config ZMK_USB
 	default y
-
-config ZMK_KSCAN_MATRIX_POLLING
-    default y
 
 config RP2_FLASH_W25Q080
 	default y
