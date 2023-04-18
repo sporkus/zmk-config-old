@@ -37,7 +37,7 @@
 		row-gpios
 			= <&expander_io 8  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 			, <&expander_io 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-			, <&expander_io 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			, <&xiao_d  0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 			, <&expander_io 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 			;
 	};
