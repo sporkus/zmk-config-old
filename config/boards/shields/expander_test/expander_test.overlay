@@ -52,7 +52,7 @@
 	    compatible = "nxp,pca95xx";
 	    status = "okay";
 	    gpio-controller;
-//      interrupt-gpios = <&xiao_d 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        interrupt-gpios = <&xiao_d 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
 	    reg = <0x20>;
 	    label = "PCA9555";
 	    #gpio-cells = <2>;
