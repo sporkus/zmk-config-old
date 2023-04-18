@@ -12,6 +12,9 @@ if SHIELD_EXPANDER_TEST
     config GPIO_PCA95XX
         default y
 
+    config GPIO_PCA95XX_INTERRUPT
+        default y
+
     config ZMK_USB
         default y
 
