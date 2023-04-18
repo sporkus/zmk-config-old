@@ -34,10 +34,10 @@
 			, <&expander_io 4 GPIO_ACTIVE_HIGH>
 			;
 		row-gpios
-			= <&expander_io 8  (GPIO_ACTIVE_HIGH)>
-			, <&expander_io 9  (GPIO_ACTIVE_HIGH)>
-			, <&expander_io 10 (GPIO_ACTIVE_HIGH)>
-			, <&expander_io 11 (GPIO_ACTIVE_HIGH)>
+			= <&expander_io 8  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			, <&expander_io 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			, <&expander_io 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			, <&expander_io 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 			;
 	};
 
