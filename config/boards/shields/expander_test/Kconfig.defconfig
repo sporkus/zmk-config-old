@@ -12,7 +12,10 @@ if SHIELD_EXPANDER_TEST
     config GPIO_PCA95XX
         default y
 
-    config CONFIG_ZMK_KSCAN_MATRIX_POLLING
+    config ZMK_USB
+        default y
+
+    config ZMK_KSCAN_MATRIX_POLLING
         default y
 
 endif # SHIELD_EXPANDER_TEST
