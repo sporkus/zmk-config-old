@@ -47,6 +47,7 @@
 	status = "okay";
 	clock-frequency = <I2C_BITRATE_FAST>;
 	expander_io: pca95xx@20 {
+        has-pud;
 	    compatible = "nxp,pca95xx";
 	    status = "okay";
 	    gpio-controller;
