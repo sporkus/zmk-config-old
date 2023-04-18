@@ -13,6 +13,6 @@ if SHIELD_EXPANDER_TEST
         default y
 
     config CONFIG_ZMK_KSCAN_MATRIX_POLLING
-        default n
+        default y
 
 endif # SHIELD_EXPANDER_TEST
