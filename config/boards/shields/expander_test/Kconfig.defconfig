@@ -1,0 +1,18 @@
+# Copyright (c) 2022 @weteor
+# SPDX-License-Identifier: MIT
+
+if SHIELD_EXPANDER_TEST
+
+    config ZMK_KEYBOARD_NAME
+        default "expander_test"
+
+    config I2C
+        default y
+
+    config GPIO_PCA95XX
+        default y
+
+    config CONFIG_ZMK_KSCAN_MATRIX_POLLING
+        default y
+
+endif # SHIELD_EXPANDER_TEST
