@@ -19,9 +19,6 @@
 &xiao_serial { status = "disabled"; };
 
 / {
-	model = "zaphod-lite";
-	compatible = "petejohanson,zaphod-lite";
-
 	chosen {
 		zmk,kscan = &kscan;
 		zmk,matrix_transform = &transform;

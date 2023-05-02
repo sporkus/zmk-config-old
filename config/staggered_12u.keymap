@@ -17,153 +17,17 @@
 };
 
 / {
-    behaviors {
-        hm: homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            label = "homerow mods";
-            #binding-cells = <2>;
-            global-quick-tap-ms = <120>;
-            quick-tap-ms = <250>;
-            flavor = "balanced";
-            bindings =
-                <&kp>,
-                <&kp>;
 
-            tapping-term-ms = <200>;
-            hold-trigger-on-release;
-        };
-        hml: homerow_mods_left {
-            compatible = "zmk,behavior-hold-tap";
-            label = "homerow mods left";
-            #binding-cells = <2>;
-            global-quick-tap-ms = <100>;
-            quick-tap-ms = <250>;
-            flavor = "balanced";
-            bindings =
-                <&kp>,
-                <&kp>;
-
-            tapping-term-ms = <180>;
-            hold-trigger-on-release;
-        };
-        hmr: homerow_mods_right {
-            compatible = "zmk,behavior-hold-tap";
-            label = "homerow mods right";
-            #binding-cells = <2>;
-            global-quick-tap-ms = <100>;
-            quick-tap-ms = <250>;
-            flavor = "balanced";
-            bindings =
-                <&kp>,
-                <&kp>;
-
-            tapping-term-ms = <180>;
-            hold-trigger-on-release;
-        };
-        sft_t: sft_t {
-            compatible = "zmk,behavior-hold-tap";
-            label = "SFT_T";
-            bindings =
-                <&kp>,
-                <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <300>;
-            quick-tap-ms = <200>;
-            hold-trigger-on-release;
-            flavor = "hold-preferred";
-        };
-        skp: skp {
-            compatible = "zmk,behavior-sticky-key";
-            label = "sticky key press";
-            bindings = <&kp>;
-            #binding-cells = <1>;
-            quick-release;
-            release-after-ms = <300>;
-            ignore-modifiers;
-        };
-        smo: smo {
-            compatible = "zmk,behavior-sticky-key";
-            label = "Sticky layer";
-            bindings = <&mo>;
-            #binding-cells = <1>;
-            quick-release;
-            release-after-ms = <300>;
-            ignore-modifiers;
-        };
-
-        // Alt+Tab swapper, requires PR #1366
-
-        alt_tab: alt_tab {
-            compatible = "zmk,behavior-tri-state";
-            label = "ALT_TAB";
-            bindings =
-                <&kt LALT>,
-                <&kp TAB>,
-                <&kt LALT>;
-
-            #binding-cells = <0>;
-        };
-
-        // Gui+Tab swapper, requires PR #1366
-
-        gui_tab: gui_tab {
-            compatible = "zmk,behavior-tri-state";
-            label = "GUI_TAB";
-            bindings =
-                <&kt LGUI>,
-                <&kp TAB>,
-                <&kt LGUI>;
-
-            #binding-cells = <0>;
-        };
-        lp: lp {
-            compatible = "zmk,behavior-hold-tap";
-            label = "(hold, tap)";
-            bindings =
-                <&kp>,
-                <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <180>;
-            quick-tap-ms = <250>;
-            flavor = "tap-preferred";
-        };
-        nav_t: nav_t {
-            compatible = "zmk,behavior-hold-tap";
-            label = "NAV_T";
-            bindings =
-                <&mo>,
-                <&kp>;
-
-            #binding-cells = <2>;
-            quick-tap-ms = <250>;
-            flavor = "hold-preferred";
-            global-quick-tap-ms = <80>;
-            tapping-term-ms = <200>;
-        };
-        num_repeat: num_repeat {
-            compatible = "zmk,behavior-hold-tap";
-            label = "NUM_REPEAT";
-            bindings =
-                <&smo>,
-                <&key_repeat>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <100>;
-            quick-tap-ms = <200>;
-        };
-    };
 
     keymap {
         compatible = "zmk,keymap";
         BASE {
             label = " Base";
             bindings = <
-&kp TAB     &kp Q     &kp W  &kp E  &kp R      &kp T  &kp Y  &kp U      &kp I    &kp O     &kp P  &kp BSPC
-&kp ESC     &kp A     &kp S  &kp D  &kp F      &kp G  &kp H  &kp J      &kp K    &kp L  &kp SQT
-&kp LSHFT     &kp Z     &kp X  &kp C  &kp V      &kp B  &kp N  &kp M      &kp COMMA  &kp DOT  &kp FSLH
-&kp LCTRL  &kp LALT  &kp LGUI         &none  &kp SPACE         &none &none &none
+&kp TAB     &kp Q     &kp W  &kp E  &kp R    &kp T    &kp Y  &kp U    &kp I      &kp O    &kp P  &kp BSPC
+&kp ESC     &kp A     &kp S  &kp D  &kp F    &kp G    &kp H  &kp J    &kp K      &kp L    &kp SQT
+&kp LSHFT   &kp Z     &kp X  &kp C  &kp V    &kp B    &kp N  &kp M    &kp COMMA  &kp DOT  &kp FSLH
+&kp LCTRL  &kp LALT  &kp LGUI       &kp SPACE         &kp SPACE       &none      &none    &none
             >;
         };
     };
