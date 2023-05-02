@@ -283,10 +283,10 @@
         BASE {
             label = " Base";
             bindings = <
-  &kp TAB     &kp Q     &kp W  &kp E  &kp R      &kp T  &kp Y  &kp U      &kp I    &kp O     &kp P  &kp BSPC
-  &kp ESC     &kp A     &kp S  &kp D  &kp F      &kp G  &kp H  &kp J      &kp K  &kp SQT     &none   &kp SQT
-&kp LSHFT     &kp Z     &kp X  &kp C  &kp V      &kp B  &kp N  &kp M  &kp COMMA    &none  &kp FSLH  &kp LGUI
-&kp LCTRL  &kp LALT  &kp LGUI         &none  &kp SPACE         &none
+&kp TAB     &kp Q     &kp W  &kp E  &kp R      &kp T  &kp Y  &kp U      &kp I    &kp O     &kp P  &kp BSPC
+&kp ESC     &kp A     &kp S  &kp D  &kp F      &kp G  &kp H  &kp J      &kp K  &kp SQT
+&kp LSHFT     &kp Z     &kp X  &kp C  &kp V      &kp B  &kp N  &kp M      &kp COMMA  &kp DOT  &kp FSLH
+&kp LCTRL  &kp LALT  &kp LGUI         &none  &kp SPACE         &none &none &none
             >;
         };
 
