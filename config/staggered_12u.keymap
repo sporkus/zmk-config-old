@@ -45,7 +45,6 @@
 
             tapping-term-ms = <180>;
             hold-trigger-on-release;
-            hold-trigger-key-positions = <6 18 30 31 32 33 34 35 23 19 20 21 7 8 9 10 22 11>;
         };
         hmr: homerow_mods_right {
             compatible = "zmk,behavior-hold-tap";
@@ -60,7 +59,6 @@
 
             tapping-term-ms = <180>;
             hold-trigger-on-release;
-            hold-trigger-key-positions = <0 12 24 25 26 27 28 29 13 14 15 16 17 5 4 1 2 3>;
         };
         sft_t: sft_t {
             compatible = "zmk,behavior-hold-tap";
@@ -140,7 +138,6 @@
 
             #binding-cells = <2>;
             quick-tap-ms = <250>;
-            hold-trigger-key-positions = <7 8 18 19 21 20 30 31 32 33 1 13 9>;
             flavor = "hold-preferred";
             global-quick-tap-ms = <80>;
             tapping-term-ms = <200>;
@@ -158,128 +155,8 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
-
-        /* combo_esc { */
-        /*     bindings = <&kp ESC>; */
-        /*     key-positions = <14 15>; */
-        /*     timeout-ms = <COMBO_FAST>; */
-        /* }; */
-
-        /* combo_tab { */
-        /*     bindings = <&kp TAB>; */
-        /*     key-positions = <15 16>; */
-        /*     global-quick-tap-ms = <80>; */
-        /*     timeout-ms = <COMBO_FAST>; */
-        /* }; */
-
-        /* combo_enter { */
-        /*     bindings = <&kp ENTER>; */
-        /*     key-positions = <20 19>; */
-        /*     global-quick-tap-ms = <80>; */
-        /*     timeout-ms = <COMBO_FAST>; */
-        /* }; */
-
-        /* combo_bspc { */
-        /*     bindings = <&kp BSPC>; */
-        /*     key-positions = <9 8>; */
-        /*     global-quick-tap-ms = <50>; */
-        /*     timeout-ms = <COMBO_FAST>; */
-        /* }; */
-
-        /* combo_copypaste { */
-        /*     bindings = <&lp LS(INS) LC(INS)>; */
-        /*     key-positions = <28 27>; */
-        /*     timeout-ms = <COMBO_FAST>; */
-        /* }; */
-
-        /* combo_copypaste_mac { */
-        /*     bindings = <&lp LG(V) LG(C)>; */
-        /*     key-positions = <27 28>; */
-        /*     timeout-ms = <COMBO_FAST>; */
-        /*     layers = <1>; */
-        /* }; */
-
-        /* combo_lpar { */
-        /*     bindings = <&kp LPAR>; */
-        /*     key-positions = <4 16>; */
-        /*     timeout-ms = <COMBO_SLOW>; */
-        /* }; */
-
-        /* combo_rpar { */
-        /*     bindings = <&kp RPAR>; */
-        /*     key-positions = <7 19>; */
-        /*     timeout-ms = <COMBO_SLOW>; */
-        /* }; */
-
-        /* combo_lt { */
-        /*     bindings = <&kp LT>; */
-        /*     key-positions = <5 17>; */
-        /*     timeout-ms = <COMBO_SLOW>; */
-        /* }; */
-
-        /* combo_gt { */
-        /*     bindings = <&kp GT>; */
-        /*     key-positions = <6 18>; */
-        /*     timeout-ms = <COMBO_SLOW>; */
-        /* }; */
-
-        /* combo_lbrc { */
-        /*     bindings = <&kp LBRC>; */
-        /*     key-positions = <3 15>; */
-        /*     timeout-ms = <COMBO_SLOW>; */
-        /* }; */
-
-        /* combo_rbrc { */
-        /*     bindings = <&kp RIGHT_BRACE>; */
-        /*     key-positions = <8 20>; */
-        /*     timeout-ms = <COMBO_SLOW>; */
-        /* }; */
-
-        /* combo_lbkt { */
-        /*     bindings = <&kp LBKT>; */
-        /*     key-positions = <2 14>; */
-        /*     timeout-ms = <COMBO_SLOW>; */
-        /* }; */
-
-        /* combo_rbkt { */
-        /*     bindings = <&kp RBKT>; */
-        /*     key-positions = <9 21>; */
-        /*     timeout-ms = <COMBO_SLOW>; */
-        /* }; */
-
-        /* // left indicies */
-
-        /* combo_lhelp { */
-        /*     bindings = <&none>; */
-        /*     key-positions = <0 12 24 25 26 27 28 29 13 14 15 16 17 5 4 1 2 3>; */
-        /*     timeout-ms = <0>; */
-        /* }; */
-
-        /* // right indicies */
-
-        /* combo_rhelp { */
-        /*     bindings = <&none>; */
-        /*     key-positions = <6 18 30 31 32 33 34 35 23 19 20 21 7 8 9 10 22 11>; */
-        /*     timeout-ms = <0>; */
-        /* }; */
-    };
-
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-
-        // MAC + NAV = MAC_NAV
-
-        tri_layer {
-            if-layers = <1 3>;
-            then-layer = <4>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
-
         BASE {
             label = " Base";
             bindings = <
@@ -287,51 +164,6 @@
 &kp ESC     &kp A     &kp S  &kp D  &kp F      &kp G  &kp H  &kp J      &kp K    &kp L  &kp SQT
 &kp LSHFT     &kp Z     &kp X  &kp C  &kp V      &kp B  &kp N  &kp M      &kp COMMA  &kp DOT  &kp FSLH
 &kp LCTRL  &kp LALT  &kp LGUI         &none  &kp SPACE         &none &none &none
-            >;
-        };
-
-        MAC {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans          &trans  &trans          &trans
-            >;
-        };
-
-        NUM {
-            bindings = <
-&trans        &kp TILDE  &kp LBKT  &kp RBKT   &kp SEMI   &kp PLUS  &kp EQUAL  &kp N7  &kp N8  &kp N9  &kp N0  &trans
-&trans        &kp GRAVE  &kp LBRC  &kp RBRC  &kp COLON  &kp UNDER  &kp MINUS  &kp N4  &kp N5  &kp N6  &trans  &trans
-&trans  &skp LEFT_SHIFT     &none     &none  &kp TILDE   &kp PIPE   &kp BSLH  &kp N1  &kp N2  &kp N3  &trans  &trans
-&trans           &trans     &none                &none   &lt 3 N0             &trans
-            >;
-        };
-
-        NAV {
-            bindings = <
-&trans     &gui_tab  &trans  &trans  &trans  &kp LG(GRAVE)     &none    &kp TAB   &kp BSPC    &kp DEL  &trans  &trans
-&trans     &alt_tab  &trans  &trans  &trans         &trans  &kp LEFT   &kp DOWN     &kp UP  &kp RIGHT  &trans  &trans
-&trans   &caps_word  &trans  &trans  &trans         &trans  &kp HOME  &kp PG_DN  &kp PG_UP    &kp END  &trans  &trans
-&trans  &key_repeat  &trans          &trans         &trans               &trans
-            >;
-        };
-
-        MAC_NAV {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans          &trans  &trans          &trans
-            >;
-        };
-
-        ADJ {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans          &trans  &trans          &trans
             >;
         };
     };
