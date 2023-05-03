@@ -98,14 +98,11 @@
         hrm_l: hrm_l {
             compatible = "zmk,behavior-hold-tap";
             label = "left homerow mods";
-            bindings =
-                <&kp>,
-                <&kp>;
-
+            bindings = <&kp>, <&kp>;
             #binding-cells = <2>;
             tapping-term-ms = <250>;
             quick-tap-ms = <250>;
-            global-quick-tap;
+            global-quick-tap-ms = <150>;
             flavor = "balanced";
             hold-trigger-key-positions = <18 29 19 6 6 7 8 9 10 11 18 19 20 21 22 29 30 31 32 33 38 40 41 39>;
             hold-trigger-on-release;
@@ -113,14 +110,11 @@
         hrm_r: hrm_r {
             compatible = "zmk,behavior-hold-tap";
             label = "right homerow mods";
-            bindings =
-                <&kp>,
-                <&kp>;
-
+            bindings = <&kp>, <&kp>;
             #binding-cells = <2>;
             tapping-term-ms = <250>;
             quick-tap-ms = <250>;
-            global-quick-tap;
+            global-quick-tap-ms = <150>;
             flavor = "balanced";
             hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 23 24 25 26 27 28 34 35 36 37>;
             hold-trigger-on-release;
@@ -128,24 +122,17 @@
         nav_t: nav_t {
             compatible = "zmk,behavior-hold-tap";
             label = "NAV_T";
-            bindings =
-                <&mo>,
-                <&kp>;
-
+            bindings = <&mo>, <&kp>;
             #binding-cells = <2>;
             tapping-term-ms = <250>;
             quick-tap-ms = <250>;
-            global-quick-tap;
             flavor = "tap-preferred";
             hold-trigger-key-positions = <20 18 19 21 7 8 30 31>;
         };
         ht_hold: ht_hold {
             compatible = "zmk,behavior-hold-tap";
             label = "HT_HOLD";
-            bindings =
-                <&mo>,
-                <&kp>;
-
+            bindings = <&mo>, <&kp>;
             #binding-cells = <2>;
             tapping-term-ms = <250>;
             quick-tap-ms = <250>;
@@ -153,10 +140,7 @@
         bspc_del: bspc_del {
             compatible = "zmk,behavior-mod-morph";
             label = "BSPC_DEL";
-            bindings =
-                <&skp BSPC>,
-                <&skp DEL>;
-
+            bindings = <&skp BSPC>, <&skp DEL>;
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
