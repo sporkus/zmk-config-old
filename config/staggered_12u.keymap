@@ -26,12 +26,12 @@
         };
 
         enter_combo {
-            bindings = <&bspc_del>;
+            bindings = <&kp enter>;
             key-positions = <19 20>;
         };
 
         bspc_combo {
-            bindings = <&kp BSPC>;
+            bindings = <&bspc_del>;
             key-positions = <21 20>;
         };
 
@@ -140,7 +140,7 @@
         bspc_del: bspc_del {
             compatible = "zmk,behavior-mod-morph";
             label = "BSPC_DEL";
-            bindings = <&skp BSPC>, <&skp DEL>;
+            bindings = <&kp BSPC>, <&kp DEL>;
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
@@ -170,8 +170,8 @@
 
         nav {
             bindings = <
-    &trans  &trans  &trans  &trans  &trans  &trans   &kp TAB       &kp BSPC    &kp DEL     &trans  &trans  &trans
-    &trans  &trans  &trans  &trans  &trans  &trans  &kp LEFT       &kp DOWN     &kp UP  &kp RIGHT          &trans
+    &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp TAB        &kp BSPC    &kp DEL  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans  &kp LEFT  &kp DOWN       &kp UP      &kp RIGHT         &trans
 &caps_word  &trans  &trans  &trans  &trans  &trans    &trans  &kp PAGE_DOWN  &kp PG_UP             &trans  &trans
     &trans  &trans  &trans          &trans                           &trans                &trans  &trans  &trans
             >;
