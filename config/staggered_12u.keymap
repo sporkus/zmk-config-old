@@ -60,7 +60,7 @@
 
         combo_copypaste {
             bindings = <&lp LS(INS) LC(INS)>;
-            key-positions = <28 27>;
+            key-positions = <27 26>;
             global-quick-tap-ms = <80>;
             timeout-ms = <COMBO_FAST>;
             layers = <0>;
