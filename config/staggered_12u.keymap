@@ -17,15 +17,15 @@
 };
 
 / {
-//    conditional_layers {
-//        compatible = "zmk,conditional-layers";
-//
-//        // MAC + NAV = MAC_NAV
-//        tri_layer {
-//            if-layers = <1 3>;
-//            then-layer = <4>;
-//        };
-//    };
+    //    conditional_layers {
+    //        compatible = "zmk,conditional-layers";
+    //
+    //        // MAC + NAV = MAC_NAV
+    //        tri_layer {
+    //            if-layers = <1 3>;
+    //            then-layer = <4>;
+    //        };
+    //    };
 
     combos {
         compatible = "zmk,combos";
@@ -53,15 +53,16 @@
         combo_copypaste {
             bindings = <&lp LS(INS) LC(INS)>;
             key-positions = <28 27>;
-            timeout-ms = <COMBO_FAST>;
+            timeout-ms = <35>;
+            layers = <0>;
         };
 
-//        combo_copypaste_mac {
-//            bindings = <&lp LG(V) LG(C)>;
-//            key-positions = <27 28>;
-//            timeout-ms = <COMBO_FAST>;
-//            layers = <1>;
-//        };
+        //        combo_copypaste_mac {
+        //            bindings = <&lp LG(V) LG(C)>;
+        //            key-positions = <27 28>;
+        //            timeout-ms = <COMBO_FAST>;
+        //            layers = <1>;
+        //        };
 
         lbkt_combo {
             bindings = <&kp LBKT>;
@@ -224,6 +225,15 @@
     &trans         &trans  &trans  &trans  &trans  &trans  &kp LEFT       &kp DOWN     &kp UP  &kp RIGHT          &trans
 &caps_word         &trans  &trans  &trans  &trans  &trans    &trans  &kp PAGE_DOWN  &kp PG_UP             &trans  &trans
     &trans         &trans  &trans          &trans                           &trans                &trans  &trans  &trans
+            >;
+        };
+
+        layer_3 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans
+&trans  &trans  &trans          &trans                  &trans          &trans  &trans  &trans
             >;
         };
     };
