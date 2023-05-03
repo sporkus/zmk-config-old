@@ -232,7 +232,7 @@
             label = " Base";
             bindings = <
        &kp TAB                &kp Q              &kp W              &kp E             &kp R  &kp T  &kp Y                   &kp U               &kp I          &kp O         &kp P                    &bspc_del
-&lt_hold 2 ESC  &hrm_r LEFT_SHIFT A  &hrm_l LEFT_ALT S  &hrm_l LEFT_GUI D    &hrm_l LCTRL F  &kp G  &kp H  &hrm_r RIGHT_CONTROL J  &hrm_r RIGHT_GUI K  &hrm_r RALT L                 &mt_hold_r RIGHT_SHIFT SQT
+&lt_hold 2 ESC  &hrm_l LEFT_SHIFT A  &hrm_l LEFT_ALT S  &hrm_l LEFT_GUI D    &hrm_l LCTRL F  &kp G  &kp H  &hrm_r RIGHT_CONTROL J  &hrm_r RIGHT_GUI K  &hrm_r RALT L                 &mt_hold_r RIGHT_SHIFT SQT
     &skp LSHFT                &kp Z              &kp X              &kp C             &kp V  &kp B  &kp N                   &kp M           &kp COMMA                      &kp DOT  &mt_hold_r RIGHT_SHIFT FSLH
      &kp LCTRL             &kp LALT           &kp LGUI                     &lt_hold 1 SPACE                        &nav_t 2 SPACE                      &kp RIGHT_GUI  &kp LEFT_ALT                    &kp LCTRL
             >;
