@@ -185,10 +185,10 @@
 
         nav {
             bindings = <
-    &trans  &trans  &trans  &trans  &trans  &trans    &trans        &kp TAB   &kp BSPC    &kp DEL  &trans  &trans
-    &trans  &trans  &trans  &trans  &trans  &trans  &kp LEFT       &kp DOWN     &kp UP  &kp RIGHT          &trans
-&caps_word  &trans  &trans  &trans  &trans  &trans    &trans  &kp PAGE_DOWN  &kp PG_UP             &trans  &trans
-    &trans  &trans  &trans          &trans                           &trans                &trans  &trans  &trans
+    &trans  &kp LG(GRAVE)  &trans  &trans  &trans  &trans    &trans        &kp TAB   &kp BSPC    &kp DEL  &trans  &trans
+    &trans         &trans  &trans  &trans  &trans  &trans  &kp LEFT       &kp DOWN     &kp UP  &kp RIGHT          &trans
+&caps_word         &trans  &trans  &trans  &trans  &trans    &trans  &kp PAGE_DOWN  &kp PG_UP             &trans  &trans
+    &trans         &trans  &trans          &trans                           &trans                &trans  &trans  &trans
             >;
         };
     };
