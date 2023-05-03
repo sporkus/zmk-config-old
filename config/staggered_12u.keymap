@@ -34,6 +34,41 @@
             bindings = <&bootloader>;
             key-positions = <0 11>;
         };
+
+        bspc_combo {
+            bindings = <&kp BSPC>;
+            key-positions = <21 20>;
+        };
+
+        tab_combo {
+            bindings = <&kp TAB>;
+            key-positions = <16 15>;
+        };
+
+        gt_combo {
+            bindings = <&kp GT>;
+            key-positions = <18 6>;
+        };
+
+        lt_combo {
+            bindings = <&kp LT>;
+            key-positions = <17 5>;
+        };
+
+        rbrc_combo {
+            bindings = <&kp RBRC>;
+            key-positions = <20 8>;
+        };
+
+        rpar_combo {
+            bindings = <&kp RPAR>;
+            key-positions = <7 19>;
+        };
+
+        rbkt_combo {
+            bindings = <&kp RBKT>;
+            key-positions = <9 21>;
+        };
     };
 
     keymap {
@@ -42,19 +77,19 @@
         BASE {
             label = " Base";
             bindings = <
-  &kp TAB     &kp Q     &kp W  &kp E        &kp R  &kp T  &kp Y        &kp U      &kp I          &kp O         &kp P   &kp BSPC
-  &kp ESC     &kp A     &kp S  &kp D        &kp F  &kp G  &kp H        &kp J      &kp K          &kp L                  &kp SQT
-&kp LSHFT     &kp Z     &kp X  &kp C        &kp V  &kp B  &kp N        &kp M  &kp COMMA                      &kp DOT   &kp FSLH
-&kp LCTRL  &kp LALT  &kp LGUI         &lt 1 SPACE                &lt 2 SPACE             &kp RIGHT_GUI  &kp LEFT_ALT  &kp LCTRL
+     &kp TAB     &kp Q     &kp W  &kp E        &kp R  &kp T  &kp Y        &kp U      &kp I          &kp O         &kp P   &kp BSPC
+&lt 2 ESCAPE     &kp A     &kp S  &kp D        &kp F  &kp G  &kp H        &kp J      &kp K          &kp L                  &kp SQT
+   &kp LSHFT     &kp Z     &kp X  &kp C        &kp V  &kp B  &kp N        &kp M  &kp COMMA                      &kp DOT   &kp FSLH
+   &kp LCTRL  &kp LALT  &kp LGUI         &lt 1 SPACE                &lt 2 SPACE             &kp RIGHT_GUI  &kp LEFT_ALT  &kp LCTRL
             >;
         };
 
         num {
             bindings = <
-&trans  &trans  &trans  &trans       &kp SEMI   &kp LS(PLUS)  &kp EQUAL  &kp N7  &kp N8  &kp N9  &kp N0  &trans
-&trans  &trans  &trans  &trans  &kp LS(COLON)  &kp LS(UNDER)  &kp MINUS  &kp N4  &kp N5  &kp N6          &trans
-&trans  &trans  &trans  &trans         &trans         &trans     &trans  &kp N1  &kp N2          &kp N3  &trans
-&trans  &trans  &trans                 &trans                            &trans          &trans  &trans  &trans
+&trans  &kp TILDE      &kp LBKT      &kp RBKT       &kp SEMI   &kp LS(PLUS)  &kp EQUAL  &kp N7  &kp N8  &kp N9  &kp N0  &trans
+&trans  &kp GRAVE  &kp LS(LBRC)  &kp LS(RBRC)  &kp LS(COLON)  &kp LS(UNDER)  &kp MINUS  &kp N4  &kp N5  &kp N6          &trans
+&trans     &trans        &trans        &trans         &trans         &trans   &kp BSLH  &kp N1  &kp N2          &kp N3  &trans
+&trans     &trans        &trans                       &trans                            &trans          &trans  &trans  &trans
             >;
         };
 
