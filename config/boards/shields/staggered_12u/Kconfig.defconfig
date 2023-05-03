@@ -6,6 +6,9 @@ if SHIELD_STAGGERED12U
 config ZMK_KEYBOARD_NAME
     default "staggered 12u"
 
+config SPI
+	default y
+
 CONFIG_BUILD_OUTPUT_UF2=y
 
 endif
