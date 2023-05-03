@@ -174,7 +174,7 @@
             tapping-term-ms = <250>;
             quick-tap-ms = <250>;
             flavor = "hold-preferred";
-            hold-trigger-key-positions = <20 18 19 21 7 8 30 31 9 23>;
+            hold-trigger-key-positions = <20 18 19 21 7 8 30 31 9 23 1>;
         };
         lt_hold: lt_hold {
             compatible = "zmk,behavior-hold-tap";
