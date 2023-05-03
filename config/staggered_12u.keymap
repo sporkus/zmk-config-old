@@ -107,7 +107,7 @@
 
         bootloader_combo {
             bindings = <&bootloader>;
-            key-positions = <0 11>;
+            key-positions = <0 11 1 10>;
         };
     };
 
