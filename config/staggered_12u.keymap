@@ -26,13 +26,13 @@
         };
 
         enter_combo {
-            bindings = <&kp enter>;
+            bindings = <&kp ENTER>;
             key-positions = <19 20>;
         };
 
         bspc_combo {
             bindings = <&bspc_del>;
-            key-positions = <21 20>;
+            key-positions = <8 9>;
         };
 
         tab_combo {
@@ -98,7 +98,10 @@
         hrm_l: hrm_l {
             compatible = "zmk,behavior-hold-tap";
             label = "left homerow mods";
-            bindings = <&kp>, <&kp>;
+            bindings =
+                <&kp>,
+                <&kp>;
+
             #binding-cells = <2>;
             tapping-term-ms = <250>;
             quick-tap-ms = <250>;
@@ -110,7 +113,10 @@
         hrm_r: hrm_r {
             compatible = "zmk,behavior-hold-tap";
             label = "right homerow mods";
-            bindings = <&kp>, <&kp>;
+            bindings =
+                <&kp>,
+                <&kp>;
+
             #binding-cells = <2>;
             tapping-term-ms = <250>;
             quick-tap-ms = <250>;
@@ -122,7 +128,10 @@
         nav_t: nav_t {
             compatible = "zmk,behavior-hold-tap";
             label = "NAV_T";
-            bindings = <&mo>, <&kp>;
+            bindings =
+                <&mo>,
+                <&kp>;
+
             #binding-cells = <2>;
             tapping-term-ms = <250>;
             quick-tap-ms = <250>;
@@ -132,7 +141,10 @@
         ht_hold: ht_hold {
             compatible = "zmk,behavior-hold-tap";
             label = "HT_HOLD";
-            bindings = <&mo>, <&kp>;
+            bindings =
+                <&mo>,
+                <&kp>;
+
             #binding-cells = <2>;
             tapping-term-ms = <250>;
             quick-tap-ms = <250>;
@@ -140,7 +152,10 @@
         bspc_del: bspc_del {
             compatible = "zmk,behavior-mod-morph";
             label = "BSPC_DEL";
-            bindings = <&kp BSPC>, <&kp DEL>;
+            bindings =
+                <&kp BSPC>,
+                <&kp DEL>;
+
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
@@ -170,8 +185,8 @@
 
         nav {
             bindings = <
-    &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp TAB        &kp BSPC    &kp DEL  &trans  &trans
-    &trans  &trans  &trans  &trans  &trans  &trans  &kp LEFT  &kp DOWN       &kp UP      &kp RIGHT         &trans
+    &trans  &trans  &trans  &trans  &trans  &trans    &trans        &kp TAB   &kp BSPC    &kp DEL  &trans  &trans
+    &trans  &trans  &trans  &trans  &trans  &trans  &kp LEFT       &kp DOWN     &kp UP  &kp RIGHT          &trans
 &caps_word  &trans  &trans  &trans  &trans  &trans    &trans  &kp PAGE_DOWN  &kp PG_UP             &trans  &trans
     &trans  &trans  &trans          &trans                           &trans                &trans  &trans  &trans
             >;
