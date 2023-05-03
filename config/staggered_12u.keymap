@@ -42,7 +42,8 @@
 
         bspc_combo {
             bindings = <&bspc_del>;
-            key-positions = <8 9>;
+            key-positions = <20 21>;
+            timeout-ms = <30>;
         };
 
         tab_combo {
@@ -215,7 +216,7 @@
 &trans  &kp TILDE      &kp LBKT      &kp RBKT       &kp SEMI   &kp LS(PLUS)  &kp EQUAL  &kp N7  &kp N8  &kp N9  &kp N0  &trans
 &trans  &kp GRAVE  &kp LS(LBRC)  &kp LS(RBRC)  &kp LS(COLON)  &kp LS(UNDER)  &kp MINUS  &kp N4  &kp N5  &kp N6          &trans
 &trans     &trans        &trans        &trans         &trans         &trans   &kp BSLH  &kp N1  &kp N2          &kp N3  &trans
-&trans     &trans        &trans                       &trans                            &trans          &trans  &trans  &trans
+&trans     &trans        &trans                       &trans                            &kp N0          &trans  &trans  &trans
             >;
         };
 
