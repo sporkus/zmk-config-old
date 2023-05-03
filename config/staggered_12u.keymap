@@ -30,11 +30,6 @@
             key-positions = <19 20>;
         };
 
-        bootloader_combo {
-            bindings = <&bootloader>;
-            key-positions = <0 11>;
-        };
-
         bspc_combo {
             bindings = <&kp BSPC>;
             key-positions = <21 20>;
@@ -45,9 +40,19 @@
             key-positions = <16 15>;
         };
 
-        gt_combo {
-            bindings = <&kp GT>;
-            key-positions = <18 6>;
+        lbkt_combo {
+            bindings = <&kp LBKT>;
+            key-positions = <9 21>;
+        };
+
+        lbrc_combo {
+            bindings = <&kp LBRC>;
+            key-positions = <20 8>;
+        };
+
+        lpar_combo {
+            bindings = <&kp LPAR>;
+            key-positions = <7 19>;
         };
 
         lt_combo {
@@ -55,9 +60,9 @@
             key-positions = <17 5>;
         };
 
-        rbrc_combo {
-            bindings = <&kp RBRC>;
-            key-positions = <20 8>;
+        gt_combo {
+            bindings = <&kp GT>;
+            key-positions = <18 6>;
         };
 
         rpar_combo {
@@ -65,9 +70,19 @@
             key-positions = <7 19>;
         };
 
+        rbrc_combo {
+            bindings = <&kp RBRC>;
+            key-positions = <20 8>;
+        };
+
         rbkt_combo {
             bindings = <&kp RBKT>;
             key-positions = <9 21>;
+        };
+
+        bootloader_combo {
+            bindings = <&bootloader>;
+            key-positions = <0 11>;
         };
     };
 
