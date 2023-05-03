@@ -131,6 +131,7 @@
             #binding-cells = <1>;
             quick-release;
             release-after-ms = <300>;
+            ignore-modifiers;
         };
         hrm_l: hrm_l {
             compatible = "zmk,behavior-hold-tap";
@@ -172,8 +173,8 @@
             #binding-cells = <2>;
             tapping-term-ms = <250>;
             quick-tap-ms = <250>;
-            flavor = "tap-preferred";
-            hold-trigger-key-positions = <20 18 19 21 7 8 30 31 9>;
+            flavor = "hold-preferred";
+            hold-trigger-key-positions = <20 18 19 21 7 8 30 31 9 23>;
         };
         lt_hold: lt_hold {
             compatible = "zmk,behavior-hold-tap";
