@@ -32,14 +32,14 @@
 
         esc_combo {
             bindings = <&kp ESC>;
-            global-quick-tap-ms = <80>;
+            global-quick-tap-ms = <30>;
             timeout-ms = <COMBO_FAST>;
             key-positions = <15 14>;
         };
 
         enter_combo {
             bindings = <&kp ENTER>;
-            global-quick-tap-ms = <80>;
+            global-quick-tap-ms = <30>;
             timeout-ms = <COMBO_FAST>;
             key-positions = <19 20>;
         };
@@ -47,14 +47,14 @@
         bspc_combo {
             bindings = <&bspc_del>;
             key-positions = <20 21>;
-            global-quick-tap-ms = <80>;
+            global-quick-tap-ms = <30>;
             timeout-ms = <COMBO_FAST>;
         };
 
         tab_combo {
             bindings = <&kp TAB>;
             key-positions = <16 15>;
-            global-quick-tap-ms = <80>;
+            global-quick-tap-ms = <30>;
             timeout-ms = <COMBO_FAST>;
         };
 
