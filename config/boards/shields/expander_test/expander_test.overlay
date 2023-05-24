@@ -24,8 +24,8 @@
 
 	kscan0: kscan {
 		compatible = "zmk,kscan-gpio-matrix";
-        debounce-press-ms = <1>;
-        debounce-release-ms = <1>;
+        debounce-press-ms = <5>;
+        debounce-release-ms = <5>;
 		label = "KSCAN";
 		diode-direction = "col2row";
 		col-gpios
@@ -54,6 +54,7 @@
 	    gpio-controller;
 	    reg = <0x20>;
 	    label = "PCA9555";
+        interrupt-gpios = <&xiao_d 0 (GPIO_ACTIVE_LOW|GPIO_PULL_UP)>;
 	    #gpio-cells = <2>;
 	    ngpios = <16>;
 	};

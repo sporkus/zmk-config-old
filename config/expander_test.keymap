@@ -13,10 +13,10 @@
         default_layer {
             label = " Base";
             bindings = <
-            &kp N1 &kp N2 &kp N3 &kp N4 &kp N5
-            &kp N1 &kp N2 &kp N3 &kp N4 &kp N5
-            &kp N1 &kp N2 &kp N3 &kp N4 &kp N5
-                          &kp N3 &kp N4 &kp N5
+            &kp N1 &none &none &none &none
+            &none &kp N2 &none &none &none
+            &none &none &kp N3 &none &none
+                          &none &none &none
             >;
         };
     };
