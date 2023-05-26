@@ -131,7 +131,7 @@
 
         bootloader_combo {
             bindings = <&bootloader>;
-            key-positions = <0 11 1 10>;
+            key-positions = <1 10 2 9>;
             global-quick-tap-ms = <100>;
             timeout-ms = <COMBO_SLOW>;
         };
@@ -205,7 +205,7 @@
             tapping-term-ms = <250>;
             quick-tap-ms = <200>;
             flavor = "balanced";
-            hold-trigger-key-positions = <20 18 19 21 7 8 30 31 9 23 1>;
+            hold-trigger-key-positions = <20 18 19 21 7 8 30 31 9 23 1 37 38>;
         };
         lt_hold: lt_hold {
             compatible = "zmk,behavior-hold-tap";
