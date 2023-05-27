@@ -134,6 +134,26 @@
             global-quick-tap-ms = <100>;
             timeout-ms = <COMBO_SLOW>;
         };
+
+        vol_up_combo {
+            bindings = <&kp C_VOL_UP>;
+            key-positions = <20 31>;
+        };
+
+        vol_dn_combo {
+            bindings = <&kp C_VOL_DN>;
+            key-positions = <19 30>;
+        };
+
+        media_prv_combo {
+            bindings = <&kp C_PREV>;
+            key-positions = <18 29>;
+        };
+
+        media_nxt_combo {
+            bindings = <&kp C_NEXT>;
+            key-positions = <21 32>;
+        };
     };
 
     behaviors {
