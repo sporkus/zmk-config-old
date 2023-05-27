@@ -19,7 +19,7 @@ PATHS = {
     "zmk": '~/code/zmk'
     ,"zmk_config":  '~/code/zmk-config'
     ,"output":  '~/code/zmk-config/firmware'
-    ,"flash":  '/Volumes/XIAO-SENSE'
+    ,"flash":  '/Volumes/RPI-RP2'
 }
 ZEPHYR_TOOLCHAIN_VARIANT='zephyr'
 
