@@ -143,6 +143,11 @@
             bindings = <&kp C_NEXT>;
             key-positions = <21 32>;
         };
+
+        printscreen_combo {
+            bindings = <&kp PRINTSCREEN>;
+            key-positions = <14 15 16>;
+        };
     };
 
     behaviors {
