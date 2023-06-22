@@ -18,11 +18,10 @@
 #define BASE          0
 #define MAC           1
 #define NUM           2
-#define NUM_L         3
-#define NAV           4
-#define SHORTCUT      5
-#define SHORTCUT_MAC  6
-#define ADJ           7
+#define NAV           3
+#define SHORTCUT      4
+#define SHORTCUT_MAC  5
+#define ADJ           6
 #define COMBO_FAST 35
 #define STICKY_RELEASE_MS 330
 
@@ -100,7 +99,7 @@
             compatible = "zmk,behavior-caps-word";
             label = "NUM_WORD";
             #binding-cells = <0>;
-            layers = <NUM_L>;// insert location of numbers layer here
+            layers = <NUM>;// insert location of numbers layer here
             continue-list = <BACKSPACE DELETE DOT COMMA>;// adjust as desired
             ignore-numbers;// numbers don't deactivate the layer
         };
