@@ -11,8 +11,8 @@
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 
 #define BASE          0
@@ -393,7 +393,7 @@
        &kp LA(F4)            &kp LC(W)    &kp LG(E)            &kp LC(R)  &kp LC(T)      &trans     &kp PG_DN     &kp PG_UP   &kp LC(O)  &ht LS(LC(P)) LC(P)
         &kp LC(A)  &ht LC(LS(S)) LC(S)       &trans  &ht LC(LS(F)) LC(F)      &none    &kp LEFT      &kp DOWN        &kp UP   &kp RIGHT            &kp LSHFT
 &none   &kp LC(Z)            &kp LC(X)  &kp LC(INS)          &kp LS(INS)      &none  &kp C_PREV  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT      &tap2_sleep_win  &none
-                                              &mo 7               &trans     &trans      &trans        &trans         &mo 7
+                                              &mo 6               &trans     &trans      &trans        &trans         &mo 6
             >;
         };
 
