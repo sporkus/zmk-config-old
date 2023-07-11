@@ -5,9 +5,5 @@
 # the `include` property, e.g:
 #
 include:
-  - board: sparkfun_pro_micro_rp2040
-    shield: ffkb_lite
   - board: seeeduino_xiao_ble
     shield: spc_evdr46
-#   - board: seeeduino_xiao_ble
-#     shield: xiao_settings_reset

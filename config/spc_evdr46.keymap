@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#define COMBO_FAST 25
 
 &lt {
     quick_tap_ms = <200>;
@@ -103,23 +104,13 @@
             label = "NAV_SPC";
             bindings =
                 <&mo>,
-                <&spc_morph>;
+                <&kp>;
 
             global-quick-tap-ms = <50>;
             #binding-cells = <2>;
             quick-tap-ms = <220>;
             tapping-term-ms = <150>;
             hold-trigger-key-positions = <19 20 21 22 8 9 13 1>;
-        };
-        spc_morph: spc_morph {
-            compatible = "zmk,behavior-mod-morph";
-            label = "SPC_MORPH";
-            bindings =
-                <&kp SPACE>,
-                <&space_sticky_shift>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_RSFT|MOD_LSFT)>;
         };
         brc_morph: brc_morph {
             compatible = "zmk,behavior-mod-morph";
@@ -234,7 +225,7 @@
    &kp TAB           &kp Q       &kp W       &kp E        &kp R   &kp T        &kp Y        &kp U           &kp I         &kp O               &kp P    &kp BSPC
  &lt 2 ESC           &kp A       &kp S       &kp D        &kp F   &kp G        &kp H        &kp J           &kp K         &kp L    &kp SINGLE_QUOTE       &none
 &skp LSHFT  &sft_t LSHFT Z  &hm LALT X  &hm LGUI C  &hm LCTRL V   &kp B        &kp N  &hm RCTRL M  &hm RGUI COMMA  &hm LALT DOT  &sft_t RSHFT SLASH  &skp RSHFT
- &kp LCTRL        &kp LALT    &kp LGUI                &lt 2 TAB  &smo 1  &lt 2 SPACE   &lt 1 BSPC                      &kp LGUI            &kp LALT       &none
+ &kp LCTRL        &kp LALT    &kp LGUI                &lt 2 TAB  &smo 1  &nav_spc 2 SPACE   &lt 1 BSPC                      &kp LGUI            &kp LALT       &none
                                                                                          &kp LEFT        &kp DOWN        &kp UP           &kp RIGHT       &none
             >;
 
